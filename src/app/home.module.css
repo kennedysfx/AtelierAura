@@ -1,0 +1,1677 @@
+.main { width: 100%; overflow-x: hidden; }
+.heroContainer { position: relative; width: 100%; height: 100vh; overflow: hidden; background-color: #000; }
+
+.slide { position: absolute; inset: 0; opacity: 0; z-index: 1; transition: opacity 1.5s ease-in-out; }
+.slideActive { opacity: 1; z-index: 2; }
+.bgImage { width: 100%; height: 100%; object-fit: cover; }
+
+/* Desktop Text & Button */
+.textContent { position: absolute; z-index: 3; top: 50%; left: 8%; transform: translateY(-50%); max-width: 600px; }
+.shopButton { position: absolute; z-index: 4; top: 70%; left: 8%; padding: 1rem 3rem; background: transparent; border: 1.5px solid #fff; color: #fff; font-family: serif; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; }
+.shopButton:hover {
+  background: rgba(0, 0, 0, 0.05)
+}
+
+/* Vallure Slide Overrides */
+.vallureText { top: 15%; left: 50%; transform: translateX(-50%); text-align: center; width: 90%; max-width: none; white-space: nowrap; }
+.vallureButton { left: 50% !important; transform: translateX(-50%); margin-bottom: -4rem !important; }
+
+
+.title { font-size: 4rem; line-height: 1.1; text-transform: uppercase; margin: 0; }
+.subtitle { font-family: serif; font-size: 1.25rem; font-style: italic; margin-top: 1rem; }
+
+/* Mobile & Tablet */
+@media (max-width: 768px) {
+  .textContent { top: 22%; left: 50%; transform: translateX(-50%); text-align: center; width: 90%; }
+  .vallureText { top: 20%; white-space: normal; }
+  .shopButton { left: 50% !important; transform: translateX(-50%); top: 70%; }
+  .vallureButton { top: 50% !important; }
+  .title { font-size: 2.25rem; }
+}
+/* Dark Theme Button for Dore and Rouge */
+.darkButton {
+  border: 1.5px solid #000000 !important;
+  color: #000000 !important;
+  margin-top: 1rem;
+
+}
+
+@media (max-width: 480px) {
+  .darkButton {
+    border: 1.5px solid #000000 !important;
+    color: #000000 !important;
+    margin-top: -2rem;
+  }
+  .vallureButton {
+    margin-bottom: -5rem !important;
+  }
+}
+.bestSellerSection {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 4rem 2rem; /* Keeps padding but centers everything */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.bestSellerHeader {
+  font-family: 'Didot', 'Bodoni MT', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem; /* Tight spacing between Header and Nav */
+  text-align: center;
+}
+
+.bestsellerNav {
+  display: flex;
+  gap: 3rem; /* Spacing between For Him/Her/Gift Sets */
+  margin-bottom: 3rem; /* Space before your incoming product divs */
+  justify-content: center;
+}
+
+.navButton, .navButtonActive {
+  font-family: "Didot", "Bodoni MT", serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding-bottom: 8px;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.navButtonActive {
+  color: #000;
+  border-bottom: 2px solid #000;
+}
+
+
+/* ==========================================================================
+   NEW ADDITIONS (DO NOT REMOVE OR EDIT ANY STYLES ABOVE)
+   ========================================================================== */
+
+/* Configure the Best Sellers Container to support absolute positioning of the arrow */
+.bestSellerSection {
+  position: relative;
+  overflow: hidden; /* Prevents sliding arrow from generating horizontal page overflow */
+}
+
+/* Standard Desktop Product Grid: Static, 5-column grid layout */
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1400px;
+}
+
+/* Product Card Base Settings */
+.productCard {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  transition: transform 0.4s ease;
+  border-radius: 0px;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  background-color: #f7f7f7;
+  overflow: hidden;
+    /* MATCHING TOP CORNERS: Prevents the square image from overlapping the card's rounded borders */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.productCard:hover .productImage {
+  transform: scale(1.05);
+}
+
+/* Premium Floating Cart Button */
+.cartIconButton {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.cartIconButton:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+/* Product Info Box Typography */
+.productInfo {
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.brandName {
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.productName {
+  font-family: 'Didot', 'Bodoni MT', serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+
+/* Compact Fluid Sizes Selectors */
+.sizeSelector {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sizeBtn {
+  background: transparent;
+  border: 1px solid #e0e0e0;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  color: #555;
+  transition: all 0.2s ease;
+}
+
+.sizeBtnActive, .sizeBtn:hover {
+  border-color: #000;
+  color: #000;
+}
+
+/* Naira CTA Luxury Call to Action */
+.priceCta {
+  width: 85%;
+  padding: 0.85rem;
+  background: #111111;
+  border: none;
+  color: #ffffff;
+  font-family: serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.priceCta:hover {
+  background: #c0a060;
+}
+
+
+
+/* Swipe Indicator Helper Arrow (Hidden on Desktop) */
+.swipeArrow {
+  display: none;
+  position: absolute;
+  right: 1.5rem;
+  top: 55%;
+  transform: translateY(-50%) translateX(100px);
+  opacity: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #eaeaea;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+}
+
+/* Slide Arrow In & Fade In */
+.arrowVisible {
+  transform: translateY(-50%) translateX(0);
+  opacity: 1;
+}
+
+/* Slide Arrow Out to the Right & Fade Out */
+.arrowHidden {
+  transform: translateY(-50%) translateX(100px) !important;
+  opacity: 0 !important;
+}
+
+.arrowIcon {
+  color: #111111;
+  animation: pointerBounce 1.4s infinite ease-in-out;
+}
+
+@keyframes pointerBounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(8px); }
+}
+
+/* ==========================================================================
+   TABLET VIEWPORT HOOKS (1024px and down)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  /* Activate pointing Swipe Helper Arrow */
+  .swipeArrow {
+    display: flex;
+  }
+
+  /* Transition standard Desktop Grid into a smooth Horizontal swipe track */
+  .productGrid {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.5rem;
+    width: 100%;
+    scrollbar-width: none; /* Hide default scrollbars (Firefox) */
+    -ms-overflow-style: none; /* Hide default scrollbars (IE/Edge) */
+    padding-bottom: 0.5rem;
+  }
+
+  .productGrid::-webkit-scrollbar {
+    display: none; /* Hide default scrollbars (Chrome/Safari) */
+  }
+
+  /* Split layout mathematically to display exactly 2 products inside the viewport */
+  .productCard {
+    flex: 0 0 calc(50% - 0.75rem);
+    scroll-snap-align: start;
+  }
+}
+
+/* ==========================================================================
+   MOBILE VIEWPORT HOOKS (768px and down)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Adjust horizontal margins */
+  .bestSellerSection {
+    padding: 4rem 1rem;
+  }
+
+  /* Keep swipe configurations active, scaling down the structural gap width */
+  .productGrid {
+    gap: 1rem;
+  }
+
+  /* Keep exactly 2 items perfectly visible within mobile bounds */
+  .productCard {
+    flex: 0 0 calc(50% - 0.5rem);
+    
+  }
+}
+
+@media (max-width: 480px) {
+  /* Prevent default flex column overrides on tiny smartphones to guarantee the 2-product split layout */
+  .productGrid {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+  .productCard {
+    flex: 0 0 calc(50% - 0.5rem) !important;
+  }
+  .productName {
+  font-family: 'Didot', 'Bodoni MT', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  }
+}
+/* ==========================================================================
+   FEATURED BRANDS INFINITE TICKER
+   ========================================================================== */
+
+.featuredSection {
+  background-color: #ffff;
+  border-top: 1px solid #ffff;
+  border-bottom: 1px solid #ffff;
+  padding: 3.5rem 0 5rem 0; /* Expanded bottom padding to accommodate card overlap spacing */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.featuredSub {
+  font-family: 'Didot', 'Bodoni MT', serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #000000;
+  margin-bottom: 2.5rem;
+}
+
+/* Hidden overflow mask wrapper */
+.tickerContainer {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  margin-bottom: 4rem; /* Gap between ticker and the product swipe list */
+}
+
+/* Add stylish luxury blur masks to the left & right edges on Desktop */
+@media (min-width: 769px) {
+  .tickerContainer::before,
+  .tickerContainer::after {
+    content: "";
+    height: 100%;
+    width: 15%;
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .tickerContainer::before {
+    left: 0;
+    background: linear-gradient(to right, #ffff, rgba(255, 255, 255, 0));
+  }
+  .tickerContainer::after {
+    right: 0;
+    background: linear-gradient(to left, #ffff, rgba(255, 255, 255, 0));
+  }
+}
+
+/* The actual moving track containing both identical sets */
+.tickerTrack {
+  display: flex;
+  width: max-content;
+  animation: infiniteScroll 25s linear infinite;
+}
+
+/* Pause scroll when a customer hovers to explore the brands closely */
+.tickerTrack:hover {
+  animation-play-state: paused;
+}
+
+.tickerSlide {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1.5rem;
+  padding: 0 2rem;
+  width: max-content;
+}
+
+/* Monochromatic luxury branding aesthetics */
+.brandLogo {
+  width: 150px;
+  height: auto;
+  color: #777777; /* Subdued grey by default */
+  opacity: 3.7;
+  transition: all 0.4s ease;
+}
+
+.brandLogo:hover {
+  color: #000000; /* Crisp deep black on hover */
+  opacity: 1;
+  transform: scale(1.03);
+}
+
+/* Infinite sliding calculation */
+@keyframes infiniteScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+/* ==========================================================================
+   HORIZONTAL SWIPEABLE SHOWCASE
+   ========================================================================== */
+
+.carouselWrapper {
+  width: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+/* Smooth drag/swipe container (with hidden scrollbars) */
+.carouselTrack {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 2rem; /* Keep breathing room for the cards' hover transforms */
+  scrollbar-width: none; /* Hides scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hides scrollbar for Internet Explorer/Edge */
+}
+
+.carouselTrack::-webkit-scrollbar {
+  display: none; /* Hides scrollbar for Chrome, Safari, and Opera */
+}
+
+/* Individual Product Cards with Soft, Subtle Shadows */
+.productCard {
+  flex: 0 0 280px; /* Fixed card width to build dynamic horizontal flow */
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: visible; /* Crucial: allows overlap container to hang out of bounds */
+  
+  /* REDUCED INTENSITY: Softer opacity (0.05 and 0.02) for a clean luxury feel */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 1px 8px rgba(0, 0, 0, 0.02);
+  
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Softer, elegant hover lift shadow */
+.productCard:hover {
+  transform: translateY(-8px);
+  /* REDUCED INTENSITY: Softer hover states (0.10 and 0.04) so it doesn't look too dark */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.10), 0 1px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* A. Video Container (Top) */
+.mediaContainer {
+  position: relative;
+  width: 100%;
+  height: 380px; /* Elegant vertical aspect ratio */
+  border-radius: 12px 12px 0 0;
+  overflow: visible; /* Essential for containing the overlapping frame */
+}
+
+.featuredVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+/* B. Overlapping PNG Image Container (Sits dead center at bottom boundary) */
+.overlapImageContainer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%); /* Shifts container precisely 50% horizontally & vertically */
+  width: 85px;
+  height: 85px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.overlapImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* This forces the image to scale, fill, and completely cover the container */
+  border-radius: 0px; /* Keeps the image corners matching the container's subtle curve */
+}
+
+/* C. Product Info Area (Bottom) */
+.infoBox {
+  padding: 3rem 1.5rem 2rem 1.5rem; /* Large top padding to let the overlay image hover naturally */
+  background: #ffffff;
+  border-radius: 0 0 12px 12px;
+  text-align: center;
+}
+
+.productTitle {
+  font-family: 'Didot', 'Bodoni MT', serif; /* Updated to your exact website serif */
+  font-weight: 400;
+  font-size: 1.15rem;
+  color: #111111;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase; /* Styled matching the header text for a unified look */
+}
+
+.productPrice {
+  font-family: 'Didot', 'Bodoni MT', serif; /* Updated to maintain elegant luxury matching the navigation items */
+  font-size: 0.95rem;
+  color: #666666;
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Modern Luxury Accent Button */
+.productPriceButton {
+  display: block;
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  margin-top: 1rem;
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #c0a060;
+  font-family: 'Didot', 'Bodoni MT', serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.productPriceButton:hover {
+  background-color: #c0a060;
+  color: #000000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .featuredSection {
+    padding: 2rem 0 3.5rem 0;
+  }
+  .tickerSlide {
+    gap: 1.5rem; /* Restored elegant horizontal space */
+  }
+  .brandLogo {
+    width: 110px;
+  }
+  .carouselWrapper {
+    padding: 0 1.25rem;
+  }
+  .carouselTrack {
+    gap: 1rem;
+  }
+  .productCard {
+    flex: 0 0 240px; /* Slightly narrower card sizes for mobile viewports */
+  }
+  .mediaContainer {
+    height: 350px;
+  }
+  .overlapImageContainer {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* ==========================================================================
+   LUXURY FEATURES SECTION - PURE OBSIDIAN BLACK
+   ========================================================================== */
+
+.luxuryFeaturesSection {
+  background-color: #000000; /* Pure deep black background */
+  padding: 80px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.luxuryFeaturesContainer {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+/* Individual Feature Cards */
+.luxuryFeatureCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+/* Icon Container dimensions */
+.luxuryIconWrapper {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Premium Gold Accent Styling for Vector SVGs */
+.luxurySvgIcon {
+  width: 100%;
+  height: 100%;
+  color: #c5a880; /* Elegant, premium champagne gold */
+  filter: drop-shadow(0px 2px 6px rgba(197, 168, 128, 0.2)); /* Soft upscale glow */
+}
+
+/* Text block typography */
+.luxuryTextContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.luxuryFeatureTitle {
+  font-family: 'Playfair Display', 'Didot', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #ffffff; /* Crystal white contrast */
+  margin: 0;
+}
+
+.luxuryFeatureDescription {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #a3a3a3; /* Smooth neutral-grey for readability */
+  margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (All Screens)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .luxuryFeaturesContainer {
+    gap: 32px;
+  }
+  .luxuryFeatureTitle {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .luxuryFeaturesSection {
+    padding: 60px 24px;
+  }
+  .luxuryFeaturesContainer {
+    grid-template-columns: 1fr; /* Seamless vertical stack for mobile viewports */
+    gap: 40px;
+    max-width: 460px; /* Keeps layout center-aligned and beautifully legible */
+  }
+}
+
+@media (max-width: 480px) {
+  .luxuryFeaturesSection {
+    padding: 48px 16px;
+  }
+  .luxuryFeatureCard {
+    gap: 16px;
+  }
+  .luxuryIconWrapper {
+    width: 54px;
+    height: 54px;
+  }
+}
+
+
+/* ==========================================================================
+   CELEBRITY / SOCIAL PROOF SECTION
+   ========================================================================== */
+
+.celebSection {
+  background-color: #ffffff;
+  padding: 5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.celebHeader {
+  font-family: 'Didot', 'Bodoni MT', serif;
+  font-size: 1.85rem;
+  font-weight: 400;
+  text-align: center;
+  color: #111111;
+  margin-bottom: 3.5rem;
+  letter-spacing: 0.02em;
+}
+
+/* 4-Column Grid layout on Desktop */
+.celebGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1300px;
+}
+
+/* Individual Celebrity Card */
+.celebCard {
+  position: relative;
+  aspect-ratio: 4/5; /* Maintains the professional rectangle shape */
+  background-color: #f5f5f5;
+  overflow: hidden;
+  border-radius: 1px; /* Smooth elegant edges to match product cards */
+}
+
+/* Background Portrait Image */
+.celebPortrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.celebCard:hover .celebPortrait {
+  transform: scale(1.04); /* Subtle upscale on hover */
+}
+
+/* Elegant Bottom Overlay Container */
+.celebOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2.5rem 1.25rem 1.25rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 2;
+  /* Backed by inline CSS linear-gradients in React to match screenshot colors */
+}
+
+/* White bottle thumbnail card on the left */
+.celebProductBadge {
+  flex-shrink: 0;
+  width: 54px;
+  height: 54px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.celebProductImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Celebrity & Perfume Typography */
+.celebText {
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+}
+
+.celebName {
+  font-family: 'Didot', 'Bodoni MT', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin: 0 0 2px 0;
+  letter-spacing: 0.02em;
+}
+
+.celebScent {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE HOOKS (Tablets & Mobile)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+
+
+  /* Transition to horizontal scroll track */
+  .celebGrid {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+    scrollbar-width: none; /* Hide default scrollbars */
+  }
+
+  .celebGrid::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Show exactly 2.2 cards on screen to prompt users to swipe */
+  .celebCard {
+    flex: 0 0 calc(45% - 0.5rem);
+    scroll-snap-align: start;
+    aspect-ratio: 4/5;
+  }
+}
+
+@media (max-width: 600px) {
+  .celebSection {
+    padding: 3.5rem 1rem;
+  }
+
+  .celebHeader {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Show exactly 1.25 cards on mobile so they see the next one peaking out */
+  .celebCard {
+    flex: 0 0 calc(75% - 0.5rem);
+  }
+
+  .celebName {
+    font-size: 1.05rem;
+  }
+}
+
+/* ==========================================================================
+   COLLECTIONS SECTION - COMPLETE UNIFIED STYLES (DESKTOP TO MICRO-MOBILE)
+   ========================================================================== */
+
+.collectionsSection {
+  background-color: #ffffff;
+  padding: 1.5rem 2rem 4rem 2rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.collectionsContainer {
+  max-width: 1000px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  justify-items: center;
+  box-sizing: border-box;
+}
+
+/* Individual Card Structure */
+.collectionCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  min-width: 0; /* Prevents long text from physically expanding the grid column */
+  box-sizing: border-box;
+}
+
+/* Sleek Desktop Circle Size */
+.collectionImageRing {
+  width: 105px;
+  height: 105px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1.5px solid #c5a880; /* Premium gold halo ring */
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Rounded Inner Image */
+.collectionImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #f9f9f9;
+}
+
+/* Elegant card hover interaction */
+.collectionCard:hover .collectionImageRing {
+  transform: scale(1.06);
+  border-color: #111111;
+}
+
+/* Typography Layout */
+.collectionTitle {
+  font-family: 'Didot', 'Bodoni MT', serif;
+  margin: 1.1rem 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  line-height: 1.3;
+  width: 100%;
+}
+
+.collectionBrandName {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #000000;
+  letter-spacing: 0.02em;
+  text-align: center;
+  width: 100%;
+}
+
+.collectionLabel {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #111111;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT BREAKPOINTS
+   ========================================================================== */
+
+/* Tablet Optimization */
+@media (max-width: 900px) {
+  .collectionsContainer {
+    gap: 1.5rem;
+    max-width: 700px;
+  }
+  
+  .collectionImageRing {
+    width: 95px;
+    height: 95px;
+  }
+}
+
+/* Mobile Viewports: Enforces all 4 items to sit flawlessly in a single row */
+@media (max-width: 600px) {
+  .collectionsSection {
+    padding: 1.5rem 0.75rem 3.5rem 0.75rem; /* Tight container boundaries */
+  }
+
+  .collectionsContainer {
+    grid-template-columns: repeat(4, 1fr); /* Rigid 4-column framework */
+    gap: 0.35rem; /* Micro gaps to maximize space for the circles */
+    overflow: hidden; /* Stops any hidden sideways scrolling bugs */
+  }
+
+  /* Micro circles so 4 cards can easily mathematically fit inside a 360px screen width */
+  .collectionImageRing {
+    width: 64px;
+    height: 64px;
+    padding: 2.5px;
+    border-width: 1px;
+  }
+
+  .collectionTitle {
+    margin-top: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .collectionBrandName {
+    font-size: 0.7rem;
+    white-space: normal; /* Forces text to split onto two lines beautifully */
+    word-break: break-word; /* Prevents text elements from breaking container box shapes */
+  }
+
+  .collectionLabel {
+    font-size: 0.65rem;
+    color: #666666;
+  }
+}
+
+/* Ultra Small SmartPhones (e.g., Old iPhone SE viewports) */
+@media (max-width: 360px) {
+  .collectionsSection {
+    padding: 1rem 0.5rem 3rem 0.5rem;
+  }
+  
+  .collectionsContainer {
+    gap: 0.2rem;
+  }
+
+  .collectionImageRing {
+    width: 56px;
+    height: 56px;
+  }
+  
+  .collectionBrandName {
+    font-size: 0.65rem;
+  }
+}
+/* ==========================================================================
+   CAMPAIGN CATEGORY SHOP SECTION - CURVED EDGES & BOXED LAYOUT
+   ========================================================================== */
+
+.shopCategorySection {
+  width: 100%;
+  background-color: #ffffff;
+  /* Adds top and bottom breathing room between your layout sections */
+  padding: 3rem 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.shopCategoryContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Side-by-side on desktop */
+  gap: 34px; /* Slightly wider elegant gap that complements curved corners */
+  width: 100%;
+  /* PULLS IT AWAY FROM SCREEN EDGES: Locks the max-width to match premium desktop grids */
+  max-width: 1200px; 
+  padding: 0 2rem; /* Inner safety margin so it never hugs the browser wall */
+  box-sizing: border-box;
+  
+}
+
+.shopCategoryItem {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5; /* Keeps a tall, high-fashion portrait frame */
+  background-color: #0f0f0f;
+  
+  /* CURVED EDGES: Smooth 16px radius curve applied directly to the card container */
+  border-radius: 16px; 
+  overflow: hidden; /* CRITICAL: Forces inner images/overlays to clip cleanly inside the curves */
+  
+  /* Soft, upscale depth drop shadow */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04); 
+}
+
+.shopCategoryImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+
+}
+
+
+
+/* TOP-LEFT POSITIONED OVERLAY */
+.shopTextOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 3.5rem; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  justify-content: flex-start; 
+  z-index: 2;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.1) 40%, rgba(0, 0, 0, 0) 100%);
+  box-sizing: border-box;
+}
+
+/* Luxury Serif Typography */
+.shopTitle {
+  font-family: 'Didot', 'Bodoni MT', serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 0.02em;
+}
+
+/* Underlined Link Layout */
+.shopLink {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  padding-bottom: 3px;
+  border-bottom: 1.5px solid #ffffff; 
+  transition: opacity 0.3s ease, border-color 0.3s ease;
+}
+
+.shopLink:hover {
+  opacity: 0.8;
+  border-color: #c5a880; 
+}
+
+/* ==========================================================================
+   RESPONSIVE OVERRIDES
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .shopCategorySection {
+    padding: 1.5rem 0;
+  }
+
+  .shopCategoryContainer {
+    grid-template-columns: 1fr; /* Stacks into a vertical column on mobile */
+    gap: 20px; 
+    padding: 0 1rem; /* Margins naturally compress slightly on small phone viewport edges */
+  }
+
+  .shopCategoryItem {
+    aspect-ratio: 1/1; /* Shifts to square layout for easier mobile scanning */
+    border-radius: 12px; /* Slightly tighter curve radius looks better on small displays */
+  }
+
+  .shopTextOverlay {
+    padding: 2rem; 
+  }
+
+  .shopTitle {
+    font-size: 1.8rem;
+  }
+}
+/* ==========================================================================
+   ATELIER AURA FULL-IMAGE HERO SECTION
+   ========================================================================== */
+
+.cosmeticHero {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+/* --- Layer 1: Background Canvas --- */
+.imageBackground {
+  grid-area: 1 / 1;
+  width: 100%;
+  z-index: 1;
+}
+
+.bgImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Image Swap Configurations */
+.bgImg.desktopImg {
+  display: none !important;
+}
+
+.bgImg.mobileImg {
+  display: block !important;
+}
+
+/* --- Layer 2: Overlay Content (Mobile-First Setup) --- */
+.contentOverlay {
+  grid-area: 1 / 1;
+  z-index: 2;
+  position: relative;
+  width: 100%;
+  height: 100%; /* Sits cleanly over the active image */
+  box-sizing: border-box;
+  
+  /* Mobile Layout: Splits text elements to top, checkout button to bottom */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 3.5rem 1.5rem; /* Comfortably spaces content inward from the edges of mobile screen */
+}
+
+.textGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.btnWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* --- Typography (Derived directly from Website Screenshot 2) --- */
+.brandTag {
+  font-family: 'Cinzel', 'Didot', 'Garamond', 'Times New Roman', serif; /* Matching website brand serif */
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #000000;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+
+.heading {
+  font-family: 'Cinzel', 'Didot', 'Garamond', 'Times New Roman', serif; /* Matching website brand serif */
+  font-size: 2rem;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.subHeading {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; /* Clean modern sans-serif */
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #c5a880; /* Luxe brand accent gold */
+  letter-spacing: 0.25em;
+  margin: 0;
+}
+
+.divider {
+  width: 40px;
+  height: 1px;
+  background-color: #000000;
+  margin: 1.25rem 0;
+}
+
+.description {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; /* Clean modern sans-serif */
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #333333; /* Slightly softer charcoal for high-end readability */
+  letter-spacing: 0.15em;
+  margin: 0;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+/* --- Premium Checkout Button --- */
+.checkoutBtn {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #c5a880; /* Luxe gold */
+  color: #ffffff;
+  border: none;
+  width: 100%;
+  max-width: 320px;
+  padding: 1.1rem 2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.checkoutBtn:hover {
+  background-color: #b0936d;
+}
+
+/* ==========================================================================
+   DESKTOP MEDIA QUERY (769px and wider)
+   ========================================================================== */
+
+@media (min-width: 769px) {
+  /* SWAP IMAGES: Show landscape version on desktop viewports */
+  .bgImg.desktopImg {
+    display: block !important;
+  }
+
+  .bgImg.mobileImg {
+    display: none !important;
+  }
+
+  /* Right-align content overlay block */
+  .contentOverlay {
+    flex-direction: column;
+    justify-content: center; /* Centers the content cluster vertically */
+    align-items: flex-end; /* Snaps align context over the right-side white space */
+    padding: 0 8% 0 0; /* Creates comfortable gutter boundary from the right screen edge */
+  }
+
+  /* Sets boundaries inside the landscape blank canvas area */
+  .textGroup {
+    width: 42%; 
+    margin-bottom: 2rem;
+  }
+
+  .btnWrapper {
+    width: 42%; 
+  }
+
+  .checkoutBtn {
+    width: auto;
+    padding: 1.15rem 4.5rem; /* Wide button style fit for luxury hero units */
+  }
+
+  /* Font Scaling for Large Displays */
+  .brandTag {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .heading {
+    font-size: 3.2rem;
+  }
+
+  .subHeading {
+    font-size: 1.1rem;
+  }
+
+  .divider {
+    width: 60px;
+    margin: 1.75rem 0;
+  }
+
+  .description {
+    font-size: 1.1rem;
+  }
+}
+/* ==========================================================================
+   ATELIER AURA "ABOUT US" SECTION
+   ========================================================================== */
+
+.aboutSection {
+  width: 100%;
+  background-color: #ffffff; /* Warm luxury off-white */
+  padding: 8rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.aboutContainer {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* Text gets slightly more breathing room, Image stays crisp on the right */
+  gap: 6rem;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 2rem;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* --- Left Text Column --- */
+.aboutTextBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.aboutSub {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #c5a880; /* Elegant brand gold */
+  letter-spacing: 0.25em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.aboutHeading {
+  font-family: 'Cinzel', 'Didot', 'Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #000000;
+  letter-spacing: 0.05em;
+  margin: 0 0 2rem 0;
+  line-height: 1.3;
+}
+
+.aboutParagraph {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #4a4a4a;
+  line-height: 1.8;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: 0.02em;
+}
+
+.aboutParagraph:last-of-type {
+  margin-bottom: 2.5rem;
+}
+
+.aboutSignature {
+  border-top: 1px solid #e0dbd3;
+  padding-top: 1.5rem;
+  display: inline-block;
+}
+
+.signatureText {
+  font-family: 'Cinzel', 'Didot', 'Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* --- Right Image Column --- */
+.aboutImageBlock {
+  width: 100%;
+  overflow: hidden;
+}
+
+.aboutImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4 / 5; /* Striking portrait shape */
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE RULES (768px and down)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .aboutContainer {
+    gap: 3rem;
+  }
+  
+  .aboutHeading {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: 5rem 0;
+  }
+
+  /* Changes to a vertical layout: naturally stacking Text on top and Image below */
+  .aboutContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    padding: 0 1.5rem;
+  }
+
+  .aboutTextBlock {
+    align-items: center;
+    text-align: center;
+  }
+
+  .aboutImg {
+    aspect-ratio: 1 / 1; /* Squarish look fits beautiful on mobile screens */
+    max-width: 480px;
+    margin: 0 auto;
+  }
+}
+
+/* ==========================================================================
+   ATELIER AURA "GET INSPIRED" MOVING CAROUSEL
+   ========================================================================== */
+
+.inspirationSection {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 6rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* --- Header Block --- */
+.inspirationHeader {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  padding: 0 1.5rem;
+}
+
+.inspireTitle {
+  font-family: 'Cinzel', 'Didot', 'Garamond', serif;
+  font-size: 2.4rem;
+  font-weight: 500;
+  color: #222222;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.5rem 0;
+}
+
+.socialHandle {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #777777;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+/* --- Moving Canvas & Marquee Math --- */
+.carouselViewport {
+  width: 100%;
+  overflow: hidden; /* Clips out-of-bounds cards to keep layouts clean */
+  position: relative;
+}
+
+/* Renamed class to fix the video interference bug */
+.inspireTrack {
+  display: flex;
+  width: max-content; 
+  animation: scrollMarquee 40s linear infinite;
+}
+
+/* Pause scroll animation on user cursor interactions for clean accessibility */
+.inspireTrack:hover {
+  animation-play-state: paused;
+}
+
+/* Holds a set of 10 images side by side */
+.carouselGroup {
+  display: flex;
+  gap: 12px; /* Visual gap between frames */
+  padding-right: 12px; /* Matches gap to ensure seamless loop joins */
+}
+
+/* --- Carousel Cards (Shrunk Mobile Sizes) --- */
+.carouselCard {
+  position: relative;
+  flex: 0 0 130px; /* Reduced mobile layout size */
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: #f6f6f6;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carouselCard:hover {
+  transform: scale(0.97); /* Luxury subtle inward focus */
+}
+
+.cardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- Editorial Glass Overlays (Shrunk Mobile Typography) --- */
+.cardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Softer overlay contrast */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.overlayText {
+  font-family: 'Cinzel', 'Didot', 'Garamond', serif;
+  font-size: 0.95rem; 
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.2rem;
+}
+
+.overlaySubText {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.65rem; 
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   ANIMATION KEYFRAMES
+   ========================================================================== */
+@keyframes scrollMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* ==========================================================================
+   DESKTOP SCALING AND SPACING (769px and wider)
+   ========================================================================== */
+
+@media (min-width: 769px) {
+  .inspirationSection {
+    padding: 8rem 0;
+  }
+
+  .inspireTitle {
+    font-size: 3rem;
+  }
+
+  .carouselGroup {
+    gap: 16px;
+    padding-right: 16px;
+  }
+
+  /* --- Shrunk Desktop Cards --- */
+  .carouselCard {
+    flex: 0 0 150px; 
+  }
+
+  /* --- Shrunk Desktop Overlay Typography --- */
+  .overlayText {
+    font-size: 1.15rem; 
+  }
+
+  .overlaySubText {
+    font-size: 0.75rem; 
+  }
+}

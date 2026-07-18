@@ -1,0 +1,116 @@
+.footer {
+  background-color: #0a0a0a; /* Deep luxury black */
+  color: #FAFAFA;
+  padding: var(--section-padding) 0 2rem 0;
+  font-family: var(--font-sans);
+}
+
+.footerContainer {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 1.5fr;
+  gap: 4rem;
+  margin-bottom: 5rem;
+}
+
+.brandSection .logo {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  color: #888888;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.linkGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.linkColumn h3, .newsletterSection h3 {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  color: var(--accent-gold);
+}
+
+.linkColumn a {
+  display: block;
+  color: #CCCCCC;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.linkColumn a:hover {
+  color: #FFFFFF;
+}
+
+.newsletterForm {
+  display: flex;
+  border-bottom: 1px solid #333333;
+  padding-bottom: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.input::placeholder {
+  color: #555555;
+}
+
+.submitBtn {
+  background: transparent;
+  border: none;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.submitBtn:hover {
+  color: var(--accent-gold);
+}
+
+.bottomBar {
+  text-align: center;
+  border-top: 1px solid #1a1a1a;
+  padding-top: 2rem;
+  font-size: 0.8rem;
+  color: #666666;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Responsive adjustment for tablets/mobile */
+@media (max-width: 1024px) {
+  .footerContainer {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .navGroup, .navGroupRight {
+    display: none; /* We will add a hamburger menu for mobile later */
+  }
+}

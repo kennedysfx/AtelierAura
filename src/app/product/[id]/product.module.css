@@ -1,0 +1,501 @@
+/* ==========================================================================
+   ATELIER AURA DYNAMIC PRODUCT TEMPLATE STYLES
+   ========================================================================== */
+
+.productPageWrapper {
+  width: 100%;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  padding-top: 50px;
+}
+
+/* --- Core Columns Master Layout --- */
+.mainLayoutContainer {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* Left column slightly wider for media dominance */
+  min-height: calc(100vh - 80px);
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 4rem 4rem 8rem 4rem;
+  gap: 6rem;
+  box-sizing: border-box;
+}
+
+/* --- Left Image Column (Sticky Logic) --- */
+.imageGalleryBlock {
+  width: 100%;
+  position: relative;
+}
+
+.stickyImageStickyGuard {
+  position: sticky;
+  top: 6rem;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background-color: #faf9f6;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.primaryProductHeroImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- Right Metadata Content Column --- */
+.productMetaDetailsBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 1rem;
+}
+
+.brandSubtitleLabel {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #c5a880; /* Luxe Brand Accent Gold */
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.mainProductHeadingTitle {
+  font-family: 'Cinzel', 'Didot', 'Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 400;
+  color: #111111;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+}
+
+.productPriceTag {
+  font-family: 'Didot', 'Bodoni MT', serif;
+  font-size: 1.6rem;
+  color: #333333;
+  font-weight: 400;
+  margin: 0 0 2rem 0;
+}
+
+.luxeDividerLine {
+  width: 100%;
+  border: 0;
+  border-top: 1px solid #e0dbd3;
+  margin: 0 0 2.5rem 0;
+}
+
+/* --- Sizes Selector Module --- */
+.sizeSelectionGroupContainer {
+  margin-bottom: 3rem;
+}
+
+.controlGroupTitleLabel {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #111111;
+  letter-spacing: 0.1em;
+  margin: 0 0 1rem 0;
+}
+
+.sizeChipsFlexTrack {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.sizeChipItemButton {
+  padding: 0.75rem 1.75rem;
+  background-color: #ffffff;
+  border: 1px solid #e0dbd3;
+  color: #111111;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sizeChipItemButton:hover {
+  border-color: #000000;
+}
+
+.activeSizeChip {
+  background-color: #000000;
+  border-color: #000000;
+  color: #ffffff;
+}
+
+/* --- Checkout Controls Button Cluster --- */
+.checkoutInteractionsRowButtonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.addToCartDrawerTriggerBtn {
+  width: 100%;
+  padding: 1.2rem;
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.addToCartDrawerTriggerBtn:hover {
+  opacity: 0.85;
+}
+
+.instantPurchaseDirectCheckoutBtn {
+  width: 100%;
+  padding: 1.2rem;
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #c5a880; /* Premium gold frame line accent border */
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.instantPurchaseDirectCheckoutBtn:hover {
+  background-color: #c5a880;
+  color: #ffffff;
+}
+
+/* --- Editorial Description System --- */
+.editorialTabsSystemContainer {
+  width: 100%;
+}
+
+.tabsToggleHeadersRowNavigation {
+  display: flex;
+  gap: 2rem;
+  border-bottom: 1px solid #e0dbd3;
+  margin-bottom: 1.5rem;
+}
+
+.tabHeaderNavTitleLabel {
+  background: none;
+  border: none;
+  padding: 0 0 0.75rem 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #777777;
+  cursor: pointer;
+  position: relative;
+}
+
+.activeTabStateLine {
+  color: #000000;
+}
+
+.activeTabStateLine::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000000;
+}
+
+.tabDescriptionParagraphProse {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.95rem;
+  color: #444444;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* ==========================================================================
+   SECTION 2: SCENT NOTES ARTIFACT MATRIX GRID
+   ========================================================================== */
+
+.olfactoryCompositionSectionContainer {
+  background-color: #faf9f6; /* Contrasting off-white canvas breakdown block */
+  width: 100%;
+  padding: 6rem 4rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.sectionSectionCenteredTitleLabel {
+  font-family: 'Cinzel', 'Didot', serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #111111;
+  margin: 0 0 4rem 0;
+  letter-spacing: 0.05em;
+}
+
+.scentNotesStructuralGridThreeColumnLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.scentNoteMetricCardBlock {
+  background-color: #ffffff;
+  padding: 3rem 2rem;
+  border: 1px solid #e8e5df;
+}
+
+.noteLevelWeightSubtitleHeader {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #c5a880;
+  letter-spacing: 0.2em;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.noteLevelListingIngredientsLabel {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  color: #111111;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   SECTION 3: CLIENT VERNACULAR TIMELINE (REVIEWS)
+   ========================================================================== */
+
+.clientReviewsViewportWrapperSection {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 8rem 4rem;
+  box-sizing: border-box;
+}
+
+.reviewsStructuralSplitLayoutRow {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 4rem;
+}
+
+.reviewsSummaryStickySidebarBlock {
+  position: sticky;
+  top: 6rem;
+  height: max-content;
+}
+
+.editorialReviewsTitleLabelHeading {
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  margin: 0 0 0.5rem 0;
+}
+
+.verifiedFiveStarAverageMetricSubtitleScore {
+  font-family: 'Didot', serif;
+  font-size: 1.3rem;
+  color: #c5a880;
+  margin: 0 0 0.5rem 0;
+}
+
+.totalAccumulatedCountReviewsLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #777777;
+}
+
+.reviewsFeedFlowListTimelineBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.singleReviewItemFeedCard {
+  border-bottom: 1px solid #e0dbd3;
+  padding-bottom: 3rem;
+}
+
+.singleReviewItemFeedCard:last-child {
+  border-bottom: none;
+}
+
+.reviewMetadataTitleBarFlexLine {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.reviewerSignatureNameLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111111;
+}
+
+.reviewTimestampLabelDate {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #999999;
+}
+
+.verifiedReviewTextContentProse {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #444444;
+  line-height: 1.7;
+  margin: 0;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   SECTION 4: CROSS-SELL RECOMMENDER (YOU MAY ALSO LIKE)
+   ========================================================================== */
+
+.crossSellReciprocationSectionContainer {
+  width: 100%;
+  border-top: 1px solid #e0dbd3;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 6rem 4rem 8rem 4rem;
+  box-sizing: border-box;
+}
+
+.crossSellSectionSectionTitleHeaderLabel {
+  font-family: 'Cinzel', serif;
+  font-size: 1.8rem;
+  text-align: center;
+  margin: 0 0 4rem 0;
+  letter-spacing: 0.05em;
+}
+
+.crossSellProductsHorizontalFlexTrackRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.crossSellMiniatureProductCardCard {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.crossSellImageContainerViewportWrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #faf9f6;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+}
+
+.miniatureProductThumbnailImgImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.crossSellMiniatureProductCardCard:hover .miniatureProductThumbnailImgImg {
+  transform: scale(1.04);
+}
+
+.miniatureCardTitleLabel {
+  font-family: 'Didot', serif;
+  font-size: 1.1rem;
+  color: #111111;
+  margin: 0 0 0.4rem 0;
+}
+
+.miniatureCardPriceLabelText {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: #666666;
+  margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN SYSTEM OVERRIDES (TABLETS & MOBILE DISPLAYS)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .mainLayoutContainer {
+    gap: 3rem;
+    padding: 3rem 2rem 6rem 2rem;
+  }
+  
+  .mainProductHeadingTitle {
+    font-size: 2.2rem;
+  }
+
+  .crossSellProductsHorizontalFlexTrackRow {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Dynamic Grid forces a clean, beautiful single vertical block row stack on mobile viewports */
+  .mainLayoutContainer {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 2rem 1.5rem 4rem 1.5rem;
+  }
+
+  .stickyImageStickyGuard {
+    position: relative;
+    top: 0;
+  }
+
+  .mainProductHeadingTitle {
+    font-size: 2rem;
+  }
+
+  .olfactoryCompositionSectionContainer {
+    padding: 4rem 1.5rem;
+  }
+
+  .scentNotesStructuralGridThreeColumnLayout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .clientReviewsViewportWrapperSection {
+    padding: 4rem 1.5rem;
+  }
+
+  .reviewsStructuralSplitLayoutRow {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .reviewsSummaryStickySidebarBlock {
+    position: relative;
+    top: 0;
+  }
+
+  .crossSellReciprocationSectionContainer {
+    padding: 4rem 1.5rem;
+  }
+}
