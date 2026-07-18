@@ -3,7 +3,7 @@
 export default function ContactPage() {
   return (
     <main>
-      <h1>Page Under Construction</h1>
+      <h1>Page Under Construction.</h1>
     </main>
   );
 }
