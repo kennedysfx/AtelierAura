@@ -1592,10 +1592,18 @@ object-fit: cover !important;
 
 /* Renamed class to fix the video interference bug */
 .inspireTrack {
-  display: flex;
-  flex-wrap: nowrap; /* Forces everything into one straight line */
+  display: inline-flex; /* CRUCIAL FOR iOS: Forces track to expand to its children's true width */
+  flex-wrap: nowrap;
   width: max-content; 
+  
+  /* Safari/WebKit specific animation targeting */
+  -webkit-animation: scrollMarquee 40s linear infinite;
   animation: scrollMarquee 40s linear infinite;
+  
+  /* Force mobile GPU rendering to stop skipping */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 /* Pause scroll animation on user cursor interactions for clean accessibility */
@@ -1606,18 +1614,30 @@ object-fit: cover !important;
 /* Holds a set of 10 images side by side */
 .carouselGroup {
   display: flex;
-  gap: 12px; /* Visual gap between frames */
-  padding-right: 12px; /* Matches gap to ensure seamless loop joins */
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  gap: 12px;
+  padding-right: 12px;
 }
 
 /* --- Carousel Cards (Shrunk Mobile Sizes) --- */
 .carouselCard {
-  position: relative; /* CRUCIAL: Traps the Next.js fill image */
-  flex: 0 0 130px; /* Reduced mobile layout size (0 shrink prevents squishing!) */
+  position: relative; 
+  /* WebKit specific flex property */
+  -webkit-flex: 0 0 130px;
+  flex: 0 0 130px; 
+  
+  /* BRUTE FORCE SIZING: Bans mobile from squishing the cards */
+  width: 130px;
+  min-width: 130px;
+  max-width: 130px;
+  
   aspect-ratio: 1 / 1;
   overflow: hidden;
   background-color: #f6f6f6;
   cursor: pointer;
+  
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1716,6 +1736,32 @@ object-fit: cover !important;
 }
 @media (hover: hover) and (pointer: fine) {
   .inspireTrack:hover {
+    -webkit-animation-play-state: paused;
     animation-play-state: paused;
+  }
+}
+
+/* ==========================================================================
+   ANIMATION KEYFRAMES (With Mobile Fallbacks)
+   ========================================================================== */
+@-webkit-keyframes scrollMarquee {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes scrollMarquee {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
   }
 }
