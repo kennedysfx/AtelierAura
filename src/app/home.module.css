@@ -1593,8 +1593,8 @@ object-fit: cover !important;
 /* Renamed class to fix the video interference bug */
 .inspireTrack {
   display: flex;
+  flex-wrap: nowrap; /* Forces everything into one straight line */
   width: max-content; 
-  /* FIXED: Matched animation name to your keyframes below */
   animation: scrollMarquee 40s linear infinite;
 }
 
@@ -1712,5 +1712,10 @@ object-fit: cover !important;
 
   .overlaySubText {
     font-size: 0.75rem; 
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .inspireTrack:hover {
+    animation-play-state: paused;
   }
 }
