@@ -197,52 +197,62 @@ export default function Home() {
               );
             }
 
-            return (
-              <div key={product.id} className={styles.productCard}>
-                <div className={styles.imageWrapper}>
-                  <img src={product.image} alt={product.name} className={styles.productImage} />
-                <button 
-                  className={styles.cartIconButton} 
-                  aria-label="Add to Cart"
-                  onClick={() => addToCart({
-                    id: product.id,
-                     name: product.name,
-                     brand: product.brand,
-                     price: product.price,
-                     image: product.image,
-                     selectedSize: currentSize,
-                     quantity: 1,
-                   })}
-                 >
-                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                     <circle cx="9" cy="21" r="1"></circle>
-                     <circle cx="20" cy="21" r="1"></circle>
-                     <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                   </svg>
-                 </button>
-                </div>
+return (
+  <div key={product.id} className={styles.productCard}>
+    <div className={styles.imageWrapper}>
+      
+      {/* UPGRADED NEXT.JS IMAGE COMPONENT */}
+      <Image 
+        src={product.image} 
+        alt={product.name} 
+        fill // Fills the container perfectly
+        sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 25vw" // Serves the exact right resolution per device
+        className={styles.productImage}
+      />
 
-                <div className={styles.productInfo}>
-                  <span className={styles.brandName}>{product.brand}</span>
-                  <h3 className={styles.productName}>{product.name}</h3>
-                  
-                  <div className={styles.sizeSelector}>
-                    {["100ml", "50ml", "25ml"].map((size) => (
-                      <button
-                        key={size}
-                        className={`${styles.sizeBtn} ${currentSize === size ? styles.sizeBtnActive : ""}`}
-                        onClick={() => handleSizeSelect(product.id, size)}
-                      >
-                        {size}
-                      </button>
-                    ))}
-                  </div>
+      <button 
+        className={styles.cartIconButton} 
+        aria-label="Add to Cart"
+        onClick={() => addToCart({
+          id: product.id,
+          name: product.name,
+          brand: product.brand,
+          price: product.price,
+          image: product.image,
+          selectedSize: currentSize,
+          quantity: 1,
+        })}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+      </button>
+    </div>
 
-                  <Link href={`/product/${product.id}`} className={styles.priceCta}>
-  {product.price}
-</Link>
-                </div>
-              </div>
+    <div className={styles.productInfo}>
+      <span className={styles.brandName}>{product.brand}</span>
+      <h3 className={styles.productName}>{product.name}</h3>
+      
+      <div className={styles.sizeSelector}>
+        {["100ml", "50ml", "25ml"].map((size) => (
+          <button
+            key={size}
+            className={`${styles.sizeBtn} ${currentSize === size ? styles.sizeBtnActive : ""}`}
+            onClick={() => handleSizeSelect(product.id, size)}
+          >
+            {size}
+          </button>
+        ))}
+      </div>
+
+      <Link href={`/product/${product.id}`} className={styles.priceCta}>
+        {product.price}
+      </Link>
+    </div>
+  </div>
+
             );
           })}
         </div>
@@ -350,14 +360,16 @@ export default function Home() {
 />
             
             {/* Embedded overlapping PNG Image Container */}
-            <div className={styles.overlapImageContainer}>
-              <img 
-                src={`/featurepic/${perfume.asset}.png`} 
-                alt={perfume.name} 
-                className={styles.overlapImage}
-              />
-            </div>
-          </div>
+<div className={styles.overlapImageContainer}>
+  <Image 
+    src={`/featurepic/${perfume.asset}.png`} 
+    alt={perfume.name} 
+    fill // Tells it to adapt completely to your container dimensions
+    sizes="(max-width: 768px) 80vw, 40vw" // Helps Next.js optimize the asset weight for mobile screens
+    className={styles.overlapImage}
+  />
+</div>
+</div>
 
           {/* Bottom Portion: Product Info Box with Button */}
            <div className={styles.infoBox}>
@@ -472,14 +484,25 @@ export default function Home() {
     
     {/* Celebrity 1: Ranbir Kapoor */}
     <div className={styles.celebCard}>
-      <img src="/celebrities/ranbir-kapoor.jpg" alt="Ranbir Kapoor" className={styles.celebPortrait} />
-      {/* Rich dark charcoal & onyx gradient */}
+      <Image 
+        src="/celebrities/ranbir-kapoor.jpg" 
+        alt="Ranbir Kapoor" 
+        fill
+        sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
+        className={styles.celebPortrait} 
+      />
       <div 
         className={styles.celebOverlay} 
         style={{ background: 'linear-gradient(to top, rgba(12, 12, 12, 0.98) 0%, rgba(12, 12, 12, 0.6) 50%, rgba(12, 12, 12, 0) 100%)' }}
       >
         <div className={styles.celebProductBadge}>
-          <img src="/bestseller/noir.png" alt="Sauvage Parfum" className={styles.celebProductImg} />
+          <Image 
+            src="/bestseller/noir.png" 
+            alt="Vallure Noir Bottle" 
+            fill
+            sizes="80px"
+            className={styles.celebProductImg} 
+          />
         </div>
         <div className={styles.celebText}>
           <h4 className={styles.celebName}>Ranbir Kapoor</h4>
@@ -490,14 +513,25 @@ export default function Home() {
 
     {/* Celebrity 2: Sobhita Dhulipala */}
     <div className={styles.celebCard}>
-      <img src="/celebrities/sobhita-dhulipala.jpg" alt="Sobhita Dhulipala" className={styles.celebPortrait} />
-      {/* Regal, warm antique bronze gradient */}
+      <Image 
+        src="/celebrities/sobhita-dhulipala.jpg" 
+        alt="Sobhita Dhulipala" 
+        fill
+        sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
+        className={styles.celebPortrait} 
+      />
       <div 
         className={styles.celebOverlay} 
         style={{ background: 'linear-gradient(to top, rgba(54, 42, 33, 0.98) 0%, rgba(54, 42, 33, 0.6) 50%, rgba(54, 42, 33, 0) 100%)' }}
       >
         <div className={styles.celebProductBadge}>
-          <img src="/bestseller/elixir.png" alt="Libre Le Parfum" className={styles.celebProductImg} />
+          <Image 
+            src="/bestseller/elixir.png" 
+            alt="Aurelius Elixir Bottle" 
+            fill
+            sizes="80px"
+            className={styles.celebProductImg} 
+          />
         </div>
         <div className={styles.celebText}>
           <h4 className={styles.celebName}>Sobhita Dhulipala</h4>
@@ -508,14 +542,25 @@ export default function Home() {
 
     {/* Celebrity 3: Regé-Jean Page */}
     <div className={styles.celebCard}>
-      <img src="/celebrities/rege-jean-page.jpg" alt="Regé-Jean Page" className={styles.celebPortrait} />
-      {/* Cool, deep midnight obsidian gradient */}
+      <Image 
+        src="/celebrities/rege-jean-page.jpg" 
+        alt="Regé-Jean Page" 
+        fill
+        sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
+        className={styles.celebPortrait} 
+      />
       <div 
         className={styles.celebOverlay} 
         style={{ background: 'linear-gradient(to top, rgba(18, 20, 26, 0.98) 0%, rgba(18, 20, 26, 0.6) 50%, rgba(18, 20, 26, 0) 100%)' }}
       >
         <div className={styles.celebProductBadge}>
-          <img src="/bestseller/argent.png" alt="Acqua Di Gio" className={styles.celebProductImg} />
+          <Image 
+            src="/bestseller/argent.png" 
+            alt="Argent Noir Bottle" 
+            fill
+            sizes="80px"
+            className={styles.celebProductImg} 
+          />
         </div>
         <div className={styles.celebText}>
           <h4 className={styles.celebName}>Regé-Jean Page</h4>
@@ -526,14 +571,25 @@ export default function Home() {
 
     {/* Celebrity 4: Anya Taylor-Joy */}
     <div className={styles.celebCard}>
-      <img src="/celebrities/anya-taylor-joy.jpg" alt="Anya Taylor-Joy" className={styles.celebPortrait} />
-      {/* Soft, warm luxury champagne sand gradient */}
+      <Image 
+        src="/celebrities/anya-taylor-joy.jpg" 
+        alt="Anya Taylor-Joy" 
+        fill
+        sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
+        className={styles.celebPortrait} 
+      />
       <div 
         className={styles.celebOverlay} 
         style={{ background: 'linear-gradient(to top, rgba(110, 94, 79, 0.98) 0%, rgba(110, 94, 79, 0.6) 50%, rgba(110, 94, 79, 0) 100%)' }}
       >
         <div className={styles.celebProductBadge}>
-          <img src="/bestseller/santal.png" alt="Cherry" className={styles.celebProductImg} />
+          <Image 
+            src="/bestseller/santal.png" 
+            alt="Santal Impérial Bottle" 
+            fill
+            sizes="80px"
+            className={styles.celebProductImg} 
+          />
         </div>
         <div className={styles.celebText}>
           <h4 className={styles.celebName}>Anya Taylor-Joy</h4>
@@ -622,10 +678,11 @@ export default function Home() {
 
     {/* FOR HIM CARD */}
     <div className={styles.shopCategoryItem}>
-      {/* Update this src to your generated male model image */}
-      <img 
+      <Image 
         src="/celebrities/malemodel.png" 
         alt="For Him Campaign" 
+        fill
+        sizes="(max-width: 768px) 100vw, 50vw"
         className={styles.shopCategoryImg} 
       />
       <div className={styles.shopTextOverlay}>
@@ -638,10 +695,11 @@ export default function Home() {
 
     {/* FOR HER CARD */}
     <div className={styles.shopCategoryItem}>
-      {/* Update this src to your generated Anok Yai image */}
-      <img 
+      <Image 
         src="/celebrities/anokyai.png" 
         alt="For Her Campaign" 
+        fill
+        sizes="(max-width: 768px) 100vw, 50vw"
         className={styles.shopCategoryImg} 
       />
       <div className={styles.shopTextOverlay}>
@@ -721,14 +779,16 @@ export default function Home() {
       </div>
     </div>
 
-    {/* 2. Visual Column (Second: Right on Desktop, Bottom on Mobile) */}
-    <div className={styles.aboutImageBlock}>
-      <img 
-        src="/cosmetic/about-us.png" 
-        alt="Atelier Aura Artisanal Craftsmanship" 
-        className={styles.aboutImg}
-      />
-    </div>
+{/* 2. Visual Column (Second: Right on Desktop, Bottom on Mobile) */}
+<div className={styles.aboutImageBlock}>
+  <Image 
+    src="/cosmetic/about-us.png" 
+    alt="Atelier Aura Artisanal Craftsmanship" 
+    fill
+    sizes="(max-width: 768px) 100vw, 50vw"
+    className={styles.aboutImg}
+  />
+</div>
 
   </div>
 </section>
@@ -747,14 +807,13 @@ export default function Home() {
   {/* Carousel Viewport Container */}
   <div className={styles.carouselViewport}>
     
-    {/* Renamed to inspireTrack to prevent conflicts with the Featured videos */}
     <div className={styles.inspireTrack}>
       
       {/* ==================== SET 1 (10 Images) ==================== */}
       <div className={styles.carouselGroup}>
         {/* Card 1 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-1.png" alt="Floral Notes" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-1.png" alt="Floral Notes" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
           <div className={styles.cardOverlay}>
             <span className={styles.overlayText}>FLORAL</span>
             <span className={styles.overlaySubText}>RADIANT</span>
@@ -762,11 +821,11 @@ export default function Home() {
         </div>
         {/* Card 2 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-2.png" alt="Atelier Aura Bottle and Pearls" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-2.png" alt="Atelier Aura Bottle and Pearls" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
         </div>
         {/* Card 3 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-3.png" alt="Cozy Notes" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-3.png" alt="Cozy Notes" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
           <div className={styles.cardOverlay}>
             <span className={styles.overlayText}>COZY</span>
             <span className={styles.overlaySubText}>DECADENT</span>
@@ -774,23 +833,23 @@ export default function Home() {
         </div>
         {/* Card 4 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-4.png" alt="Luxe Bottle on Travertine" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-4.png" alt="Luxe Bottle on Travertine" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
         </div>
         {/* Card 5 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-5.png" alt="Citrus and Vanilla ingredients" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-5.png" alt="Citrus and Vanilla ingredients" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
         </div>
         {/* Card 6 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-6.png" alt="Atelier Aura White Flowers" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-6.png" alt="Atelier Aura White Flowers" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
         </div>
         {/* Card 7 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-7.png" alt="Warm Silk Reflections" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-7.png" alt="Warm Silk Reflections" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
         </div>
         {/* Card 8 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-8.png" alt="Earthy Notes" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-8.png" alt="Earthy Notes" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
           <div className={styles.cardOverlay}>
             <span className={styles.overlayText}>EARTHY</span>
             <span className={styles.overlaySubText}>GROUNDED</span>
@@ -798,11 +857,11 @@ export default function Home() {
         </div>
         {/* Card 9 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-9.png" alt="Mist Atomizer Close-up" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-9.png" alt="Mist Atomizer Close-up" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
         </div>
         {/* Card 10 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-10.png" alt="Minimalist Product Lineup" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-10.png" alt="Minimalist Product Lineup" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
         </div>
       </div>
 
@@ -810,7 +869,7 @@ export default function Home() {
       <div className={styles.carouselGroup} aria-hidden="true">
         {/* Card 1 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-1.png" alt="" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-1.png" alt="" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
           <div className={styles.cardOverlay}>
             <span className={styles.overlayText}>FLORAL</span>
             <span className={styles.overlaySubText}>RADIANT</span>
@@ -818,11 +877,11 @@ export default function Home() {
         </div>
         {/* Card 2 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-2.png" alt="" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-2.png" alt="" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
         </div>
         {/* Card 3 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-3.png" alt="" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-3.png" alt="" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
           <div className={styles.cardOverlay}>
             <span className={styles.overlayText}>COZY</span>
             <span className={styles.overlaySubText}>DECADENT</span>
@@ -830,23 +889,23 @@ export default function Home() {
         </div>
         {/* Card 4 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-4.png" alt="" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-4.png" alt="" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
         </div>
         {/* Card 5 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-5.png" alt="" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-5.png" alt="" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
         </div>
         {/* Card 6 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-6.png" alt="" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-6.png" alt="" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
         </div>
         {/* Card 7 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-7.png" alt="" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-7.png" alt="" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
         </div>
         {/* Card 8 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-8.png" alt="" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-8.png" alt="" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
           <div className={styles.cardOverlay}>
             <span className={styles.overlayText}>EARTHY</span>
             <span className={styles.overlaySubText}>GROUNDED</span>
@@ -854,11 +913,11 @@ export default function Home() {
         </div>
         {/* Card 9 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-9.png" alt="" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-9.png" alt="" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
         </div>
         {/* Card 10 */}
         <div className={styles.carouselCard}>
-          <img src="/cosmetic/inspire-10.png" alt="" className={styles.cardImg} />
+          <Image src="/cosmetic/inspire-10.png" alt="" fill sizes="(max-width: 768px) 50vw, 25vw" className={styles.cardImg} />
         </div>
       </div>
 

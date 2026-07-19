@@ -163,8 +163,8 @@
 }
 
 .productImage {
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
   object-fit: cover;
   transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -560,9 +560,9 @@
 }
 
 .overlapImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* This forces the image to scale, fill, and completely cover the container */
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important; /* This forces the image to scale, fill, and completely cover the container */
   border-radius: 0px; /* Keeps the image corners matching the container's subtle curve */
 }
 
@@ -796,9 +796,10 @@
 
 /* Background Portrait Image */
 .celebPortrait {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  z-index: 1;
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -822,6 +823,7 @@
 
 /* White bottle thumbnail card on the left */
 .celebProductBadge {
+  position: relative;
   flex-shrink: 0;
   width: 54px;
   height: 54px;
@@ -1124,9 +1126,9 @@
 }
 
 .shopCategoryImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
   display: block;
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 
@@ -1489,15 +1491,17 @@
 
 /* --- Right Image Column --- */
 .aboutImageBlock {
+  position: relative;
   width: 100%;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
 }
 
 .aboutImg {
-  width: 100%;
-  height: auto;
+width: 100% !important;
+  height: 100% !important;
   display: block;
-  object-fit: cover;
+object-fit: cover !important;
   aspect-ratio: 4 / 5; /* Striking portrait shape */
 }
 
@@ -1539,7 +1543,6 @@
     margin: 0 auto;
   }
 }
-
 /* ==========================================================================
    ATELIER AURA "GET INSPIRED" MOVING CAROUSEL
    ========================================================================== */
@@ -1591,6 +1594,7 @@
 .inspireTrack {
   display: flex;
   width: max-content; 
+  /* FIXED: Matched animation name to your keyframes below */
   animation: scrollMarquee 40s linear infinite;
 }
 
@@ -1608,8 +1612,8 @@
 
 /* --- Carousel Cards (Shrunk Mobile Sizes) --- */
 .carouselCard {
-  position: relative;
-  flex: 0 0 130px; /* Reduced mobile layout size */
+  position: relative; /* CRUCIAL: Traps the Next.js fill image */
+  flex: 0 0 130px; /* Reduced mobile layout size (0 shrink prevents squishing!) */
   aspect-ratio: 1 / 1;
   overflow: hidden;
   background-color: #f6f6f6;
@@ -1621,10 +1625,11 @@
   transform: scale(0.97); /* Luxury subtle inward focus */
 }
 
+/* OVERRIDDEN FOR NEXT.JS: Added !important to force Next.js to respect your dimensions */
 .cardImg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
   display: block;
 }
 
@@ -1643,6 +1648,7 @@
   text-align: center;
   padding: 1rem;
   box-sizing: border-box;
+  z-index: 2; /* Ensures overlay sits on top of the Next.js image */
 }
 
 .overlayText {
@@ -1668,6 +1674,7 @@
    ========================================================================== */
 @keyframes scrollMarquee {
   0% {
+    /* Using translate3d forces the browser to use hardware acceleration (GPU) for smoother scrolling */
     transform: translate3d(0, 0, 0);
   }
   100% {
