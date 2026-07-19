@@ -5,6 +5,38 @@
 .slideActive { opacity: 1; z-index: 2; }
 .bgImage { width: 100%; height: 100%; object-fit: cover; }
 
+/* --- NEW NEXT.JS IMAGE WRAPPER RULES --- */
+.desktopImageWrapper,
+.mobileImageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Keeps the images safely behind your text and buttons */
+}
+
+/* Default state: Show desktop, hide mobile */
+.desktopImageWrapper {
+  display: block;
+}
+.mobileImageWrapper {
+  display: none;
+}
+
+/* 
+  Your original JSX swapped images at 1024px. 
+  This recreates that exact same behavior! 
+*/
+@media (max-width: 1024px) {
+  .desktopImageWrapper {
+    display: none;
+  }
+  .mobileImageWrapper {
+    display: block;
+  }
+}
+
 /* Desktop Text & Button */
 .textContent { position: absolute; z-index: 3; top: 50%; left: 8%; transform: translateY(-50%); max-width: 600px; }
 .shopButton { position: absolute; z-index: 4; top: 70%; left: 8%; padding: 1rem 3rem; background: transparent; border: 1.5px solid #fff; color: #fff; font-family: serif; letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; }

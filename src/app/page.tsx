@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
+import Image from 'next/image';
 import styles from "./home.module.css";
 
 const slides = [
@@ -93,35 +94,57 @@ export default function Home() {
   const currentProducts = activeTab === "him" ? himProducts : herProducts;
 
   return (
-    <main className={styles.main}>
-      {/* HERO SECTION */}
-      <section className={styles.heroContainer}>
-        {slides.map((slide, index) => {
-          const isActive = index === currentSlide;
-          const isVallure = slide.id === 'vallure';
+  
+  <main className={styles.main}>
+  {/* HERO SECTION */}
+  <section className={styles.heroContainer}>
+    {slides.map((slide, index) => {
+      const isActive = index === currentSlide;
+      const isVallure = slide.id === 'vallure';
 
-          return (
-            <div key={slide.id} className={`${styles.slide} ${isActive ? styles.slideActive : ""}`}>
-              <picture>
-                <source media="(max-width: 1024px)" srcSet={slide.portrait} />
-                <img src={slide.landscape} alt={slide.title} className={styles.bgImage} />
-              </picture>
+      return (
+        <div key={slide.id} className={`${styles.slide} ${isActive ? styles.slideActive : ""}`}>
+          
+          {/* Desktop Landscape Image */}
+          <div className={styles.desktopImageWrapper}>
+            <Image 
+              src={slide.landscape} 
+              alt={slide.title} 
+              fill
+              sizes="100vw"
+              priority={isActive} // Crucial performance trick: Only preload the visible slide!
+              className={styles.bgImage}
+            />
+          </div>
 
-              <div className={`${styles.textContent} ${isVallure ? styles.vallureText : ''}`}>
-                <h1 className={styles.title} style={{ color: slide.titleColor }}>{slide.title}</h1>
-                <p className={styles.subtitle} style={{ color: slide.subtitleColor }}>{slide.subtitle}</p>
-              </div>
+          {/* Mobile/Tablet Portrait Image */}
+          <div className={styles.mobileImageWrapper}>
+            <Image 
+              src={slide.portrait} 
+              alt={slide.title} 
+              fill
+              sizes="100vw"
+              priority={isActive} // Preloads the mobile image only if this slide is active
+              className={styles.bgImage}
+            />
+          </div>
 
-             <button 
-  className={`${styles.shopButton} ${isVallure ? styles.vallureButton : ''} ${(slide.id === 'dore' || slide.id === 'rouge') ? styles.darkButton : ''}`}
-  onClick={() => sectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
->
-  Shop Now
-</button>
-            </div>
-          );
-        })}
-      </section>
+          <div className={`${styles.textContent} ${isVallure ? styles.vallureText : ''}`}>
+            <h1 className={styles.title} style={{ color: slide.titleColor }}>{slide.title}</h1>
+            <p className={styles.subtitle} style={{ color: slide.subtitleColor }}>{slide.subtitle}</p>
+          </div>
+
+          <button 
+            className={`${styles.shopButton} ${isVallure ? styles.vallureButton : ''} ${(slide.id === 'dore' || slide.id === 'rouge') ? styles.darkButton : ''}`}
+            onClick={() => sectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Shop Now
+          </button>
+        </div>
+      );
+    })}
+  </section>
+
 
       {/* BEST SELLER SECTION */}
       <section ref={sectionRef} className={styles.bestSellerSection}>
