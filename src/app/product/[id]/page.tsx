@@ -207,8 +207,156 @@ const PRODUCTS_REGISTRY: Record<string, {
     description: "An ode to masculine freedom expressed in a woody aromatic fragrance with a captivating trail. A timeless scent housed in an enigmatic blue bottle.",
     sizes: ["50ml", "100ml", "150ml"],
     notes: { top: "Grapefruit, Mint, Pink Pepper", heart: "Ginger, Nutmeg, Jasmine", base: "Incense, Vetiver, Cedarwood" }
+  },
+
+// ==========================================
+  // LUXE LIP COSMETICS (UPDATED FROM VS CODE FOLDER)
+  // ==========================================
+  "lip_ashton": {
+    name: "Ashton Lip Tint",
+    brand: "ATELIER AURA",
+    price: "₦32,000",
+    image: "/lipcosmetic/ashton.jpg",
+    description: "A weightless, long-wearing lip tint that delivers a sheer wash of color. Perfect for a natural, everyday flush.",
+    sizes: ["5ml"],
+    notes: { top: "Sweet Mint", heart: "Rosewater", base: "Vanilla" }
+  },
+  "lip_bullet": {
+    name: "Signature Matte Bullet",
+    brand: "ATELIER AURA",
+    price: "₦42,000",
+    image: "/lipcosmetic/bullet.jpg",
+    description: "Our iconic bullet lipstick redefined. Offers saturated, one-swipe color in a weightless matte formula that never dries the lips.",
+    sizes: ["3.5g"],
+    notes: { top: "Bergamot", heart: "Iris", base: "White Woods" }
+  },
+  "lip_chanel": {
+    name: "Rouge Allure Luminous",
+    brand: "CHANEL",
+    price: "₦65,000",
+    image: "/lipcosmetic/chanel.jpg",
+    description: "Intense, long-wearing lip colour with full coverage and a satin finish. Leaves lips supple and protected with lasting comfort.",
+    sizes: ["3.5g"],
+    notes: { top: "Almond Blossom", heart: "White Tea", base: "Vanilla Bean" }
+  },
+  "lip_dior": {
+    name: "Addict Lip Glow",
+    brand: "DIOR",
+    price: "₦58,000",
+    image: "/lipcosmetic/dior.jpg.jpg",
+    description: "An iconic lip balm that enhances the natural color of your lips with a custom glow and 24-hour hydration.",
+    sizes: ["3.2g"],
+    notes: { top: "Cherry Oil", heart: "Rose", base: "Shea Butter" }
+  },
+  "lip_gold": {
+    name: "Aura Gold Classic Red",
+    brand: "ATELIER AURA",
+    price: "₦55,000",
+    image: "/lipcosmetic/gold.jpg.jpg",
+    description: "Housed in a breathtaking full-gold case, this classic red formula glides on like silk, leaving a brilliant, deeply conditioning finish.",
+    sizes: ["4g"],
+    notes: { top: "Orange Blossom", heart: "Vanilla Cream", base: "Sandalwood" }
+  },
+  "lip_hozho": {
+    name: "Hozho Matte Balm",
+    brand: "ATELIER AURA",
+    price: "₦38,000",
+    image: "/lipcosmetic/hozho.jpg",
+    description: "A soothing, moisture-rich balm that sets to a comfortable matte finish. Provides structural elegance without the heavy feel of traditional lipstick.",
+    sizes: ["4g"],
+    notes: { top: "Desert Sage", heart: "Wild Peony", base: "Cedar" }
+  },
+  "lip_kahi": {
+    name: "Wrinkle Bounce Multi Balm",
+    brand: "KAHI",
+    price: "₦45,000",
+    image: "/lipcosmetic/kahi.jpg",
+    description: "A deeply hydrating multi-use balm stick that instantly moisturizes lips and creates a natural, dewy glow.",
+    sizes: ["9g"],
+    notes: { top: "Jeju Fermented Oil", heart: "Salmon Collagen", base: "Clean Musk" }
+  },
+  "lip_lipss": {
+    name: "Essential Lip Serum",
+    brand: "ATELIER AURA",
+    price: "₦30,000",
+    image: "/lipcosmetic/lipss.jpg",
+    description: "An intensive overnight serum infused with botanical oils to repair, plump, and deeply condition your lips while you sleep.",
+    sizes: ["10ml"],
+    notes: { top: "Lavender", heart: "Chamomile", base: "Sweet Almond" }
+  },
+  "lip_luxe": {
+    name: "Luxe Bold Rouge",
+    brand: "ATELIER AURA",
+    price: "₦45,000",
+    image: "/lipcosmetic/luxe.jpg",
+    description: "A show-stopping, highly pigmented bold red lipstick that delivers single-stroke full coverage. Encased in our signature heavy-weight packaging.",
+    sizes: ["3.5g", "4g"],
+    notes: { top: "Madagascar Vanilla", heart: "Rose Absolute", base: "Soft Powdery Musk" }
+  },
+  "lip_mars": {
+    name: "Mars Velvet Matte",
+    brand: "ATELIER AURA",
+    price: "₦36,000",
+    image: "/lipcosmetic/mars.jpg",
+    description: "A striking, warm terracotta shade with a whipped velvet texture. Blurs lip lines and provides all-day, smudge-proof wear.",
+    sizes: ["3.5g"],
+    notes: { top: "Spiced Cinnamon", heart: "Orchid", base: "Warm Amber" }
+  },
+  "lip_nonstop": {
+    name: "Nonstop Liquid Stain",
+    brand: "ATELIER AURA",
+    price: "₦34,000",
+    image: "/lipcosmetic/nonstop.jpg",
+    description: "A highly resilient liquid lip stain engineered to survive coffee, dinner, and everything in between without transfer.",
+    sizes: ["6ml"],
+    notes: { top: "Pomegranate", heart: "Cherry Blossom", base: "Tonka Bean" }
+  },
+  "lip_oil": {
+    name: "Nourishing Lip Oil",
+    brand: "ATELIER AURA",
+    price: "₦40,000",
+    image: "/lipcosmetic/oil.jpg.jpg",
+    description: "A non-sticky, mirror-shine lip oil that combines the texture of a gloss with the intense hydration of a targeted skincare treatment.",
+    sizes: ["7ml"],
+    notes: { top: "Coconut Water", heart: "Jojoba", base: "Vanilla Extract" }
+  },
+  "lip_petal": {
+    name: "Rose Petal Matte",
+    brand: "ATELIER AURA",
+    price: "₦40,000",
+    image: "/lipcosmetic/petal.jpg",
+    description: "A velvet-matte lipstick inspired by the softest rose petals. Delivers comfortable, non-drying wear with a blurred, romantic finish.",
+    sizes: ["3.5g"],
+    notes: { top: "Damask Rose", heart: "Peony", base: "White Musk" }
+  },
+  "lip_rhode": {
+    name: "Peptide Lip Treatment",
+    brand: "RHODE",
+    price: "₦28,000",
+    image: "/lipcosmetic/rhode.jpg",
+    description: "A restorative lip treatment for naturally plump, pillowy-soft lips. Glides on smoothly to nourish dry skin and lock in moisture.",
+    sizes: ["10ml"],
+    notes: { top: "Unscented", heart: "Shea Butter", base: "Peptides" }
+  },
+  "lip_topface": {
+    name: "Mauve Seduction",
+    brand: "TOPFACE",
+    price: "₦28,000",
+    image: "/lipcosmetic/topface.jpg",
+    description: "A sophisticated mauve lipstick offering rich pigment and a hydrating core. Perfect for an elegant, everyday signature look.",
+    sizes: ["4g"],
+    notes: { top: "Sweet Berry", heart: "Jasmine", base: "Warm Amber" }
+  },
+  "lip_yanlanxi": {
+    name: "Luminous Liquid BB",
+    brand: "YANLANXI",
+    price: "₦35,000",
+    image: "/lipcosmetic/yanlanxi.jpg",
+    description: "A flawless, lightweight liquid BB cream that perfects the complexion with a glowing, skin-like finish while providing essential hydration.",
+    sizes: ["30g"],
+    notes: { top: "Fresh Aloe", heart: "Green Tea Extract", base: "Clean Mineral" }
   }
-};
+}
 
 
 export default function ProductTemplate() {
@@ -266,31 +414,31 @@ export default function ProductTemplate() {
             </div>
           </div>
 
-               {/* Transaction Checkout Action Area */}
-               <div className={styles.checkoutInteractionsRowButtonGroup}>
-                 <button 
-                   type="button" 
-                   className={styles.addToCartDrawerTriggerBtn}
-                   onClick={() => {
-                     addToCart({
-                       id: productId,
-                       name: product.name,
-                       brand: product.brand,
-                       price: product.price,
-                       image: product.image,
-                       selectedSize: selectedSize,
-                       quantity: 1,
-                     });
-                     alert(`${product.name} added to bag!`);
-                   }}
-                 >
-                   Add To Shopping Bag
-                 </button>
-                 
-                 <button type="button" className={styles.instantPurchaseDirectCheckoutBtn}>
-                   Purchase Now
-                 </button>
-               </div>
+          {/* Transaction Checkout Action Area */}
+          <div className={styles.checkoutInteractionsRowButtonGroup}>
+            <button 
+              type="button" 
+              className={styles.addToCartDrawerTriggerBtn}
+              onClick={() => {
+                addToCart({
+                  id: productId,
+                  name: product.name,
+                  brand: product.brand,
+                  price: product.price,
+                  image: product.image,
+                  selectedSize: selectedSize,
+                  quantity: 1,
+                });
+                alert(`${product.name} added to bag!`);
+              }}
+            >
+              Add To Shopping Bag
+            </button>
+            
+            <button type="button" className={styles.instantPurchaseDirectCheckoutBtn}>
+              Purchase Now
+            </button>
+          </div>
 
           {/* Tabs Navigation: Story vs Details */}
           <div className={styles.editorialTabsSystemContainer}>
@@ -316,7 +464,7 @@ export default function ProductTemplate() {
                 <p className={styles.tabDescriptionParagraphProse}>{product.description}</p>
               ) : (
                 <p className={styles.tabDescriptionParagraphProse}>
-                  Every bottle is safely secured inside our signature cream-woven geometric boxes, then wrapped with heavyweight custom tissue paper. Domestically shipped with localized insurance options within 48 business hours.
+                  Every product is safely secured inside our signature cream-woven geometric boxes, then wrapped with heavyweight custom tissue paper. Domestically shipped with localized insurance options within 48 business hours.
                 </p>
               )}
             </div>
@@ -360,7 +508,7 @@ export default function ProductTemplate() {
                 <span className={styles.reviewTimestampLabelDate}>July 2026</span>
               </div>
               <p className={styles.verifiedReviewTextContentProse}>
-                "The silage on this particular formulation is architectural. It sits close to the skin like a second layer of silk but leaves an unmistakable imprint through an open room. Sublime delivery speed."
+                "The silage and quality of this particular formulation is architectural. It sits close to the skin like a second layer of silk but leaves an unmistakable imprint through an open room. Sublime delivery speed."
               </p>
             </div>
             <div className={styles.singleReviewItemFeedCard}>
@@ -369,7 +517,7 @@ export default function ProductTemplate() {
                 <span className={styles.reviewTimestampLabelDate}>June 2026</span>
               </div>
               <p className={styles.verifiedReviewTextContentProse}>
-                "Bespoke luxury in every literal definition. Packaging was unblemished, the item feels weighted and expensive. Truly a magnificent signature fragrance addition."
+                "Bespoke luxury in every literal definition. Packaging was unblemished, the item feels weighted and expensive. Truly a magnificent addition to my daily routine."
               </p>
             </div>
           </div>

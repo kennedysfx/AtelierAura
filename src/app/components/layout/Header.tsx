@@ -22,7 +22,6 @@ export default function Header() {
   const desktopSearchInputRef = useRef<HTMLInputElement>(null);
   const mobileSearchInputRef = useRef<HTMLInputElement>(null);
 
-  // ... (Keep your existing useEffects exactly as they are)
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -70,7 +69,6 @@ export default function Header() {
           
           {/* MOBILE ONLY: Left-aligned Utility Group (Cart Only) */}
           <div className={styles.mobileLeftIcons}>
-            {/* 🌟 Updated to Link */}
             <Link href="/cart" className={styles.iconButton} aria-label="Shopping Cart">
               <div className={styles.cartIconWrapper}>
                 <svg className={styles.svgIcon} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
@@ -148,7 +146,6 @@ export default function Header() {
               </svg>
             </Link>
 
-            {/* 🌟 Updated to Link */}
             <Link href="/cart" className={styles.iconButton} aria-label="Shopping Cart">
               <div className={styles.cartIconWrapper}>
                 <svg className={styles.svgIcon} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
@@ -238,10 +235,13 @@ export default function Header() {
           <Link href="/login" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Vault</Link>
         </nav>
         
-        {/* 🌟 Updated Footer to Link */}
+        {/* 🌟 New Mobile Menu Footer containing Authentication Links */}
         <div className={styles.mobileDrawerFooter}>
-          <Link href="/cart" className={styles.mobileCartBtn} onClick={() => setIsMobileMenuOpen(false)}>
-            View Cart ({cartCount})
+          <Link href="/login" className={styles.mobileSignInBtn} onClick={() => setIsMobileMenuOpen(false)}>
+            Login
+          </Link>
+          <Link href="/register" className={styles.mobileSignUpBtn} onClick={() => setIsMobileMenuOpen(false)}>
+            Sign up
           </Link>
         </div>
       </aside>

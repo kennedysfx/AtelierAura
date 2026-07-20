@@ -1,0 +1,234 @@
+/* cosmetics.module.css */
+
+.pageWrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #FAFAFA; /* Matches the slight off-white of the screenshots */
+}
+
+.productSection {
+  margin-bottom: 80px;
+}
+
+.sectionHeader {
+  text-align: center;
+  font-family: 'Playfair Display', serif; /* Use your global serif font here */
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  color: #111;
+  margin-bottom: 40px;
+}
+
+.sectionHeaderSecondary {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  letter-spacing: 1.5px;
+  color: #111;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   GRID ARCHITECTURE 
+   ========================================= */
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+  gap: 25px; 
+}
+
+/* =========================================
+   PRODUCT CARD STYLING
+   ========================================= */
+.productCard {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+}
+
+.imageLinkWrapper {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.imageContainer {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #F0F0F0; /* Soft gray for image backgrounds */
+  aspect-ratio: 4 / 5;
+}
+
+.productImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.imageContainer:hover .productImage {
+  transform: scale(1.03);
+}
+
+.cartIconButton {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.cartIconButton:hover {
+  background: #111;
+  color: #fff;
+}
+
+.cartIcon {
+  width: 20px;
+  height: 20px;
+}
+
+/* =========================================
+   PRODUCT DETAILS STYLING
+   ========================================= */
+.productDetails {
+  padding: 20px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.brandName {
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.productName {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 15px 0;
+}
+
+/* Size Selectors mimicking your screenshot */
+.sizeSelectorGroup {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.sizeBox {
+  background: transparent;
+  border: 1px solid #E0E0E0;
+  padding: 8px 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #A0A0A0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sizeBox:hover {
+  border-color: #111;
+  color: #111;
+}
+
+.activeSize {
+  border-color: #111;
+  color: #111;
+  font-weight: 500;
+}
+
+/* Bold black price button */
+.priceBlockButton {
+  width: 100%;
+  background-color: #111;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  padding: 16px 0;
+  border: none;
+  cursor: pointer;
+  margin-top: auto; /* Pushes the button to the bottom of the card uniformly */
+  transition: background-color 0.2s ease;
+}
+
+.priceBlockButton:hover {
+  background-color: #c0a060;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 768px) {
+  .pageWrapper {
+    padding: 20px 15px;
+  }
+
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns stacked on mobile */
+    gap: 15px; 
+  }
+  
+  .sectionHeader {
+    font-size: 1.8rem;
+  }
+  
+  .sectionHeaderSecondary {
+    font-size: 1.5rem;
+  }
+
+  .productName {
+    font-size: 1rem;
+  }
+  
+  .brandName {
+    font-size: 0.65rem;
+  }
+  
+  .sizeBox {
+    padding: 6px 8px;
+    font-size: 0.7rem;
+  }
+  
+  .cartIconButton {
+    width: 35px;
+    height: 35px;
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .cartIcon {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .priceBlockButton {
+    padding: 12px 0;
+    font-size: 1rem;
+  }
+}

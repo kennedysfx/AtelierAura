@@ -263,13 +263,56 @@
   color: var(--accent-gold);
 }
 
+/* Stacked layout to match the reference structure */
 .mobileDrawerFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
   margin-top: auto;
-  margin-bottom: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+   margin-bottom: 3rem;
+  border-top: 1px solid #eaeaea; /* Subtle divider */
 }
 
+/* Sign In: Clean outline style */
+.mobileSignInBtn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 14px 24px;
+  border: 1px solid #000000; /* Crisp dark border */
+  background-color: transparent;
+  color: #000000;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: inherit; /* Forces it to use your global website font */
+  letter-spacing: 0.5px; /* Adds a touch of breathing room for a premium feel */
+  transition: all 0.2s ease;
+}
+
+.mobileSignInBtn:hover {
+  background-color: #f5f5f5;
+}
+
+/* Sign Up: Solid standout style */
+.mobileSignUpBtn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 14px 24px;
+  background-color: #000000; /* Solid dark background */
+  color: #ffffff; /* Contrast text */
+  border: 1px solid #000000;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: inherit; /* Forces it to use your global website font */
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s ease;
+}
+
+.mobileSignUpBtn:hover {
+  opacity: 0.8;
+}
 .mobileCartBtn {
   font-family: var(--font-sans);
   font-size: 0.9rem;
@@ -349,4 +392,15 @@
     display: flex;
     z-index: 10;
   }
+}
+@media (max-width: 768px) {
+  .mobileDrawerFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  margin-top: auto;
+   margin-bottom: -2.5rem;
+  border-top: 1px solid #eaeaea; /* Subtle divider */
+}
 }
