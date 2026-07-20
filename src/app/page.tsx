@@ -362,7 +362,7 @@ return (
             {/* Embedded overlapping PNG Image Container */}
 <div className={styles.overlapImageContainer}>
   <Image 
-    src={`/featurepic/${perfume.asset}.png`} 
+    src={`/featurepic/${perfume.asset}.webp`} 
     alt={perfume.name} 
     fill // Tells it to adapt completely to your container dimensions
     sizes="(max-width: 768px) 80vw, 40vw" // Helps Next.js optimize the asset weight for mobile screens
@@ -485,7 +485,7 @@ return (
     {/* Celebrity 1: Ranbir Kapoor */}
     <div className={styles.celebCard}>
       <Image 
-        src="/celebrities/ranbir-kapoor.jpg" 
+        src="/celebrities/ranbir-kapoor.avif" 
         alt="Ranbir Kapoor" 
         fill
         sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -497,7 +497,7 @@ return (
       >
         <div className={styles.celebProductBadge}>
           <Image 
-            src="/bestseller/noir.png" 
+            src="/bestseller/noir.webp" 
             alt="Vallure Noir Bottle" 
             fill
             sizes="80px"
@@ -514,7 +514,7 @@ return (
     {/* Celebrity 2: Sobhita Dhulipala */}
     <div className={styles.celebCard}>
       <Image 
-        src="/celebrities/sobhita-dhulipala.jpg" 
+        src="/celebrities/sobhita-dhulipala.avif" 
         alt="Sobhita Dhulipala" 
         fill
         sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -526,7 +526,7 @@ return (
       >
         <div className={styles.celebProductBadge}>
           <Image 
-            src="/bestseller/elixir.png" 
+            src="/bestseller/elixir.webp" 
             alt="Aurelius Elixir Bottle" 
             fill
             sizes="80px"
@@ -543,7 +543,7 @@ return (
     {/* Celebrity 3: Regé-Jean Page */}
     <div className={styles.celebCard}>
       <Image 
-        src="/celebrities/rege-jean-page.jpg" 
+        src="/celebrities/rege-jean-page.avif" 
         alt="Regé-Jean Page" 
         fill
         sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -555,7 +555,7 @@ return (
       >
         <div className={styles.celebProductBadge}>
           <Image 
-            src="/bestseller/argent.png" 
+            src="/bestseller/argent.webp" 
             alt="Argent Noir Bottle" 
             fill
             sizes="80px"
@@ -572,7 +572,7 @@ return (
     {/* Celebrity 4: Anya Taylor-Joy */}
     <div className={styles.celebCard}>
       <Image 
-        src="/celebrities/anya-taylor-joy.jpg" 
+        src="/celebrities/anya-taylor-joy.avif" 
         alt="Anya Taylor-Joy" 
         fill
         sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -584,7 +584,7 @@ return (
       >
         <div className={styles.celebProductBadge}>
           <Image 
-            src="/bestseller/santal.png" 
+            src="/bestseller/santal.webp" 
             alt="Santal Impérial Bottle" 
             fill
             sizes="80px"
@@ -611,7 +611,7 @@ return (
     <div className={styles.collectionCard}>
       <div className={styles.collectionImageRing}>
         <img 
-          src="/bestseller/cristal.png" 
+          src="/bestseller/cristal.webp" 
           alt="Cristal de Soie Collection" 
           className={styles.collectionImage} 
         />
@@ -626,7 +626,7 @@ return (
     <div className={styles.collectionCard}>
       <div className={styles.collectionImageRing}>
         <img 
-          src="/bestseller/absolu.png" 
+          src="/bestseller/absolu.webp" 
           alt="Rouge Absolu Collection" 
           className={styles.collectionImage} 
         />
@@ -641,7 +641,7 @@ return (
     <div className={styles.collectionCard}>
       <div className={styles.collectionImageRing}>
         <img 
-          src="/bestseller/elixir.png" 
+          src="/bestseller/elixir.webp" 
           alt="Aurelius Elixir Collection" 
           className={styles.collectionImage} 
         />
@@ -656,7 +656,7 @@ return (
     <div className={styles.collectionCard}>
       <div className={styles.collectionImageRing}>
         <img 
-          src="/bestseller/santal.png" 
+          src="/bestseller/santal.webp" 
           alt="Santal Impérial Collection" 
           className={styles.collectionImage} 
         />
@@ -722,13 +722,13 @@ return (
   <div className={styles.imageBackground}>
     {/* Desktop Landscape Image */}
     <img 
-      src="/cosmetic/cosmetic-l.png" 
+      src="/cosmetic/cosmetic-l.avif" 
       alt="Atelier Aura Desktop Background" 
       className={`${styles.bgImg} ${styles.desktopImg}`}
     />
     {/* Mobile Portrait Image */}
     <img 
-      src="/cosmetic/cosmetic-p.png" 
+      src="/cosmetic/cosmetic-p.avif" 
       alt="Atelier Aura Mobile Background" 
       className={`${styles.bgImg} ${styles.mobileImg}`}
     />
@@ -782,7 +782,7 @@ return (
 {/* 2. Visual Column (Second: Right on Desktop, Bottom on Mobile) */}
 <div className={styles.aboutImageBlock}>
   <Image 
-    src="/cosmetic/about-us.png" 
+    src="/cosmetic/about-us.avif" 
     alt="Atelier Aura Artisanal Craftsmanship" 
     fill
     sizes="(max-width: 768px) 100vw, 50vw"
