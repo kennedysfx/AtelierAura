@@ -1,0 +1,589 @@
+/* ==========================================================================
+   ATELIER AURA - WOMEN'S PAGE HERO STYLING
+   ========================================================================= */
+
+.mainContainer {
+  background-color: #f7f7f7; 
+  min-height: 100vh;
+  width: 100%;
+}
+
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.imageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.heroImage {
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+.desktopImage {
+  display: block;
+}
+
+.mobileImage {
+  display: none;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  z-index: 2;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 2rem;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroSubtitle {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.35em;
+  color: #cccccc;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.heroTitle {
+  font-family: 'Cinzel', 'Didot', 'Garamond', serif;
+  font-size: 3.8rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin: 0 0 1.5rem 0;
+  text-transform: uppercase;
+}
+
+.heroDescription {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3rem;
+  max-width: 620px;
+}
+
+.heroButton {
+  font-family: 'Cinzel', 'Didot', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid #ffffff;
+  padding: 1.1rem 2.8rem;
+  cursor: pointer;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.heroButton:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+@media (max-width: 768px) {
+  .desktopImage { display: none; }
+  .mobileImage { display: block; }
+  .heroTitle { font-size: 2.4rem; letter-spacing: 0.05em; }
+  .heroDescription { font-size: 0.95rem; line-height: 1.6; margin-bottom: 2.5rem; }
+  .heroButton { padding: 0.9rem 2.2rem; font-size: 0.8rem; }
+}
+
+/* ==========================================================================
+   EDITORIAL INTRO SECTION
+   ========================================================================== */
+
+.introSection {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 4.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.introTitle {
+  font-family: 'Cinzel', 'Didot', 'Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin: 0 0 1.2rem 0;
+  color: #111111;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.introParagraph {
+  font-family: inherit; 
+  font-size: 0.95rem; 
+  font-weight: 300;
+  line-height: 1.9; 
+  max-width: 1200px;
+  width: 100%;
+  color: #2b2b2b;
+  letter-spacing: 0.04em;
+  margin: 0;
+  text-align: justify; 
+  text-justify: inter-word;
+}
+
+@media (max-width: 768px) {
+  .introSection { padding: 3rem 1.25rem; }
+  .introTitle { font-size: 1.65rem; }
+  .introParagraph { font-size: 0.85rem; line-height: 1.6; text-align: center; }
+}
+
+/* ==========================================================================
+   LUXURY CARD GRID SECTION (4 Columns Desktop, 2 Columns Tablet/Mobile)
+   ========================================================================== */
+
+.gridContainer {
+  background-color: #ffffff; 
+  width: 100%;
+  padding: 3rem 2rem 6rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns horizontally on desktop */
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1600px;
+}
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden; 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.productCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.productImageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 4.8;
+  background-color: #f1f1f1;
+  overflow: hidden;
+}
+
+.imageLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.productImage {
+  object-fit: cover !important; 
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.productCard:hover .productImage {
+  transform: scale(1.05);
+}
+
+/* Floating Cart Button */
+.cartIconBtn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  background: #ffffff;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  color: #111111;
+  transition: all 0.2s ease;
+  z-index: 2;
+  padding: 0;
+}
+
+.cartIconBtn:hover {
+  background: #111111;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.cartIconBtn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.productDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem 1rem 0 1rem;
+  flex-grow: 1; 
+}
+
+.textLink {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.productBrand {
+  font-family: inherit;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #999999;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  text-align: center; /* Brand name strictly centered */
+  width: 100%;
+}
+
+.productName {
+  font-family: 'Cinzel', 'Didot', 'Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #111111;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  transition: color 0.3s ease;
+}
+
+.textLink:hover .productName {
+  color: #777777;
+}
+
+/* Volume Selectors */
+.sizeSelector {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: auto; 
+  margin-bottom: 1.25rem; 
+  width: 100%;
+}
+
+.sizeBox {
+  font-size: 0.65rem;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid #e0e0e0;
+  color: #888888;
+  background-color: transparent;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.sizeBox:hover {
+  border-color: #bbbbbb;
+}
+
+.activeSize {
+  border-color: #111111;
+  color: #111111;
+  font-weight: 500;
+}
+
+/* Bottom Price Button Block with Luxury Gold Hover Effect */
+.priceButton {
+  width: calc(100% - 2.5rem); 
+  margin: 0 1.25rem 1.25rem 1.25rem; 
+  background-color: #111111;
+  color: #ffffff;
+  text-align: center;
+  padding: 0.85rem;
+  border: 1px solid #111111;
+  cursor: pointer;
+  font-family: 'Cinzel', 'Didot', serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.priceButton:hover {
+  background-color: #c0a060; /* Luxury Gold Hover Effect */
+  border-color: #c0a060;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (Tablet: 2 Columns Stacked)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns stacked for tablet/smaller screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .gridContainer {
+    padding: 1rem 1rem 4rem 1rem;
+  }
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 1rem;
+  }
+  .productName {
+    font-size: 0.95rem;
+  }
+  .sizeSelector {
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+  }
+  .sizeBox {
+    font-size: 0.55rem;
+    padding: 0.25rem 0.4rem;
+  }
+  .priceButton {
+    width: calc(100% - 1.5rem);
+    margin: 0 0.75rem 0.75rem 0.75rem;
+    padding: 0.7rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* ==========================================================================
+   FILTER & SORTING BAR STYLING
+   ========================================================================== */
+
+.filterBar {
+  width: 100%;
+  max-width: 1600px;
+  margin: auto 0 auto; /* Adjust this value (e.g., 2.5rem, 3rem) to push it down further */
+  padding: 0 2rem 1.5rem 2rem;
+  display: flex;
+  justify-content: flex-start;
+  background-color: #ffffff; /* <-- Add your desired background color here */
+  border-radius: 8px;
+}
+
+.filterDropdownContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.filterToggleBtn {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  padding: 0.7rem 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Cinzel', 'Didot', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #111111;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.filterToggleBtn:hover {
+  border-color: #111111;
+  background-color: #fafafa;
+}
+
+.filterToggleBtn svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+}
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+  min-width: 240px;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownItem {
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 0.65rem 1.25rem;
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 0.9rem;
+  color: #333333;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.dropdownItem:hover {
+  background: #f7f7f7;
+  color: #111111;
+}
+
+.activeOption {
+  font-weight: 600;
+  color: #111111;
+  background: #f1f1f1;
+}
+
+/* ==========================================================================
+   LUXURY FEATURES SECTION - PURE OBSIDIAN BLACK
+   ========================================================================== */
+
+.luxuryFeaturesSection {
+  background-color: #c5a880; /* Pure deep black background */
+  padding: 80px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.luxuryFeaturesContainer {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+/* Individual Feature Cards */
+.luxuryFeatureCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+/* Icon Container dimensions */
+.luxuryIconWrapper {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Premium Gold Accent Styling for Vector SVGs */
+.luxurySvgIcon {
+  width: 100%;
+  height: 100%;
+  color: #000000; /* Elegant, premium champagne gold */
+  filter: drop-shadow(0px 2px 6px rgba(197, 168, 128, 0.2)); /* Soft upscale glow */
+}
+
+/* Text block typography */
+.luxuryTextContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.luxuryFeatureTitle {
+  font-family: 'Playfair Display', 'Didot', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #ffffff; /* Crystal white contrast */
+  margin: 0;
+}
+
+.luxuryFeatureDescription {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #ffffff; /* Smooth neutral-grey for readability */
+  margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (All Screens)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .luxuryFeaturesContainer {
+    gap: 32px;
+  }
+  .luxuryFeatureTitle {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .luxuryFeaturesSection {
+    padding: 60px 24px;
+  }
+  .luxuryFeaturesContainer {
+    grid-template-columns: 1fr; /* Seamless vertical stack for mobile viewports */
+    gap: 40px;
+    max-width: 460px; /* Keeps layout center-aligned and beautifully legible */
+  }
+}
+
+@media (max-width: 480px) {
+  .luxuryFeaturesSection {
+    padding: 48px 16px;
+  }
+  .luxuryFeatureCard {
+    gap: 16px;
+  }
+  .luxuryIconWrapper {
+    width: 54px;
+    height: 54px;
+  }
+}
+

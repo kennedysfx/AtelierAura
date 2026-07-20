@@ -685,13 +685,13 @@ return (
         sizes="(max-width: 768px) 100vw, 50vw"
         className={styles.shopCategoryImg} 
       />
-      <div className={styles.shopTextOverlay}>
-        <h3 className={styles.shopTitle}>For Him</h3>
-        <a href="/collections/pour-homme" className={styles.shopLink}>
-          SHOP now
-        </a>
-      </div>
+<div className={styles.shopTextOverlay}>
+      <h3 className={styles.shopTitle}>For Him</h3>
+      <Link href="/mens" className={styles.shopLink}>
+        SHOP now
+      </Link>
     </div>
+  </div>
 
     {/* FOR HER CARD */}
     <div className={styles.shopCategoryItem}>
@@ -702,13 +702,13 @@ return (
         sizes="(max-width: 768px) 100vw, 50vw"
         className={styles.shopCategoryImg} 
       />
-      <div className={styles.shopTextOverlay}>
-        <h3 className={styles.shopTitle}>For Her</h3>
-        <a href="/collections/pour-femme" className={styles.shopLink}>
-          SHOP now
-        </a>
-      </div>
+<div className={styles.shopTextOverlay}>
+      <h3 className={styles.shopTitle}>For Her</h3>
+      <Link href="/womens" className={styles.shopLink}>
+        SHOP now
+      </Link>
     </div>
+  </div>
 
   </div>
 </section>

@@ -3,10 +3,12 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import styles from "./Header.module.css";
 import { useCart } from "@/context/CartContext"; 
 
 export default function Header() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
@@ -95,6 +97,7 @@ export default function Header() {
                 <span className={styles.secondaryText}>For Men</span>
               </span>
             </Link>
+    
             <Link href="/cosmetics" className={styles.navLink}>Cosmetics</Link>
           </nav>
 
@@ -112,6 +115,9 @@ export default function Header() {
 
           {/* Desktop Right: Actions */}
           <nav className={styles.navGroupRight}>
+            {pathname !== '/' && (
+              <Link href="/" className={styles.navLink}>Home</Link>
+            )}
             <Link href="/contact" className={styles.navLink}>Contact</Link>
             
             <div className={`${styles.searchContainer} ${isSearchOpen ? styles.searchActive : ""}`}>
@@ -222,7 +228,9 @@ export default function Header() {
         </div>
 
         <nav className={styles.mobileNav}>
-          <Link href="/" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>home</Link>
+          {pathname !== '/' && (
+            <Link href="/" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>home</Link>
+          )}
           <Link href="/womens" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>For Women</Link>
           <Link href="/mens" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>For Men</Link>
           <Link href="/cosmetics" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Cosmetics</Link>

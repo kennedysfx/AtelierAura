@@ -265,6 +265,7 @@
 
 .mobileDrawerFooter {
   margin-top: auto;
+  margin-bottom: 3rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
