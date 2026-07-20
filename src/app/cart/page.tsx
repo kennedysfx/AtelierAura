@@ -2,11 +2,14 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation"; // 🌟 Imported useRouter for history navigation
 import styles from "./cart.module.css";
 import { useCart } from "@/context/CartContext"; 
 
 export default function CartPage() {
-  // 🌟 Pulling live data and functions directly from the Context
+  const router = useRouter(); // 🌟 Initialized the router instance
+  
+  // Pulling live data and functions directly from the Context
   const { cartItems, updateQuantity, removeItem } = useCart();
 
   // Local state just for the order note input field
@@ -32,9 +35,14 @@ export default function CartPage() {
           {cartItems.length === 0 ? (
             <div className={styles.emptyCartNotice}>
               <p>Your luxury curation edit is currently empty.</p>
-              <Link href="/" className={styles.continueShoppingBtn}>
+              {/* 🌟 Changed from Link to button with router.back() */}
+              <button 
+                type="button" 
+                onClick={() => router.back()} 
+                className={styles.continueShoppingBtn}
+              >
                 Discover Fragrances
-              </Link>
+              </button>
             </div>
           ) : (
             <>
@@ -53,6 +61,7 @@ export default function CartPage() {
                       <span className={styles.itemSelectedSizeBadge}>Size: {item.selectedSize}</span>
                       
                       <button 
+                        type="button"
                         onClick={() => removeItem(item.id, item.selectedSize)} 
                         className={styles.removeItemActionTextBtn}
                       >
@@ -63,9 +72,9 @@ export default function CartPage() {
                     <div className={styles.itemPriceAndQuantityControlsMatrix}>
                       <span className={styles.itemUnitDynamicPrice}>{item.price}</span>
                       <div className={styles.quantityIncrementalStepperControl}>
-                        <button onClick={() => updateQuantity(item.id, item.selectedSize, -1)} className={styles.qtyAdjustmentMathBtn}>−</button>
+                        <button type="button" onClick={() => updateQuantity(item.id, item.selectedSize, -1)} className={styles.qtyAdjustmentMathBtn}>−</button>
                         <span className={styles.qtyValueDisplayLabel}>{item.quantity}</span>
-                        <button onClick={() => updateQuantity(item.id, item.selectedSize, 1)} className={styles.qtyAdjustmentMathBtn}>+</button>
+                        <button type="button" onClick={() => updateQuantity(item.id, item.selectedSize, 1)} className={styles.qtyAdjustmentMathBtn}>+</button>
                       </div>
                     </div>
                   </div>
@@ -109,15 +118,21 @@ export default function CartPage() {
 
               <div className={styles.checkoutInteractionsRowButtonGroup}>
                 <button 
+                  type="button"
                   onClick={() => alert("Proceeding to secure payment gate...")} 
                   className={styles.addToCartDrawerTriggerBtn}
                 >
                   Checkout
                 </button>
                 
-                <Link href="/" className={styles.instantPurchaseDirectCheckoutBtn}>
+                {/* 🌟 Changed from Link to button with router.back() */}
+                <button 
+                  type="button"
+                  onClick={() => router.back()} 
+                  className={styles.instantPurchaseDirectCheckoutBtn}
+                >
                   Continue Shopping
-                </Link>
+                </button>
               </div>
             </div>
           </div>

@@ -10,25 +10,25 @@ const womensProducts = [
   // ==========================================
   // BEST SELLERS: HER
   // ==========================================
-  { id: "dore", name: "VALLURE DORÉ", brand: "ATELIER AURA", price: "₦210,000", image: "/bestseller/dore.png" },
-  { id: "blanc", name: "VALLURE BLANC", brand: "ATELIER AURA", price: "₦175,000", image: "/bestseller/blanc.png" },
-  { id: "cristal", name: "Cristal de Soie", brand: "PALAIS DE VERRE", price: "₦200,000", image: "/bestseller/cristal.png" },
-  { id: "ambre", name: "Ambre Sacré", brand: "L’ÉCORCE DORÉE", price: "₦190,000", image: "/bestseller/ambre.png" },
-  { id: "absolu", name: "Rouge Absolu", brand: "VELOURS & BRUME", price: "₦220,000", image: "/bestseller/absolu.png" },
+  { id: "dore", name: "VALLURE DORÉ", brand: "ATELIER AURA", price: "₦210,000", image: "/bestseller/dore.webp" },
+  { id: "blanc", name: "VALLURE BLANC", brand: "ATELIER AURA", price: "₦175,000", image: "/bestseller/blanc.webp" },
+  { id: "cristal", name: "Cristal de Soie", brand: "PALAIS DE VERRE", price: "₦200,000", image: "/bestseller/cristal.webp" },
+  { id: "ambre", name: "Ambre Sacré", brand: "L’ÉCORCE DORÉE", price: "₦190,000", image: "/bestseller/ambre.webp" },
+  { id: "absolu", name: "Rouge Absolu", brand: "VELOURS & BRUME", price: "₦220,000", image: "/bestseller/absolu.webp" },
 
   // ==========================================
   // SWIPEABLE SHOWCASE PRODUCTS
   // ==========================================
-  { id: "sauvage", name: "Sauvage Parfum", brand: "DIOR", price: "₦185,000", image: "/featurepic/Sauvage.png" },
-  { id: "armani", name: "You Intensely", brand: "EMPORIO ARMANI", price: "₦145,000", image: "/featurepic/Armani.png" },
-  { id: "ysl", name: "Libre Le Parfum", brand: "YVES SAINT LAURENT", price: "₦195,000", image: "/featurepic/YSL.png" },
-  { id: "old", name: "Old Money", brand: "ATELIER AURA", price: "₦85,000", image: "/featurepic/Old.png" },
-  { id: "haltane", name: "Haltane", brand: "PARFUMS DE MARLY", price: "₦320,000", image: "/featurepic/Haltane.png" },
-  { id: "cherry", name: "Cherry", brand: "TOM FORD", price: "₦75,000", image: "/featurepic/Cherry.png" },
-  { id: "lattafa", name: "Khamrah", brand: "LATTAFA", price: "₦65,000", image: "/featurepic/Lattafa.png" },
-  { id: "imperial", name: "Imperial", brand: "CREED", price: "₦95,000", image: "/featurepic/Imperial.png" },
-  { id: "acqua", name: "Acqua Di Gio", brand: "GIORGIO ARMANI", price: "₦140,000", image: "/featurepic/Acqua.png" },
-  { id: "bleu", name: "Bleu de Chanel", brand: "CHANEL", price: "₦175,000", image: "/featurepic/Bleu.png" }
+  { id: "sauvage", name: "Sauvage Parfum", brand: "DIOR", price: "₦185,000", image: "/featurepic/Sauvage.webp" },
+  { id: "armani", name: "You Intensely", brand: "EMPORIO ARMANI", price: "₦145,000", image: "/featurepic/Armani.webp" },
+  { id: "ysl", name: "Libre Le Parfum", brand: "YVES SAINT LAURENT", price: "₦195,000", image: "/featurepic/YSL.webp" },
+  { id: "old", name: "Old Money", brand: "ATELIER AURA", price: "₦85,000", image: "/featurepic/Old.webp" },
+  { id: "haltane", name: "Haltane", brand: "PARFUMS DE MARLY", price: "₦320,000", image: "/featurepic/Haltane.webp" },
+  { id: "cherry", name: "Cherry", brand: "TOM FORD", price: "₦75,000", image: "/featurepic/Cherry.webp" },
+  { id: "lattafa", name: "Khamrah", brand: "LATTAFA", price: "₦65,000", image: "/featurepic/Lattafa.webp" },
+  { id: "imperial", name: "Imperial", brand: "CREED", price: "₦95,000", image: "/featurepic/Imperial.webp" },
+  { id: "acqua", name: "Acqua Di Gio", brand: "GIORGIO ARMANI", price: "₦140,000", image: "/featurepic/Acqua.webp" },
+  { id: "bleu", name: "Bleu de Chanel", brand: "CHANEL", price: "₦175,000", image: "/featurepic/Bleu.webp" }
 ];
 
 // Sub-component to manage individual card state (selected size) cleanly
@@ -95,13 +95,12 @@ function ProductCard({ product }: { product: typeof womensProducts[0] }) {
         </div>
       </div>
 
-      <button 
-        type="button"
+      <Link 
+        href={`/product/${product.id}`}
         className={styles.priceButton}
-        onClick={handleAddToCart}
       >
         {product.price}
-      </button>
+      </Link>
     </div>
   );
 }
@@ -151,10 +150,10 @@ export default function WomensPage() {
       {/* HERO SECTION */}
       <section className={styles.heroSection}>
         <div className={`${styles.imageWrapper} ${styles.desktopImage}`}>
-          <Image src="/women/womenhero-l.png" alt="Atelier Aura Women Luxury Collection - Desktop View" fill priority sizes="100vw" className={styles.heroImage} />
+          <Image src="/women/womenhero-l.avif" alt="Atelier Aura Women Luxury Collection - Desktop View" fill priority sizes="100vw" className={styles.heroImage} />
         </div>
         <div className={`${styles.imageWrapper} ${styles.mobileImage}`}>
-          <Image src="/women/womenhero-p.png" alt="Atelier Aura Women Luxury Collection - Mobile View" fill priority sizes="100vw" className={styles.heroImage} />
+          <Image src="/women/womenhero-p.avif" alt="Atelier Aura Women Luxury Collection - Mobile View" fill priority sizes="100vw" className={styles.heroImage} />
         </div>
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
@@ -242,7 +241,7 @@ export default function WomensPage() {
 
             {/* ==========================================
     LUXURY FEATURES SECTION (PURE BLACK + EXACT SVGS)
-   ========================================== */}
+    ========================================== */}
 <section className={styles.luxuryFeaturesSection}>
   <div className={styles.luxuryFeaturesContainer}>
     
@@ -327,7 +326,6 @@ export default function WomensPage() {
 
   </div>
 </section>
-
 
     </main>
   );

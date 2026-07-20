@@ -7,18 +7,18 @@ import { useCart } from "@/context/CartContext";
 import styles from './mens.module.css';
 
 const mensProducts = [
-  { id: "rouge", name: "VALLURE ROUGE", brand: "ATELIER AURA", price: "₦180,000", image: "/bestseller/rouge.png" },
-  { id: "noir", name: "VALLURE NOIR", brand: "ATELIER AURA", price: "₦195,000", image: "/bestseller/noir.png" },
-  { id: "elixir", name: "Aurelius Elixir", brand: "MAISON D’OR", price: "₦95,000", image: "/bestseller/elixir.png" },
-  { id: "argent", name: "Argent Noir", brand: "ONYX & CO.", price: "₦200,000", image: "/bestseller/argent.png" },
-  { id: "santal", name: "Santal Impérial", brand: "ATELIER VILLION", price: "₦185,000", image: "/bestseller/santal.png" },
-  { id: "sauvage", name: "Sauvage Parfum", brand: "DIOR", price: "₦185,000", image: "/featurepic/Sauvage.png" },
-  { id: "armani", name: "You Intensely", brand: "EMPORIO ARMANI", price: "₦145,000", image: "/featurepic/Armani.png" },
-  { id: "old", name: "Old Money", brand: "ATELIER AURA", price: "₦85,000", image: "/featurepic/Old.png" },
-  { id: "haltane", name: "Haltane", brand: "PARFUMS DE MARLY", price: "₦320,000", image: "/featurepic/Haltane.png" },
-  { id: "imperial", name: "Imperial", brand: "CREED", price: "₦95,000", image: "/featurepic/Imperial.png" },
-  { id: "acqua", name: "Acqua Di Gio", brand: "GIORGIO ARMANI", price: "₦140,000", image: "/featurepic/Acqua.png" },
-  { id: "bleu", name: "Bleu de Chanel", brand: "CHANEL", price: "₦175,000", image: "/featurepic/Bleu.png" }
+  { id: "rouge", name: "VALLURE ROUGE", brand: "ATELIER AURA", price: "₦180,000", image: "/bestseller/rouge.webp" },
+  { id: "noir", name: "VALLURE NOIR", brand: "ATELIER AURA", price: "₦195,000", image: "/bestseller/noir.webp" },
+  { id: "elixir", name: "Aurelius Elixir", brand: "MAISON D’OR", price: "₦95,000", image: "/bestseller/elixir.webp" },
+  { id: "argent", name: "Argent Noir", brand: "ONYX & CO.", price: "₦200,000", image: "/bestseller/argent.webp" },
+  { id: "santal", name: "Santal Impérial", brand: "ATELIER VILLION", price: "₦185,000", image: "/bestseller/santal.webp" },
+  { id: "sauvage", name: "Sauvage Parfum", brand: "DIOR", price: "₦185,000", image: "/featurepic/Sauvage.webp" },
+  { id: "armani", name: "You Intensely", brand: "EMPORIO ARMANI", price: "₦145,000", image: "/featurepic/Armani.webp" },
+  { id: "old", name: "Old Money", brand: "ATELIER AURA", price: "₦85,000", image: "/featurepic/Old.webp" },
+  { id: "haltane", name: "Haltane", brand: "PARFUMS DE MARLY", price: "₦320,000", image: "/featurepic/Haltane.webp" },
+  { id: "imperial", name: "Imperial", brand: "CREED", price: "₦95,000", image: "/featurepic/Imperial.webp" },
+  { id: "acqua", name: "Acqua Di Gio", brand: "GIORGIO ARMANI", price: "₦140,000", image: "/featurepic/Acqua.webp" },
+  { id: "bleu", name: "Bleu de Chanel", brand: "CHANEL", price: "₦175,000", image: "/featurepic/Bleu.webp" }
 ];
 
 // Sub-component to manage individual card state (selected size) cleanly
@@ -85,13 +85,12 @@ function ProductCard({ product }: { product: typeof mensProducts[0] }) {
         </div>
       </div>
 
-      <button 
-        type="button"
+      <Link 
+        href={`/product/${product.id}`}
         className={styles.priceButton}
-        onClick={handleAddToCart}
       >
         {product.price}
-      </button>
+      </Link>
     </div>
   );
 }
@@ -141,10 +140,10 @@ export default function MensPage() {
       {/* HERO SECTION */}
       <section className={styles.heroSection}>
         <div className={`${styles.imageWrapper} ${styles.desktopImage}`}>
-          <Image src="/mens/menhero-l.png" alt="Desktop View" fill priority sizes="100vw" className={styles.heroImage} />
+          <Image src="/mens/menhero-l.avif" alt="Desktop View" fill priority sizes="100vw" className={styles.heroImage} />
         </div>
         <div className={`${styles.imageWrapper} ${styles.mobileImage}`}>
-          <Image src="/mens/menhero-p.png" alt="Mobile View" fill priority sizes="100vw" className={styles.heroImage} />
+          <Image src="/mens/menhero-p.avif" alt="Mobile View" fill priority sizes="100vw" className={styles.heroImage} />
         </div>
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
@@ -231,7 +230,7 @@ export default function MensPage() {
       </section>
 
       {/* ==========================================
-    LUXURY FEATURES SECTION (PURE BLACK + EXACT SVGS)
+   LUXURY FEATURES SECTION (PURE BLACK + EXACT SVGS)
    ========================================== */}
 <section className={styles.luxuryFeaturesSection}>
   <div className={styles.luxuryFeaturesContainer}>
@@ -317,7 +316,6 @@ export default function MensPage() {
 
   </div>
 </section>
-
 
     </main>
   );

@@ -7,27 +7,27 @@ import Image from 'next/image';
 import styles from "./home.module.css";
 
 const slides = [
-  { id: "vallure", landscape: "/hero/Vallure-l.png", portrait: "/hero/Vallure-p.png", title: "THE VALLURE COLLECTION", subtitle: "The Undisputed Pinnacle of Modern Haute Parfumerie.", titleColor: "#D4AF37", subtitleColor: "#FFFFFF" },
-  { id: "blanc", landscape: "/hero/Blanc-l.png", portrait: "/hero/Blanc-p.png", title: "VALLURE BLANC", subtitle: "Arguably the Purest, Most Luminous Skin Scent on the Planet.", titleColor: "#E0E0E0", subtitleColor: "#FFFFFF" },
-  { id: "noir", landscape: "/hero/Noir-l.png", portrait: "/hero/Noir-p.png", title: "VALLURE NOIR", subtitle: "The Longest-Lasting Night Fragrance Ever Crafted.", titleColor: "#C0A060", subtitleColor: "#D3D3D3" },
-  { id: "rouge", landscape: "/hero/Rouge-l.png", portrait: "/hero/Rouge-p.png", title: "VALLURE ROUGE", subtitle: "A Ferociously Bold Projection That Commands the Room.", titleColor: "#9B111E", subtitleColor: "#333333" },
-  { id: "dore", landscape: "/hero/Dore-l.png", portrait: "/hero/Dore-p.png", title: "VALLURE DORÉ", subtitle: "Unmatched Golden Opulence That Lingers for Days.", titleColor: "#DAA520", subtitleColor: "#333333" },
+  { id: "vallure", landscape: "/hero/Vallure-l.webp", portrait: "/hero/Vallure-p.webp", title: "THE VALLURE COLLECTION", subtitle: "The Undisputed Pinnacle of Modern Haute Parfumerie.", titleColor: "#D4AF37", subtitleColor: "#FFFFFF" },
+  { id: "blanc", landscape: "/hero/Blanc-l.webp", portrait: "/hero/Blanc-p.webp", title: "VALLURE BLANC", subtitle: "Arguably the Purest, Most Luminous Skin Scent on the Planet.", titleColor: "#E0E0E0", subtitleColor: "#FFFFFF" },
+  { id: "noir", landscape: "/hero/Noir-l.webp", portrait: "/hero/Noir-p.webp", title: "VALLURE NOIR", subtitle: "The Longest-Lasting Night Fragrance Ever Crafted.", titleColor: "#C0A060", subtitleColor: "#D3D3D3" },
+  { id: "rouge", landscape: "/hero/Rouge-l.webp", portrait: "/hero/Rouge-p.webp", title: "VALLURE ROUGE", subtitle: "A Ferociously Bold Projection That Commands the Room.", titleColor: "#9B111E", subtitleColor: "#333333" },
+  { id: "dore", landscape: "/hero/Dore-l.webp", portrait: "/hero/Dore-p.webp", title: "VALLURE DORÉ", subtitle: "Unmatched Golden Opulence That Lingers for Days.", titleColor: "#DAA520", subtitleColor: "#333333" },
 ];
 
 const himProducts = [
-  { id: "rouge", name: "VALLURE ROUGE", brand: "ATELIER AURA", image: "/bestseller/rouge.png", price: "₦180,000", isEmpty: false },
-  { id: "noir", name: "VALLURE NOIR", brand: "ATELIER AURA", image: "/bestseller/noir.png", price: "₦195,000", isEmpty: false },
-  { id: "elixir", name: "Aurelius Elixir", brand: "Maison d’Or", image: "/bestseller/elixir.png", price: "₦95,000", isEmpty: false },
-  { id: "argent", name: "Argent Noir", brand: "Onyx & Co.", image: "/bestseller/argent.png", price: "₦200,000", isEmpty: false },
-  { id: "santal", name: "Santal Impérial", brand: "Atelier Villion", image: "/bestseller/santal.png", price: "₦185,000", isEmpty: false },
+  { id: "rouge", name: "VALLURE ROUGE", brand: "ATELIER AURA", image: "/bestseller/rouge.webp", price: "₦180,000", isEmpty: false },
+  { id: "noir", name: "VALLURE NOIR", brand: "ATELIER AURA", image: "/bestseller/noir.webp", price: "₦195,000", isEmpty: false },
+  { id: "elixir", name: "Aurelius Elixir", brand: "Maison d’Or", image: "/bestseller/elixir.webp", price: "₦95,000", isEmpty: false },
+  { id: "argent", name: "Argent Noir", brand: "Onyx & Co.", image: "/bestseller/argent.webp", price: "₦200,000", isEmpty: false },
+  { id: "santal", name: "Santal Impérial", brand: "Atelier Villion", image: "/bestseller/santal.webp", price: "₦185,000", isEmpty: false },
 ];
 
 const herProducts = [
-  { id: "dore", name: "VALLURE DORÉ", brand: "ATELIER AURA", image: "/bestseller/dore.png", price: "₦210,000", isEmpty: false },
-  { id: "blanc", name: "VALLURE BLANC", brand: "ATELIER AURA", image: "/bestseller/blanc.png", price: "₦175,000", isEmpty: false },
-  { id: "cristal", name: "Cristal de Soie", brand: "Palais de Verre", image: "/bestseller/cristal.png", price: "₦200,000", isEmpty: false },
-  { id: "ambre", name: "Ambre Sacré", brand: "L’Écorce Dorée", image: "/bestseller/ambre.png", price: "₦190,000", isEmpty: false },
-  { id: "absolu", name: "Rouge Absolu", brand: "Velours & Brume", image: "/bestseller/absolu.png", price: "₦220,000", isEmpty: false },
+  { id: "dore", name: "VALLURE DORÉ", brand: "ATELIER AURA", image: "/bestseller/dore.webp", price: "₦210,000", isEmpty: false },
+  { id: "blanc", name: "VALLURE BLANC", brand: "ATELIER AURA", image: "/bestseller/blanc.webp", price: "₦175,000", isEmpty: false },
+  { id: "cristal", name: "Cristal de Soie", brand: "Palais de Verre", image: "/bestseller/cristal.webp", price: "₦200,000", isEmpty: false },
+  { id: "ambre", name: "Ambre Sacré", brand: "L’Écorce Dorée", image: "/bestseller/ambre.webp", price: "₦190,000", isEmpty: false },
+  { id: "absolu", name: "Rouge Absolu", brand: "Velours & Brume", image: "/bestseller/absolu.webp", price: "₦220,000", isEmpty: false },
 ];
 
 export default function Home() {

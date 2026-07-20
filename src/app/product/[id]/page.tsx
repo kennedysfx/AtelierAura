@@ -24,7 +24,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "VALLURE ROUGE",
     brand: "ATELIER AURA",
     price: "₦180,000",
-    image: "/bestseller/rouge.png",
+    image: "/bestseller/rouge.webp",
     description: "A striking, passionate statement. Vallure Rouge opens with a burst of spiced woods and settles into a deeply intoxicating, warm embrace meant for the modern gentleman.",
     sizes: ["50ml", "100ml"],
     notes: { top: "Spiced Cardamom, Blood Orange", heart: "Smoked Rose, Cinnamon", base: "Oud, Warm Amber" }
@@ -33,7 +33,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "VALLURE NOIR",
     brand: "ATELIER AURA",
     price: "₦195,000",
-    image: "/bestseller/noir.png",
+    image: "/bestseller/noir.webp",
     description: "The essence of midnight elegance. Vallure Noir captures the mystery of a dark tailored suit with deep, rich leather and sophisticated peppery undertones.",
     sizes: ["50ml", "100ml"],
     notes: { top: "Black Pepper, Bergamot", heart: "Dark Leather, Vetiver", base: "Patchouli, Ebony Wood" }
@@ -42,7 +42,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "Aurelius Elixir",
     brand: "MAISON D’OR",
     price: "₦95,000",
-    image: "/bestseller/elixir.png",
+    image: "/bestseller/elixir.webp",
     description: "A golden potion of refinement. Aurelius Elixir balances bright citrus with a creamy, resonant heart of vanilla and rare woods.",
     sizes: ["100ml"],
     notes: { top: "Sicilian Lemon, Mint", heart: "Vanilla Bean, Jasmine", base: "Sandalwood, Musk" }
@@ -51,7 +51,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "Argent Noir",
     brand: "ONYX & CO.",
     price: "₦200,000",
-    image: "/bestseller/argent.png",
+    image: "/bestseller/argent.webp",
     description: "Cold, metallic precision meets raw earthy power. Argent Noir is an architectural masterpiece of sharp woods and aromatic greens.",
     sizes: ["50ml", "100ml"],
     notes: { top: "Juniper Berries, Cypress", heart: "Pine Needles, Cashmeran", base: "Oakmoss, Cedarwood" }
@@ -60,7 +60,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "Santal Impérial",
     brand: "ATELIER VILLION",
     price: "₦185,000",
-    image: "/bestseller/santal.png",
+    image: "/bestseller/santal.webp",
     description: "A creamy, luxurious meditation on the world's finest sandalwood. Smooth, commanding, and infinitely lingering on the skin.",
     sizes: ["50ml", "100ml", "200ml"],
     notes: { top: "Cardamom, Violet", heart: "Iris, Papyrus", base: "Australian Sandalwood, Cedar" }
@@ -73,7 +73,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "VALLURE DORÉ",
     brand: "ATELIER AURA",
     price: "₦210,000",
-    image: "/bestseller/dore.png",
+    image: "/bestseller/dore.webp",
     description: "Liquid gold in a bottle. Vallure Doré is a radiant, sun-kissed floral fragrance that exudes wealth, warmth, and untouchable glamour.",
     sizes: ["50ml", "100ml"],
     notes: { top: "Neroli, Pear", heart: "Orange Blossom, Jasmine Sambac", base: "White Amber, Vanilla" }
@@ -82,7 +82,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "VALLURE BLANC",
     brand: "ATELIER AURA",
     price: "₦175,000",
-    image: "/bestseller/blanc.png",
+    image: "/bestseller/blanc.webp",
     description: "Pure, pristine, and exquisitely clean. Vallure Blanc represents minimalist luxury with its soft white florals and ethereal musks.",
     sizes: ["50ml", "100ml"],
     notes: { top: "White Tea, Bergamot", heart: "Lily of the Valley, Freesia", base: "White Musk, Cashmere Wood" }
@@ -91,7 +91,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "Cristal de Soie",
     brand: "PALAIS DE VERRE",
     price: "₦200,000",
-    image: "/bestseller/cristal.png",
+    image: "/bestseller/cristal.webp",
     description: "As smooth as crushed silk against the skin. A sheer, crystalline fragrance that floats delicately but leaves an unforgettable impression.",
     sizes: ["50ml", "100ml"],
     notes: { top: "Pink Peony, Lychee", heart: "Rose, Magnolia", base: "Cedarwood, Amber" }
@@ -100,7 +100,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "Ambre Sacré",
     brand: "L’ÉCORCE DORÉE",
     price: "₦190,000",
-    image: "/bestseller/ambre.png",
+    image: "/bestseller/ambre.webp",
     description: "A sacred, resinous journey. Ambre Sacré envelops the wearer in a golden cloud of sweet incense and ancient, warming ambers.",
     sizes: ["50ml", "100ml"],
     notes: { top: "Incense, Pink Pepper", heart: "Benzoin, Labdanum", base: "Vanilla, Amber" }
@@ -109,7 +109,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "Rouge Absolu",
     brand: "VELOURS & BRUME",
     price: "₦220,000",
-    image: "/bestseller/absolu.png",
+    image: "/bestseller/absolu.webp",
     description: "The absolute height of floral decadence. A rich, velvety interpretation of dark red roses steeped in exotic spices and resins.",
     sizes: ["50ml", "100ml"],
     notes: { top: "Plum, Saffron", heart: "Turkish Rose, Patchouli", base: "Oud, Tonka Bean" }
@@ -122,7 +122,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "Sauvage Parfum",
     brand: "DIOR",
     price: "₦185,000",
-    image: "/featurepic/Sauvage.png",
+    image: "/featurepic/Sauvage.webp",
     description: "An intense and smooth fragrance, bursting with crisp Bergamot and mysterious Ambroxan. A raw luxury composition that leans into fierce masculinity and architectural depth.",
     sizes: ["50ml", "100ml", "200ml"],
     notes: { top: "Reggio Bergamot", heart: "Sichuan Pepper, Lavender", base: "Ambroxan, Vanilla Absolute" }
@@ -131,7 +131,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "You Intensely",
     brand: "EMPORIO ARMANI",
     price: "₦145,000",
-    image: "/featurepic/Armani.png",
+    image: "/featurepic/Armani.webp",
     description: "An addictive oriental woody fragrance that tells a story of intense, passionate love. Features deep notes of vanilla mixed with an elegant suede accord.",
     sizes: ["50ml", "100ml"],
     notes: { top: "Pink Pepper, Juniper", heart: "Lavender, Sage, Cinnamon", base: "Amber, Tonka Bean, Vanilla" }
@@ -140,7 +140,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "Libre Le Parfum",
     brand: "YVES SAINT LAURENT",
     price: "₦195,000",
-    image: "/featurepic/YSL.png",
+    image: "/featurepic/YSL.webp",
     description: "The most concentrated and long-lasting manifestation of freedom. A fiery blend where ultra-sensual orange blossom meets a burning saffron accord.",
     sizes: ["30ml", "50ml", "90ml"],
     notes: { top: "Ginger, Saffron, Mandarin", heart: "Orange Blossom, Lavender", base: "Bourbon Vanilla, Honey" }
@@ -149,7 +149,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "Old Money",
     brand: "ATELIER AURA",
     price: "₦85,000",
-    image: "/featurepic/Old.png",
+    image: "/featurepic/Old.webp",
     description: "A signature formulation evoking timeless lineage. Rich leather upholstery, warm library woods, and a quiet dash of crisp, clean, structured luxury tailored by hand.",
     sizes: ["10ml", "50ml", "100ml"],
     notes: { top: "Crushed Neroli", heart: "Florentine Iris, Antique Cedarwood", base: "Russian Leather, Soft Amber" }
@@ -158,7 +158,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "Haltane",
     brand: "PARFUMS DE MARLY",
     price: "₦320,000",
-    image: "/featurepic/Haltane.png",
+    image: "/featurepic/Haltane.webp",
     description: "An original scent of both light and shadow. A contrast of traditional rare woods and brilliant freshness, designed specifically for connoisseurs of fine artisanal blending.",
     sizes: ["125ml"],
     notes: { top: "Clary Sage, Lavender", heart: "Saffron, Praline, Oudwood", base: "Cedarwood, Elderwood, Leather" }
@@ -167,7 +167,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "Cherry",
     brand: "TOM FORD",
     price: "₦75,000",
-    image: "/featurepic/Cherry.png",
+    image: "/featurepic/Cherry.webp",
     description: "A full-bodied journey into the once-forbidden. A contrasting scent that reveals a tempting dichotomy of playful, candy-like gleam on the outside and luscious flesh on the inside.",
     sizes: ["50ml", "100ml"],
     notes: { top: "Black Cherry, Cherry Liqueur", heart: "Griot Syrup, Turkish Rose", base: "Roasted Tonka Bean, Sandalwood" }
@@ -176,7 +176,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "Khamrah",
     brand: "LATTAFA",
     price: "₦65,000",
-    image: "/featurepic/Lattafa.png",
+    image: "/featurepic/Lattafa.webp",
     description: "A luxurious oriental vanilla perfume combining precious spices, the warmth of woody notes, and the soft opulence of premium warm gourmand notes.",
     sizes: ["100ml"],
     notes: { top: "Cognac, Cinnamon, Oak", heart: "Tonka Bean, Praline, Dates", base: "Vanilla, Sandalwood, Amberwood" }
@@ -185,7 +185,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "Imperial",
     brand: "CREED",
     price: "₦95,000",
-    image: "/featurepic/Imperial.png",
+    image: "/featurepic/Imperial.webp",
     description: "A gold standard in fragrance profiles. Crisp, clean, refreshing notes of sea salt and sun-ripened Mediterranean citrus fruits nestled inside a royal musk anchor.",
     sizes: ["50ml", "100ml"],
     notes: { top: "Bergamot, Green Mandarin", heart: "Iris, Marine Sea Salt", base: "Sandalwood, Amber, Musk" }
@@ -194,7 +194,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "Acqua Di Gio",
     brand: "GIORGIO ARMANI",
     price: "₦140,000",
-    image: "/featurepic/Acqua.png",
+    image: "/featurepic/Acqua.webp",
     description: "A classic aquatic masterpiece born from the volcanic shores of the Mediterranean. Pure freshness combined with complex earthy sea minerals.",
     sizes: ["75ml", "125ml", "200ml"],
     notes: { top: "Calabrian Bergamot, Marine Notes", heart: "Rosemary, Clary Sage", base: "Patchouli, Incense" }
@@ -203,7 +203,7 @@ const PRODUCTS_REGISTRY: Record<string, {
     name: "Bleu de Chanel",
     brand: "CHANEL",
     price: "₦175,000",
-    image: "/featurepic/Bleu.png",
+    image: "/featurepic/Bleu.webp",
     description: "An ode to masculine freedom expressed in a woody aromatic fragrance with a captivating trail. A timeless scent housed in an enigmatic blue bottle.",
     sizes: ["50ml", "100ml", "150ml"],
     notes: { top: "Grapefruit, Mint, Pink Pepper", heart: "Ginger, Nutmeg, Jasmine", base: "Incense, Vetiver, Cedarwood" }
