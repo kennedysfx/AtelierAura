@@ -1,0 +1,373 @@
+/* ==========================================================================
+   ATELIER AURA - AUTH SCREEN CONTAINER ARCHITECTURE
+   ========================================================================== */
+
+.pageWrapper {
+position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;                        /* Forces it OVER your global header and footer */
+  background-color: rgba(0, 0, 0, 0.45); /* Dark transparent mask */
+  backdrop-filter: blur(4px);            /* Luxury glass effect */
+  
+  /* SCROLLING ARCHITECTURE */
+  overflow-y: auto;                      /* Allows scrolling inside the dark area */
+  display: flex;
+  padding: 40px 24px;
+  box-sizing: border-box;
+}
+
+/* Minimalist editorial escape interface node */
+.closeButton {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  color: #111111;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.closeButton:hover {
+  color: #c0a060; /* Precision gold highlight accent */
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   THE CORE COMPILATION AUTHENTICATION LAYER CARD
+   ========================================================================== */
+
+.authCard {
+margin: auto;                          /* Centers the card but respects vertical overflow */
+  position: relative;
+  
+  /* Ensure your existing background, max-width, border-radius, etc., remain here */
+  background: #FFFFFF;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.authHeader {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.authTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.1rem;
+  font-weight: 500;
+  color: #111111;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+  line-height: 1.2;
+}
+
+.authSubtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 300;
+  color: #666666;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  margin: 0;
+}
+
+/* ==========================================================================
+   DYNAMIC NOTIFICATION ENGINE WINDOWS
+   ========================================================================== */
+
+.messageBox {
+  padding: 14px 18px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.4px;
+  margin-bottom: 28px;
+  text-align: center;
+  border: 1px solid;
+  line-height: 1.5;
+}
+
+.error {
+  background-color: #FFF5F5;
+  border-color: #FFC1C1;
+  color: #C53030;
+}
+
+.success {
+  background-color: #F0FDF4;
+  border-color: #BBF7D0;
+  color: #166534;
+}
+
+/* ==========================================================================
+   FORM CONTROLS AND LUXURY SELECTION NODES
+   ========================================================================== */
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inputLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #888888;
+}
+
+.inputField {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  padding: 16px;
+  border: 1px solid #EAEAEA;
+  background-color: #FAFAFA;
+  color: #111111;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.inputField::placeholder {
+  color: #B0B0B0;
+  font-weight: 300;
+}
+
+.inputField:focus {
+  border-color: #111111;
+  background-color: #FFFFFF;
+}
+
+/* High-contrast OTP textpad targeting array */
+.otpInput {
+  letter-spacing: 12px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding-left: 24px; /* Offsets tracking to maintain horizontal visual balance */
+}
+
+/* Unified Main Action Submission Interface Button */
+.submitButton {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 18px;
+  background-color: #111111;
+  color: #FFFFFF;
+  border: 1px solid #111111;
+  cursor: pointer;
+  transition: background-color 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.submitButton:hover {
+  background-color: #c0a060; /* Shifts context directly to brand signature gold */
+  border-color: #c0a060;
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #111111;
+  border-color: #111111;
+}
+
+/* Secure secondary alignment interface step buttons */
+.backButton {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #888888;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  margin-top: 4px;
+  padding: 4px;
+  align-self: center;
+  transition: color 0.2s ease;
+}
+
+.backButton:hover {
+  color: #111111;
+}
+
+/* ==========================================================================
+   VISUAL ARCHITECTURAL SPLIT-DEVICES (OAUTH SEPARATION)
+   ========================================================================== */
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 34px 0;
+}
+
+.dividerLine {
+  flex: 1;
+  height: 1px;
+  background-color: #EAEAEA;
+}
+
+.dividerText {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #888888;
+  padding: 0 16px;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+.socialRow {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.socialButton {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid #EAEAEA;
+  background-color: #FFFFFF;
+  cursor: pointer;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.socialButton:hover {
+  border-color: #111111;
+  background-color: #FAFAFA;
+}
+
+/* ==========================================================================
+   SIGNATURE DYNAMIC LAYER TERMINUS METADATA FOOTER
+   ========================================================================== */
+
+.authFooter {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-top: 1px solid #EAEAEA;
+  padding-top: 32px;
+  margin-top: 36px;
+}
+
+.toggleText {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #444444;
+  margin: 0;
+}
+
+.toggleLink {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #111111;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 8px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  transition: color 0.2s ease;
+}
+
+.toggleLink:hover {
+  color: #c0a060;
+}
+
+.legalNotice {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 300;
+  color: #888888;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.legalLink {
+  color: #888888;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.legalLink:hover {
+  color: #111111;
+}
+
+/* ==========================================================================
+   MOBILE SCREEN RESPONSIVENESS MEDIA ADJUSTMENTS
+   ========================================================================== */
+@media (max-width: 768px) {
+.pageWrapper {
+    position: fixed;             /* Locks the view over the mobile header/footer */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999;
+    background-color: #FFFFFF;   /* Forces the entire mobile screen white */
+    overflow-y: auto;            /* Restores natural vertical scrolling */
+    display: block;              /* Removes flex centering */
+    padding: 0;                  /* Strips the gap so the card touches the screen edges */
+  }
+
+.authCard {
+    margin: 0;
+    padding: 100px 24px 40px;     /* 80px top padding ensures typography clears the close button */
+    box-shadow: none;
+    border-radius: 0;
+    max-width: 100%;
+    min-height: 100vh;           /* Guarantees the card fills the entire viewport height */
+  }
+
+.closeButton {
+    position: fixed;             /* Keeps the X locked top-right, even if the user scrolls */
+    top: 16px;
+    right: 16px;
+    z-index: 999999;             /* Forces it above all other elements */
+    color: #111111;              
+    background-color: #F7F7F7;   /* Subtle luxury circular background for visibility */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+}

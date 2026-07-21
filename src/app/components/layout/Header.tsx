@@ -139,12 +139,12 @@ export default function Header() {
               />
             </div>
 
-            <Link href="/login" className={styles.iconButton} aria-label="Vault Profile">
-              <svg className={styles.svgIcon} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-            </Link>
+<Link href="/login?mode=login" className={styles.iconButton} aria-label="Vault Profile">
+  <svg className={styles.svgIcon} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+    <circle cx="12" cy="7" r="4" />
+  </svg>
+</Link>
 
             <Link href="/cart" className={styles.iconButton} aria-label="Shopping Cart">
               <div className={styles.cartIconWrapper}>
@@ -235,15 +235,15 @@ export default function Header() {
 
         </nav>
         
-        {/* 🌟 New Mobile Menu Footer containing Authentication Links */}
-        <div className={styles.mobileDrawerFooter}>
-          <Link href="/login" className={styles.mobileSignInBtn} onClick={() => setIsMobileMenuOpen(false)}>
-            Login
-          </Link>
-          <Link href="/register" className={styles.mobileSignUpBtn} onClick={() => setIsMobileMenuOpen(false)}>
-            Sign up
-          </Link>
-        </div>
+{/* 🌟 New Mobile Menu Footer containing Authentication Links */}
+<div className={styles.mobileDrawerFooter}>
+  <Link href="/login?mode=login" className={styles.mobileSignInBtn} onClick={() => setIsMobileMenuOpen(false)}>
+    Login
+  </Link>
+  <Link href="/login?mode=register" className={styles.mobileSignUpBtn} onClick={() => setIsMobileMenuOpen(false)}>
+    Sign up
+  </Link>
+</div>
       </aside>
     </>
   );

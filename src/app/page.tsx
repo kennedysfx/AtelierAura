@@ -746,12 +746,12 @@ return (
       <p className={styles.description}>CURATE YOUR SIGNATURE AURA</p>
     </div>
     
-    {/* Button Wrapper (Pins to Bottom on Mobile, Mid-Right on Desktop) */}
-    <div className={styles.btnWrapper}>
-      <button className={styles.checkoutBtn}>
-        DISCOVER NOW
-      </button>
-    </div>
+{/* Button Wrapper (Pins to Bottom on Mobile, Mid-Right on Desktop) */}
+<div className={styles.btnWrapper}>
+  <Link href="/cosmetics" className={styles.checkoutBtn}>
+    DISCOVER NOW
+  </Link>
+</div>
     
   </div>
 </section>
