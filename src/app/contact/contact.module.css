@@ -1,0 +1,768 @@
+/* ==========================================================================
+   ATELIER AURA - GLOBAL PAGE CONTENT CONTAINER
+   ========================================================================== */
+
+.pageWrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #FAFAFA; /* Matches luxury off-white standard */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   ATELIER AURA - LUXURY FULL-BLEED HERO ARCHITECTURE
+   ========================================================================== */
+
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Deep cinematic viewport height */
+  
+  /* Forces the banner to flush to the absolute top behind your fixed navigation */
+  margin-top: 0; 
+  margin-bottom: 80px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: #FAFAFA;
+}
+
+.heroImageContainer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.heroImageLandscape {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 90%; /* Anchors the image to the bottom, cutting off the top excess */
+  display: block;
+}
+
+.heroImagePortrait {
+  display: none; /* Safely masked on desktop devices */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom; /* Anchors the mobile portrait image to the bottom */
+}
+
+/* High-end editorial studio overlay vignette */
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(250, 250, 250, 0.1) 0%,
+    rgba(27, 27, 27, 0.25) 50%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   EDITORIAL TYPOGRAPHY ARCHITECTURE
+   ========================================================================== */
+
+.heroContent {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  color: #FFFFFF;
+  max-width: 720px;
+  /* Top padding ensures perfect visual clearance below your fixed logo and links */
+  padding: 100px 24px 0 24px; 
+}
+
+.heroSubtitle {
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #EAEAEA;
+  display: block;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.6rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.heroDescription {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.7;
+  letter-spacing: 0.6px;
+  color: #E0E0E0;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================================================
+   CONCIERGE CONTENT STRUCTURE (THIS WAS MISSING!)
+   ========================================================================== */
+
+.infoSection {
+  width: 100%;
+padding: 80px 0 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.infoContainer {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr; /* Asymmetric editorial columns */
+  gap: 100px;
+  align-items: start;
+  
+}
+
+.textColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.infoHeading {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #111111;
+  letter-spacing: 1px;
+  margin: 0 0 35px 0;
+  text-transform: uppercase;
+}
+
+.infoParagraph {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: #444444;
+  letter-spacing: 0.4px;
+  margin: 0 0 25px 0;
+}
+
+.infoParagraph:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Direct Metadata Channels Card --- */
+.detailsColumn {
+  background-color: #FFFFFF;
+  border: 1px solid #EAEAEA;
+  padding: 45px 40px;
+  display: flex;
+  flex-direction: column;
+  
+  
+}
+
+.detailsHeading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #111111;
+  letter-spacing: 1px;
+  margin: 0 0 30px 0;
+  text-transform: uppercase;
+  border-bottom: 1px solid #111111;
+  padding-bottom: 12px;
+}
+
+.contactBlock {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28px;
+}
+
+.contactBlock:last-child {
+  margin-bottom: 0;
+}
+
+.contactLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #888888;
+  margin-bottom: 8px;
+}
+
+.contactLink {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #111111;
+  text-decoration: none;
+  line-height: 1.6;
+  transition: color 0.2s ease;
+  width: fit-content;
+}
+
+.contactLink:hover {
+  color: #c0a060; /* Luxury gold focus text variant */
+}
+
+.contactText {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #111111;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   MOBILE & RESPONSIVE VIEWPORTS
+   ========================================================================== */
+
+@media (max-width: 968px) {
+  .infoContainer {
+    grid-template-columns: 1fr; /* Drops asymmetric columns to single vertical stack */
+    gap: 50px;
+    padding: 0 24px;
+  }
+  
+  .infoHeading {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    height: 65vh; /* Shifts height ratio beautifully for mobile screen aspect ratios */
+    margin-bottom: 50px;
+  }
+
+  .heroImageLandscape {
+    display: none; /* Seamlessly cuts landscape asset */
+  }
+
+  .heroImagePortrait {
+    display: block; /* Mounts your precise portrait crop */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .heroContent {
+    padding: 80px 20px 0 20px;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+  }
+
+  .heroSubtitle {
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+  }
+
+  .heroDescription {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  /* Missing mobile styles for the concierge text */
+  .infoSection {
+    padding: 50px 0;
+  }
+
+  .detailsColumn {
+    padding: 35px 25px;
+  }
+}
+
+/* ==========================================================================
+   ATELIER AURA - ASYMMETRIC INTERACTIVE FORM STYLING
+   ========================================================================== */
+
+.interactiveSection {
+  width: 100%;
+  background-color: #FAFAFA;
+  padding: 20px 0 120px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.interactiveContainer {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr; /* Crisp layout split: Left info, Right inputs */
+  gap: 100px; /* Spacious luxury separation gap */
+  align-items: start;
+}
+
+/* Column Wrappers */
+.infoColumnLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.formColumnRight {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 95px;
+}
+
+/* Typography Layouts (Aligned left for editorial split screen) */
+.formIntroText {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #444444;
+  text-align: left;
+  margin: 0 0 25px 0;
+  letter-spacing: 0.3px;
+}
+
+.formMainHeading {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #111111;
+  letter-spacing: 2px;
+  text-align: left;
+  margin: 0 0 35px 0;
+  text-transform: uppercase;
+}
+
+
+.socialOptionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px; /* Leaves clear breathing space for your future element underneath */
+}
+
+.socialOptionCard {
+  background-color: #FFFFFF;
+  border: 1px solid #EAEAEA;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Luxury hover interaction */
+.socialOptionCard:hover {
+  border-color: #111111;
+  background-color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+/* Left Icon Container Block */
+.socialIconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  flex-shrink: 0;
+  background-color: #F8F8F8; /* Refined minimal tint standard */
+  color: #111111;
+  transition: all 0.25s ease;
+}
+
+/* Subtly change icon box styling on card hover to draw the eye */
+.socialOptionCard:hover .socialIconBox {
+  background-color: #111111;
+  color: #FFFFFF;
+}
+
+/* Precise SVG configuration controls */
+.socialSvg {
+  width: 20px;
+  height: 20px;
+}
+
+.socialSvgStroke {
+  width: 20px;
+  height: 20px;
+}
+
+/* Middle Text Stack Elements */
+.socialMeta {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.socialTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #111111;
+  margin-bottom: 4px;
+  letter-spacing: 0.3px;
+}
+
+.socialDescription {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: #666666;
+  line-height: 1.4;
+}
+
+/* Far-Right Pointer Arrow Controls */
+.socialArrowBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #BBBBBB;
+  margin-left: 15px;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.arrowSvg {
+  width: 18px;
+  height: 18px;
+}
+
+.socialOptionCard:hover .socialArrowBox {
+  transform: translateX(4px);
+  color: #111111;
+}
+
+/* --- Brand Specific Static & Hover Logic --- */
+
+/* 1. WhatsApp Colors */
+.whatsappBox {
+  background-color: rgba(37, 211, 102, 0.12); /* Subtle luxury green tint */
+  color: #25D366; /* Native WhatsApp Green */
+}
+
+.socialOptionCard:hover .whatsappBox {
+  background-color: #25D366;
+  color: #FFFFFF;
+}
+
+/* 2. Instagram Colors */
+.instagramBox {
+  background-color: rgba(225, 48, 108, 0.1); /* Subtle premium pink tint */
+  color: #E1306C; /* Native Instagram Pink */
+}
+
+.socialOptionCard:hover .instagramBox {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #FFFFFF;
+}
+
+/* 3. TikTok Colors */
+.tiktokBox {
+  background-color: rgba(0, 0, 0, 0.05); /* Clean dark neutral tint */
+  color: #010101; /* Deep TikTok Core Black */
+}
+
+/* Gives the static TikTok icon its iconic subtle cyan/magenta split glow effect */
+.tiktokBox .socialSvg {
+  filter: drop-shadow(-1.5px -1.5px 0px #00f2fe) drop-shadow(1.5px 1.5px 0px #fe0979);
+}
+
+.socialOptionCard:hover .tiktokBox {
+  background-color: #010101;
+  color: #FFFFFF;
+}
+
+/* Clears the drop shadow filter on hover so it renders crisp white inside the solid black box */
+.socialOptionCard:hover .tiktokBox .socialSvg {
+  filter: none;
+}
+
+/* --- End of Brand Logic --- */
+
+/* Precise SVG configuration controls */
+.socialSvg {
+  width: 20px;
+  height: 20px;
+}
+
+.socialSvgStroke {
+  width: 20px;
+  height: 20px;
+}
+
+/* Middle Text Stack Elements */
+.socialMeta {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.socialTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #111111;
+  margin-bottom: 4px;
+  letter-spacing: 0.3px;
+}
+
+.socialDescription {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: #666666;
+  line-height: 1.4;
+}
+
+/* Far-Right Pointer Arrow Controls */
+.socialArrowBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #BBBBBB;
+  margin-left: 15px;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.arrowSvg {
+  width: 18px;
+  height: 18px;
+}
+
+.socialOptionCard:hover .socialArrowBox {
+  transform: translateX(4px);
+  color: #111111;
+}
+
+.metaText {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #222222;
+  margin: 0 0 15px 0;
+}
+
+.metaText strong {
+  font-weight: 500;
+  color: #111111;
+}
+
+.mapsRedirectLink {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #111111;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  border-bottom: 1px solid #111111;
+  padding-bottom: 2px;
+  transition: all 0.2s ease;
+  width: fit-content;
+  display: inline-block;
+}
+
+.mapsRedirectLink:hover {
+  color: #c0a060;
+  border-color: #c0a060;
+}
+
+/* Form Box Architecture */
+.contactFormWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formFieldGroup {
+  width: 100%;
+}
+
+.luxuryInput {
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid #E3E3E3;
+  padding: 18px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #111111;
+  transition: border-color 0.25s ease;
+}
+
+.luxuryTextarea {
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid #E3E3E3;
+  padding: 18px 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #111111;
+  resize: vertical;
+  transition: border-color 0.25s ease;
+}
+
+.luxuryInput::placeholder,
+.luxuryTextarea::placeholder {
+  color: #999999;
+  font-weight: 300;
+}
+
+.luxuryInput:focus,
+.luxuryTextarea:focus {
+  border-color: #111111;
+  outline: none;
+}
+
+.formSubmitButton {
+  width: 100%; /* Spans full width of the box column seamlessly */
+  background-color: #333333;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  padding: 16px 0;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.formSubmitButton:hover {
+  background-color: #111111;
+}
+
+/* ==========================================================================
+   RESPONSIVE VIEWPORTS (KEEPS MOBILE LOOK NORMAL & STACKED)
+   ========================================================================== */
+
+@media (max-width: 968px) {
+  .interactiveContainer {
+    grid-template-columns: 1fr;
+    padding: 0 24px;
+    gap: 40px;
+  }
+
+  .formIntroText, 
+  .formMainHeading {
+    text-align: center;
+  }
+
+  /* Add this class reset inside the media query block */
+  .formColumnRight {
+    padding-top: 0; /* Clear the extra spacing when collapsed on mobile viewports */
+  }
+}
+
+@media (max-width: 480px) {
+  .showroomMetaGrid {
+    grid-template-columns: 1fr; /* Vertical layout execution for compact screens */
+    gap: 25px;
+    margin-bottom: 20px;
+  }
+  
+  .interactiveSection {
+    padding: 40px 0 80px 0;
+  }
+  
+  .formMainHeading {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+  .interactiveSection {
+    padding: 15px 0 80px 0; /* Reduced top padding on small mobile screens */
+  }
+  .socialOptionCard {
+    padding: 16px;
+  }
+  
+  .socialIconBox {
+    width: 42px;
+    height: 42px;
+    margin-right: 16px;
+  }
+  
+  .socialTitle {
+    font-size: 0.98rem;
+  }
+  
+  .socialDescription {
+    font-size: 0.82rem;
+  }
+
+}
+
+/* ==========================================================================
+   FORM VALIDATION GRAPHICS & NOTIFICATIONS
+   ========================================================================== */
+
+/* The warning line directly underneath the input boxes */
+.errorMessage {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: #e00437; /* High-end dark magenta accent matching the brand palette scale */
+  letter-spacing: 0.3px;
+  margin-top: 6px;
+  text-align: left;
+}
+
+/* Changes the box boundary line subtly when validation fails */
+.invalidInput {
+  border-color: #E1306C !important;
+  background-color: #FFFDFE;
+}
+
+/* Elite clean success block layout */
+.successNotification {
+  background-color: #111111;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  padding: 16px;
+  text-align: center;
+  margin-bottom: 10px;
+  animation: fadeInFormMessage 0.3s ease forwards;
+}
+
+@keyframes fadeInFormMessage {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

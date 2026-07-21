@@ -526,7 +526,7 @@ export default function ProductTemplate() {
 
       {/* 4. CROSS-SELL RECIPROCATION MODULE: YOU MAY ALSO LIKE */}
       <section className={styles.crossSellReciprocationSectionContainer}>
-        <h3 className={styles.crossSellSectionSectionTitleHeaderLabel}>Curated Concurrences</h3>
+        <h3 className={styles.crossSellSectionSectionTitleHeaderLabel}>You May Also Like</h3>
         <div className={styles.crossSellProductsHorizontalFlexTrackRow}>
           {Object.entries(PRODUCTS_REGISTRY).slice(0, 6).map(([id, item]) => (
             <Link href={`/product/${id}`} key={id} className={styles.crossSellMiniatureProductCardCard}>

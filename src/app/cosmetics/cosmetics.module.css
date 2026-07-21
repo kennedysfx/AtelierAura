@@ -3,10 +3,110 @@
 .pageWrapper {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 0 20px 40px 20px; /* Adjusted top padding to let the hero frame cleanly below the nav */
   background-color: #FAFAFA; /* Matches the slight off-white of the screenshots */
 }
 
+/* =========================================
+   LUXURY HERO ARCHITECTURE
+   ========================================= */
+.heroSection {
+  position: relative;
+  
+  /* Breaks out of the pageWrapper's left/right padding */
+  width: calc(100% + 40px); 
+  margin-left: -20px;
+  margin-right: -20px;
+  
+  /* THE FIX: Removes the gap so it mounts to the absolute top of the viewport */
+  margin-top: 0; 
+  margin-bottom: 60px;
+  
+  /* Gives the section a taller, more cinematic display height to account for the header overlap */
+  height: 85vh; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Straight edges for a seamless full-bleed header look */
+  border-radius: 0; 
+  overflow: hidden;
+}
+
+.heroImageContainer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.heroImageLandscape {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.heroImagePortrait {
+  display: none; /* Hidden on desktop viewports */
+}
+
+/* High-end cinematic vignette overlay ensuring absolute legibility */
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.45)
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  color: #FFFFFF;
+  max-width: 700px;
+  
+  /* Added 80px top padding to safely clear your fixed header elements */
+  padding: 80px 24px 0 24px; 
+}
+
+.heroSubtitle {
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #E5E5E5;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.4rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  line-height: 1.15;
+}
+
+.heroDescription {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.65;
+  letter-spacing: 0.5px;
+  color: #D1D1D1;
+  margin: 0;
+}
+
+/* =========================================
+   SECTIONS & HEADERS
+   ========================================= */
 .productSection {
   margin-bottom: 80px;
 }
@@ -175,6 +275,9 @@
   cursor: pointer;
   margin-top: auto; /* Pushes the button to the bottom of the card uniformly */
   transition: background-color 0.2s ease;
+  text-align: center;
+  text-decoration: none;
+  display: block;
 }
 
 .priceBlockButton:hover {
@@ -186,9 +289,49 @@
    ========================================= */
 @media (max-width: 768px) {
   .pageWrapper {
-    padding: 20px 15px;
+    padding: 0 15px 40px 15px;
   }
 
+  /* Responsive Hero Behavior */
+.heroSection {
+    /* Counteracts mobile side padding perfectly */
+    width: calc(100% + 30px);
+    margin-left: -15px;
+    margin-right: -15px;
+    
+    /* Removes top gap on mobile viewports */
+    margin-top: 0;
+    height: 75vh;
+    margin-bottom: 40px;
+  }
+  .heroContent {
+    /* Slightly less padding adjustment for smaller mobile headers */
+    padding: 60px 20px 0 20px;
+  }
+
+  .heroImageLandscape {
+    display: none; /* Seamlessly switches off landscape variant */
+  }
+  
+  .heroImagePortrait {
+    display: block; /* Swaps in crisp portrait aspect layout */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .heroTitle {
+    font-size: 2.3rem;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  .heroDescription {
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+
+  /* Grid Architecture Customizations */
   .productGrid {
     grid-template-columns: repeat(2, 1fr); /* 2 columns stacked on mobile */
     gap: 15px; 
@@ -196,10 +339,12 @@
   
   .sectionHeader {
     font-size: 1.8rem;
+    margin-bottom: 30px;
   }
   
   .sectionHeaderSecondary {
     font-size: 1.5rem;
+    margin-bottom: 30px;
   }
 
   .productName {
@@ -215,29 +360,29 @@
     font-size: 0.7rem;
   }
   
-.cartIconButton {
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease;
-  z-index: 2;
-  color: #111; /* THIS FIXES THE BLUE ICON BUG */
-}
+  .cartIconButton {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    z-index: 2;
+    color: #111; /* THIS FIXES THE BLUE ICON BUG */
+  }
 
-.cartIconButton:hover {
-  background: #111;
-  color: #fff;
-}
+  .cartIconButton:hover {
+    background: #111;
+    color: #fff;
+  }
   
   .cartIcon {
     width: 16px;
@@ -247,5 +392,117 @@
   .priceBlockButton {
     padding: 12px 0;
     font-size: 1rem;
+  }
+}
+
+/* ==========================================================================
+   LUXURY FEATURES SECTION - PURE OBSIDIAN BLACK
+   ========================================================================== */
+
+.luxuryFeaturesSection {
+  background-color: #c5a880; /* Pure deep black background */
+  padding: 80px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  width: calc(100% + 40px); 
+  margin-left: -20px;
+  margin-right: -20px;
+ 
+  margin-bottom: -50px;
+}
+
+.luxuryFeaturesContainer {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+/* Individual Feature Cards */
+.luxuryFeatureCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+/* Icon Container dimensions */
+.luxuryIconWrapper {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Premium Gold Accent Styling for Vector SVGs */
+.luxurySvgIcon {
+  width: 100%;
+  height: 100%;
+  color: #000000; /* Elegant, premium champagne gold */
+  filter: drop-shadow(0px 2px 6px rgba(197, 168, 128, 0.2)); /* Soft upscale glow */
+}
+
+/* Text block typography */
+.luxuryTextContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.luxuryFeatureTitle {
+  font-family: 'Playfair Display', 'Didot', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #ffffff; /* Crystal white contrast */
+  margin: 0;
+}
+
+.luxuryFeatureDescription {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #ffffff; /* Smooth neutral-grey for readability */
+  margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (All Screens)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .luxuryFeaturesContainer {
+    gap: 32px;
+  }
+  .luxuryFeatureTitle {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .luxuryFeaturesSection {
+    padding: 60px 24px;
+  }
+  .luxuryFeaturesContainer {
+    grid-template-columns: 1fr; /* Seamless vertical stack for mobile viewports */
+    gap: 40px;
+    max-width: 460px; /* Keeps layout center-aligned and beautifully legible */
+  }
+}
+
+@media (max-width: 480px) {
+  .luxuryFeaturesSection {
+    padding: 48px 16px;
+  }
+  .luxuryFeatureCard {
+    gap: 16px;
+  }
+  .luxuryIconWrapper {
+    width: 54px;
+    height: 54px;
   }
 }

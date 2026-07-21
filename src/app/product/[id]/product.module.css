@@ -366,18 +366,14 @@
   margin: 0;
   font-style: italic;
 }
-
 /* ==========================================================================
-   SECTION 4: CROSS-SELL RECOMMENDER (YOU MAY ALSO LIKE)
+   4. CROSS-SELL RECIPROCATION MODULE: YOU MAY ALSO LIKE
    ========================================================================== */
 
 .crossSellReciprocationSectionContainer {
-  width: 100%;
-  border-top: 1px solid #e0dbd3;
-  max-width: 1440px;
+  padding: 60px 20px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 6rem 4rem 8rem 4rem;
-  box-sizing: border-box;
 }
 
 .crossSellSectionSectionTitleHeaderLabel {
@@ -388,51 +384,70 @@
   letter-spacing: 0.05em;
 }
 
+/* Uses CSS Grid to effortlessly handle the side-by-side layout 
+   and automatically stack on mobile screens */
 .crossSellProductsHorizontalFlexTrackRow {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
 }
 
 .crossSellMiniatureProductCardCard {
-  text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  height: 100%;
 }
 
+/* Creates the rounded edges matching the image */
 .crossSellImageContainerViewportWrapper {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  background-color: #faf9f6;
-  margin-bottom: 1.25rem;
+  aspect-ratio: 4 / 5;
+  border-radius: 12px; 
   overflow: hidden;
+  margin-bottom: 24px;
+  position: relative; 
+  background-color: #F8F8F8;
 }
 
 .miniatureProductThumbnailImgImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* Subtle luxury hover effect */
 .crossSellMiniatureProductCardCard:hover .miniatureProductThumbnailImgImg {
   transform: scale(1.04);
 }
 
+/* Matches the Serif uppercase text in the reference image */
 .miniatureCardTitleLabel {
-  font-family: 'Didot', serif;
-  font-size: 1.1rem;
+  font-family: 'Playfair Display', serif; /* Or your chosen serif */
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center;
+  margin: 0 0 15px 0;
   color: #111111;
-  margin: 0 0 0.4rem 0;
 }
 
+/* Replicates the solid dark block with white text */
 .miniatureCardPriceLabelText {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
-  color: #666666;
+  background-color: #151515;
+  color: #ffffff;
+  width: 100%;
+  text-align: center;
+  padding: 16px 0;
+  font-family: 'Playfair Display', serif; 
+  font-size: 1.1rem;
+  letter-spacing: 1px;
   margin: 0;
+  margin-top: auto; /* Pushes the price bar to the bottom perfectly */
 }
 
 /* ==========================================================================

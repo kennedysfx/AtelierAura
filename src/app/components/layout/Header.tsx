@@ -232,7 +232,7 @@ export default function Header() {
           <Link href="/mens" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>For Men</Link>
           <Link href="/cosmetics" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Cosmetics</Link>
           <Link href="/contact" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
-          <Link href="/login" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Vault</Link>
+
         </nav>
         
         {/* 🌟 New Mobile Menu Footer containing Authentication Links */}
