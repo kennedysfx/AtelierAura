@@ -251,11 +251,12 @@ padding: 80px 0 20px 0;
 }
 
 @media (max-width: 768px) {
-  .heroSection {
-    height: 65vh; /* Shifts height ratio beautifully for mobile screen aspect ratios */
+.heroSection {
+    /* Pulls the hero section all the way up to eliminate the white space */
+    margin-top: -90px; /* Adjust this value if your header is taller or shorter */
+    height: calc(70vh + 90px); /* Expands the height so the bottom of the section doesn't shrink */
     margin-bottom: 50px;
   }
-
   .heroImageLandscape {
     display: none; /* Seamlessly cuts landscape asset */
   }

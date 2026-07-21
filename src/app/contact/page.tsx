@@ -161,7 +161,7 @@ export default function ContactPage() {
               
               {/* WhatsApp Option */}
               <a 
-                href="https://wa.me/2349086819339" 
+                href="https://wa.me/2349061645790" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className={styles.socialOptionCard}
