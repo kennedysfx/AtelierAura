@@ -215,12 +215,29 @@
     font-size: 0.7rem;
   }
   
-  .cartIconButton {
-    width: 35px;
-    height: 35px;
-    bottom: 10px;
-    right: 10px;
-  }
+.cartIconButton {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+  z-index: 2;
+  color: #111; /* THIS FIXES THE BLUE ICON BUG */
+}
+
+.cartIconButton:hover {
+  background: #111;
+  color: #fff;
+}
   
   .cartIcon {
     width: 16px;

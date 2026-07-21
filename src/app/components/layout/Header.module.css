@@ -182,7 +182,12 @@
   top: 0;
   right: -100%;
   width: 70%;
-  height: 100vh;
+  
+
+  height: 100dvh; 
+  overflow-y: auto; 
+  padding-bottom: calc(20px + env(safe-area-inset-bottom)); 
+  
   background-color: var(--bg-primary);
   z-index: 2000;
   transition: right 0.6s cubic-bezier(0.77, 0, 0.175, 1);
@@ -395,12 +400,16 @@
 }
 @media (max-width: 768px) {
   .mobileDrawerFooter {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 24px;
-  margin-top: auto;
-   margin-bottom: -2.5rem;
-  border-top: 1px solid #eaeaea; /* Subtle divider */
-}
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+    margin-top: auto;
+    
+    /* THE FIX: Changed from -2.5rem to 0 */
+    margin-bottom: 0; 
+    
+    border-top: 1px solid #eaeaea; 
+  }
+
 }
