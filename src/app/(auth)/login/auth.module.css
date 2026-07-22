@@ -53,7 +53,7 @@ margin: auto;                          /* Centers the card but respects vertical
   background: #FFFFFF;
   width: 100%;
   max-width: 480px;
-  border-radius: 8px;
+  border-radius: 1px;
   padding: 40px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
@@ -169,34 +169,7 @@ margin: auto;                          /* Centers the card but respects vertical
   padding-left: 24px; /* Offsets tracking to maintain horizontal visual balance */
 }
 
-/* Unified Main Action Submission Interface Button */
-.submitButton {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  padding: 18px;
-  background-color: #111111;
-  color: #FFFFFF;
-  border: 1px solid #111111;
-  cursor: pointer;
-  transition: background-color 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
-  margin-top: 8px;
-  width: 100%;
-}
 
-.submitButton:hover {
-  background-color: #c0a060; /* Shifts context directly to brand signature gold */
-  border-color: #c0a060;
-}
-
-.submitButton:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  background-color: #111111;
-  border-color: #111111;
-}
 
 /* Secure secondary alignment interface step buttons */
 .backButton {
@@ -329,6 +302,37 @@ margin: auto;                          /* Centers the card but respects vertical
   color: #111111;
 }
 
+@media (min-width: 1024px) {
+    /* Unified Main Action Submission Interface Button */
+.submitButton {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 18px;
+  background-color: #111111;
+  color: #FFFFFF;
+  border: 1px solid #111111;
+  cursor: pointer;
+  transition: background-color 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.submitButton:hover {
+  background-color: #c0a060; /* Shifts context directly to brand signature gold */
+  border-color: #c0a060;
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #111111;
+  border-color: #111111;
+}
+}
+
 /* ==========================================================================
    MOBILE SCREEN RESPONSIVENESS MEDIA ADJUSTMENTS
    ========================================================================== */
@@ -369,5 +373,147 @@ margin: auto;                          /* Centers the card but respects vertical
     align-items: center;
     justify-content: center;
     padding: 0;
+  }
+  .submitButton {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 18px;
+  background-color: #111111;
+  color: #FFFFFF;
+  border: 1px solid #111111;
+  cursor: pointer;
+  transition: background-color 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+  margin-top: 8px;
+  width: 100%;
+}
+
+
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #111111;
+  border-color: #111111;
+}
+}
+
+/* ==========================================================================
+   OTP SPLIT-BOX ARCHITECTURE (STEP 2)
+   ========================================================================== */
+
+.otpContainer {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px 0 32px 0;
+}
+
+.otpBox {
+  width: 52px;
+  height: 64px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-align: center;
+  color: #111111;
+  background-color: #FFFFFF;
+  border: 1px solid #EAEAEA;
+  border-radius: 8px; /* Smooth rounded corners from image */
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  padding: 0;
+}
+
+.otpBox:focus {
+  border-color: #111111;
+  box-shadow: 0 0 0 1px #111111;
+}
+
+/* Timer and Resend typography */
+.timerText {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #666666;
+  text-align: center;
+  margin: 0 0 24px 0;
+}
+
+.resendActionBtn {
+  background: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111111;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 4px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
+}
+
+.resendActionBtn:hover {
+  color: #111111;
+}
+
+/* The Solid Gold Verify Button */
+.verifyGoldButton {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 16px;
+  background-color: #111111; /* Signature Gold matching the image */
+  color: #FFFFFF;
+  border: none;
+  border-radius: 1px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.25s ease, opacity 0.25s ease;
+  margin-bottom: 32px;
+}
+
+.verifyGoldButton:hover {
+  background-color: #111111;
+}
+
+.verifyGoldButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Secured By Footer */
+.securedByContainer {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.securedText {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #888888;
+  letter-spacing: 0.5px;
+}
+
+.securedText strong {
+  color: #111111;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Mobile Adjustments for OTP boxes */
+@media (max-width: 768px) {
+  .otpContainer {
+    gap: 8px;
+  }
+  
+  .otpBox {
+    width: 46px;
+    height: 56px;
+    font-size: 1.5rem;
   }
 }
