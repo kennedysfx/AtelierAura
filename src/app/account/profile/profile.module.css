@@ -1,0 +1,191 @@
+.profileContainer {
+  max-width: 600px;
+  width: 100%;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.sectionHeader h2 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #111;
+  margin: 0;
+}
+
+.textBtn {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #111;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s ease;
+}
+
+.textBtn:hover {
+  opacity: 0.6;
+}
+
+/* Luxury Cards */
+.card {
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.cardRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.label {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.value {
+  color: #111;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Empty State Styling */
+.emptyState {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #f7f7f7;
+  border-radius: 50%;
+  color: #666;
+}
+
+.emptyText {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+/* Marketing Section */
+.marketingRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.marketingLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.envelopeIcon {
+  color: #666;
+}
+
+/* Custom Black Toggle Switch */
+.toggleWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.toggleInput {
+  display: none;
+}
+
+.toggleLabel {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 26px;
+  background-color: #e5e5e5;
+  border-radius: 34px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggleLabel::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+/* Turns Black instead of Blue when checked */
+.toggleInput:checked + .toggleLabel {
+  background-color: #000;
+}
+
+.toggleInput:checked + .toggleLabel::after {
+  transform: translateX(20px);
+}
+
+/* Danger Zone - Delete Account */
+.dangerSection {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eaeaea;
+}
+
+.deleteBtn {
+  width: 100%;
+  padding: 14px;
+  background-color: transparent;
+  color: #d32f2f;
+  border: 1px solid #d32f2f;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.deleteBtn:hover {
+  background-color: #d32f2f;
+  color: #fff;
+}
+
+/* Simple mount animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .cardRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

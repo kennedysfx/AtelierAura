@@ -9,10 +9,16 @@ import { useCart } from "@/context/CartContext";
 
 export default function Header() {
   const pathname = usePathname();
+
+  // 🌟 Hide header completely on account pages to prevent layout clashing
+  if (pathname?.startsWith('/account')) {
+    return null;
+  }
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
-  // 🌟 2. Access the global cart count
+  // Access the global cart count
   const { cartCount } = useCart();
   
   // Search state variables
@@ -139,12 +145,12 @@ export default function Header() {
               />
             </div>
 
-<Link href="/login?mode=login" className={styles.iconButton} aria-label="Vault Profile">
-  <svg className={styles.svgIcon} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-    <circle cx="12" cy="7" r="4" />
-  </svg>
-</Link>
+            <Link href="/login?mode=login" className={styles.iconButton} aria-label="Vault Profile">
+              <svg className={styles.svgIcon} width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </Link>
 
             <Link href="/cart" className={styles.iconButton} aria-label="Shopping Cart">
               <div className={styles.cartIconWrapper}>
@@ -211,7 +217,7 @@ export default function Header() {
             </div>
 
             <Link 
-              href="/login" 
+              href="/login?mode=login" 
               className={styles.iconButton} 
               onClick={() => setIsMobileMenuOpen(false)} 
               aria-label="Vault Profile"
@@ -232,18 +238,16 @@ export default function Header() {
           <Link href="/mens" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>For Men</Link>
           <Link href="/cosmetics" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Cosmetics</Link>
           <Link href="/contact" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
-
         </nav>
         
-{/* 🌟 New Mobile Menu Footer containing Authentication Links */}
-<div className={styles.mobileDrawerFooter}>
-  <Link href="/login?mode=login" className={styles.mobileSignInBtn} onClick={() => setIsMobileMenuOpen(false)}>
-    Login
-  </Link>
-  <Link href="/login?mode=register" className={styles.mobileSignUpBtn} onClick={() => setIsMobileMenuOpen(false)}>
-    Sign up
-  </Link>
-</div>
+        <div className={styles.mobileDrawerFooter}>
+          <Link href="/login?mode=login" className={styles.mobileSignInBtn} onClick={() => setIsMobileMenuOpen(false)}>
+            Login
+          </Link>
+          <Link href="/login?mode=register" className={styles.mobileSignUpBtn} onClick={() => setIsMobileMenuOpen(false)}>
+            Sign up
+          </Link>
+        </div>
       </aside>
     </>
   );

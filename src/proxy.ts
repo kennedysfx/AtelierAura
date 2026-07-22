@@ -12,7 +12,7 @@ const PROTECTED_ROUTES = ['/admin', '/profile', '/account', '/wishlist'];
 // Define routes that logged-in users shouldn't re-visit (like the login page)
 const AUTH_ROUTES = ['/login'];
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   
   // 1. Extract the session token from cookies
@@ -53,7 +53,7 @@ export async function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
-// 5. Optimize performance by only running middleware on specific pathways
+// 5. Optimize performance by only running proxy on specific pathways
 export const config = {
   matcher: [
     /*

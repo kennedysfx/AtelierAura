@@ -90,7 +90,8 @@ export async function GET(
       maxAge: 60 * 60 * 24 * 7,
     });
 
-    return NextResponse.redirect(new URL('/', request.url));
+    // 🌟 Redirect updated to point directly to the account page layout hierarchy
+    return NextResponse.redirect(new URL('/account', request.url));
 
   } catch (error) {
     console.error(`OAuth Callback Error (${provider}):`, error);

@@ -1,0 +1,106 @@
+/* src/app/account/account.module.css */
+
+.accountWrapper {
+  min-height: 100vh;
+  background-color: #ffffff;
+  color: #111111;
+  font-family: var(--font-inter, sans-serif), serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.accountHeader {
+  border-bottom: 1px solid #eaeaea;
+  padding: 0.1rem 3rem; 
+  background: #ffffff;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: flex-end; /* 🌟 Pushes everything in the normal document flow to the right */
+  align-items: center;
+  position: relative;        /* 🌟 Crucial to allow absolute centering inside it */
+  min-height: 60px;          /* Ensures the header maintains structure with an absolute item */
+}
+
+.logoLink {
+  position: absolute;        /* 🌟 Pulls the logo out of the layout flow */
+  left: 50%;                 /* Moves it to the middle horizontally */
+  top: 50%;                  /* Moves it to the middle vertically */
+  transform: translate(-50%, -40%); /* Offsets its own width/height to make it dead center */
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  object-fit: contain;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; 
+  z-index: 2; /* Ensures buttons remain clickable over any background layers */
+}
+
+.userIconWrapper {
+  padding: 4px;
+  color: #111111;
+  display: flex;
+  align-items: center;
+}
+
+.logoutBtn {
+  background: transparent;
+  border: none;
+  font-size: 0.85rem;
+  color: #666666;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+  padding: 0;
+  margin-top: 2px;
+}
+
+.logoutBtn:hover {
+  color: #111111;
+  text-decoration: underline;
+}
+
+/* --- Main Content Section --- */
+.accountMain {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  flex: 1;
+}
+
+.accountTabs {
+  display: flex;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 1rem;
+}
+
+.tabLink {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #888888;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.activeTab {
+  color: #111111;
+  font-weight: 500;
+  border-bottom: 2px solid #111111;
+  padding-bottom: calc(1rem + 2px);
+  margin-bottom: -1rem;
+}
+
+.tabContent {
+  width: 100%;
+}
