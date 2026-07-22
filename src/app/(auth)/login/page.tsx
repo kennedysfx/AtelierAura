@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import styles from './auth.module.css';
 
-export default function AuthPage() {
+function AuthContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const mode = searchParams.get('mode');
@@ -151,7 +151,7 @@ export default function AuthPage() {
     }
   };
 
-const handleSocialLogin = (provider: 'google' | 'apple') => {
+  const handleSocialLogin = (provider: 'google' | 'apple') => {
     window.location.href = `/api/auth/${provider}`;
   };
 
@@ -302,5 +302,13 @@ const handleSocialLogin = (provider: 'google' | 'apple') => {
         )}
       </div>
     </div>
+  );
+}
+
+export default function AuthPage() {
+  return (
+    <Suspense fallback={<div style={{ color: '#fff', textAlign: 'center', padding: '2rem' }}>Loading authentication...</div>}>
+      <AuthContent />
+    </Suspense>
   );
 }
