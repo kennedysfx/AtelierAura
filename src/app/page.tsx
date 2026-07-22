@@ -5,29 +5,30 @@ import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import Image from 'next/image';
 import styles from "./home.module.css";
+import { hero, bestseller, celeb, cosmetic, featurepic } from '@/lib/images';
 
 const slides = [
-  { id: "vallure", landscape: "/hero/Vallure-l.webp", portrait: "/hero/Vallure-p.webp", title: "THE VALLURE COLLECTION", subtitle: "The Undisputed Pinnacle of Modern Haute Parfumerie.", titleColor: "#D4AF37", subtitleColor: "#FFFFFF" },
-  { id: "blanc", landscape: "/hero/Blanc-l.webp", portrait: "/hero/Blanc-p.webp", title: "VALLURE BLANC", subtitle: "Arguably the Purest, Most Luminous Skin Scent on the Planet.", titleColor: "#E0E0E0", subtitleColor: "#FFFFFF" },
-  { id: "noir", landscape: "/hero/Noir-l.webp", portrait: "/hero/Noir-p.webp", title: "VALLURE NOIR", subtitle: "The Longest-Lasting Night Fragrance Ever Crafted.", titleColor: "#C0A060", subtitleColor: "#D3D3D3" },
-  { id: "rouge", landscape: "/hero/Rouge-l.webp", portrait: "/hero/Rouge-p.webp", title: "VALLURE ROUGE", subtitle: "A Ferociously Bold Projection That Commands the Room.", titleColor: "#9B111E", subtitleColor: "#333333" },
-  { id: "dore", landscape: "/hero/Dore-l.webp", portrait: "/hero/Dore-p.webp", title: "VALLURE DORÉ", subtitle: "Unmatched Golden Opulence That Lingers for Days.", titleColor: "#DAA520", subtitleColor: "#333333" },
+  { id: "vallure", landscape: hero.vallure.l, portrait: hero.vallure.p, title: "THE VALLURE COLLECTION", subtitle: "The Undisputed Pinnacle of Modern Haute Parfumerie.", titleColor: "#D4AF37", subtitleColor: "#FFFFFF" },
+  { id: "blanc", landscape: hero.blanc.l, portrait: hero.blanc.p, title: "VALLURE BLANC", subtitle: "Arguably the Purest, Most Luminous Skin Scent on the Planet.", titleColor: "#E0E0E0", subtitleColor: "#FFFFFF" },
+  { id: "noir", landscape: hero.noir.l, portrait: hero.noir.p, title: "VALLURE NOIR", subtitle: "The Longest-Lasting Night Fragrance Ever Crafted.", titleColor: "#C0A060", subtitleColor: "#D3D3D3" },
+  { id: "rouge", landscape: hero.rouge.l, portrait: hero.rouge.p, title: "VALLURE ROUGE", subtitle: "A Ferociously Bold Projection That Commands the Room.", titleColor: "#9B111E", subtitleColor: "#333333" },
+  { id: "dore", landscape: hero.dore.l, portrait: hero.dore.p, title: "VALLURE DORÉ", subtitle: "Unmatched Golden Opulence That Lingers for Days.", titleColor: "#DAA520", subtitleColor: "#333333" },
 ];
 
 const himProducts = [
-  { id: "rouge", name: "VALLURE ROUGE", brand: "ATELIER AURA", image: "/bestseller/rouge.webp", price: "₦180,000", isEmpty: false },
-  { id: "noir", name: "VALLURE NOIR", brand: "ATELIER AURA", image: "/bestseller/noir.webp", price: "₦195,000", isEmpty: false },
-  { id: "elixir", name: "Aurelius Elixir", brand: "Maison d’Or", image: "/bestseller/elixir.webp", price: "₦95,000", isEmpty: false },
-  { id: "argent", name: "Argent Noir", brand: "Onyx & Co.", image: "/bestseller/argent.webp", price: "₦200,000", isEmpty: false },
-  { id: "santal", name: "Santal Impérial", brand: "Atelier Villion", image: "/bestseller/santal.webp", price: "₦185,000", isEmpty: false },
+  { id: "rouge", name: "VALLURE ROUGE", brand: "ATELIER AURA", image: bestseller.rouge, price: "₦180,000", isEmpty: false },
+  { id: "noir", name: "VALLURE NOIR", brand: "ATELIER AURA", image: bestseller.noir, price: "₦195,000", isEmpty: false },
+  { id: "elixir", name: "Aurelius Elixir", brand: "Maison d'Or", image: bestseller.elixir, price: "₦95,000", isEmpty: false },
+  { id: "argent", name: "Argent Noir", brand: "Onyx & Co.", image: bestseller.argent, price: "₦200,000", isEmpty: false },
+  { id: "santal", name: "Santal Impérial", brand: "Atelier Villion", image: bestseller.santal, price: "₦185,000", isEmpty: false },
 ];
 
 const herProducts = [
-  { id: "dore", name: "VALLURE DORÉ", brand: "ATELIER AURA", image: "/bestseller/dore.webp", price: "₦210,000", isEmpty: false },
-  { id: "blanc", name: "VALLURE BLANC", brand: "ATELIER AURA", image: "/bestseller/blanc.webp", price: "₦175,000", isEmpty: false },
-  { id: "cristal", name: "Cristal de Soie", brand: "Palais de Verre", image: "/bestseller/cristal.webp", price: "₦200,000", isEmpty: false },
-  { id: "ambre", name: "Ambre Sacré", brand: "L’Écorce Dorée", image: "/bestseller/ambre.webp", price: "₦190,000", isEmpty: false },
-  { id: "absolu", name: "Rouge Absolu", brand: "Velours & Brume", image: "/bestseller/absolu.webp", price: "₦220,000", isEmpty: false },
+  { id: "dore", name: "VALLURE DORÉ", brand: "ATELIER AURA", image: bestseller.dore, price: "₦210,000", isEmpty: false },
+  { id: "blanc", name: "VALLURE BLANC", brand: "ATELIER AURA", image: bestseller.blanc, price: "₦175,000", isEmpty: false },
+  { id: "cristal", name: "Cristal de Soie", brand: "Palais de Verre", image: bestseller.cristal, price: "₦200,000", isEmpty: false },
+  { id: "ambre", name: "Ambre Sacré", brand: "L'Écorce Dorée", image: bestseller.ambre, price: "₦190,000", isEmpty: false },
+  { id: "absolu", name: "Rouge Absolu", brand: "Velours & Brume", image: bestseller.absolu, price: "₦220,000", isEmpty: false },
 ];
 
 export default function Home() {
@@ -113,6 +114,7 @@ export default function Home() {
               fill
               sizes="100vw"
               priority={isActive} // Crucial performance trick: Only preload the visible slide!
+              placeholder="blur"
               className={styles.bgImage}
             />
           </div>
@@ -125,6 +127,7 @@ export default function Home() {
               fill
               sizes="100vw"
               priority={isActive} // Preloads the mobile image only if this slide is active
+              placeholder="blur"
               className={styles.bgImage}
             />
           </div>
@@ -207,6 +210,7 @@ return (
         alt={product.name} 
         fill // Fills the container perfectly
         sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 25vw" // Serves the exact right resolution per device
+        placeholder="blur"
         className={styles.productImage}
       />
 
@@ -359,13 +363,14 @@ return (
   }}
 />
             
-            {/* Embedded overlapping PNG Image Container */}
+{/* Embedded overlapping PNG Image Container */}
 <div className={styles.overlapImageContainer}>
   <Image 
-    src={`/featurepic/${perfume.asset}.webp`} 
+    src={featurepic[perfume.asset]} 
     alt={perfume.name} 
     fill // Tells it to adapt completely to your container dimensions
     sizes="(max-width: 768px) 80vw, 40vw" // Helps Next.js optimize the asset weight for mobile screens
+    placeholder="blur"
     className={styles.overlapImage}
   />
 </div>
@@ -485,10 +490,11 @@ return (
     {/* Celebrity 1: Ranbir Kapoor */}
     <div className={styles.celebCard}>
       <Image 
-        src="/celebrities/ranbir-kapoor.avif" 
+        src={celeb.ranbir} 
         alt="Ranbir Kapoor" 
         fill
         sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
+        placeholder="blur"
         className={styles.celebPortrait} 
       />
       <div 
@@ -497,10 +503,11 @@ return (
       >
         <div className={styles.celebProductBadge}>
           <Image 
-            src="/bestseller/noir.webp" 
+            src={bestseller.noir}
             alt="Vallure Noir Bottle" 
             fill
             sizes="80px"
+            placeholder="blur"
             className={styles.celebProductImg} 
           />
         </div>
@@ -514,10 +521,11 @@ return (
     {/* Celebrity 2: Sobhita Dhulipala */}
     <div className={styles.celebCard}>
       <Image 
-        src="/celebrities/sobhita-dhulipala.avif" 
+        src={celeb.sobhita}
         alt="Sobhita Dhulipala" 
         fill
         sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
+        placeholder="blur"
         className={styles.celebPortrait} 
       />
       <div 
@@ -526,10 +534,11 @@ return (
       >
         <div className={styles.celebProductBadge}>
           <Image 
-            src="/bestseller/elixir.webp" 
+            src={bestseller.elixir} 
             alt="Aurelius Elixir Bottle" 
             fill
             sizes="80px"
+            placeholder="blur"
             className={styles.celebProductImg} 
           />
         </div>
@@ -543,10 +552,11 @@ return (
     {/* Celebrity 3: Regé-Jean Page */}
     <div className={styles.celebCard}>
       <Image 
-        src="/celebrities/rege-jean-page.avif" 
+        src={celeb.rege}
         alt="Regé-Jean Page" 
         fill
         sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
+        placeholder="blur"
         className={styles.celebPortrait} 
       />
       <div 
@@ -555,10 +565,11 @@ return (
       >
         <div className={styles.celebProductBadge}>
           <Image 
-            src="/bestseller/argent.webp" 
+            src={bestseller.argent}
             alt="Argent Noir Bottle" 
             fill
             sizes="80px"
+            placeholder="blur"
             className={styles.celebProductImg} 
           />
         </div>
@@ -572,10 +583,11 @@ return (
     {/* Celebrity 4: Anya Taylor-Joy */}
     <div className={styles.celebCard}>
       <Image 
-        src="/celebrities/anya-taylor-joy.avif" 
+        src={celeb.anya}
         alt="Anya Taylor-Joy" 
         fill
         sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 25vw"
+        placeholder="blur"
         className={styles.celebPortrait} 
       />
       <div 
@@ -584,10 +596,11 @@ return (
       >
         <div className={styles.celebProductBadge}>
           <Image 
-            src="/bestseller/santal.webp" 
+            src={bestseller.santal} 
             alt="Santal Impérial Bottle" 
             fill
             sizes="80px"
+            placeholder="blur"
             className={styles.celebProductImg} 
           />
         </div>
@@ -607,65 +620,77 @@ return (
 <section className={styles.collectionsSection}>
   <div className={styles.collectionsContainer}>
     
-    {/* Collection 1: Cristal de Soie */}
-    <div className={styles.collectionCard}>
-      <div className={styles.collectionImageRing}>
-        <img 
-          src="/bestseller/cristal.webp" 
-          alt="Cristal de Soie Collection" 
-          className={styles.collectionImage} 
-        />
-      </div>
-      <h4 className={styles.collectionTitle}>
-        <span className={styles.collectionBrandName}>Cristal de Soie</span>
-        <span className={styles.collectionLabel}>Collection</span>
-      </h4>
-    </div>
+{/* Collection 1: Cristal de Soie */}
+<div className={styles.collectionCard}>
+  <div className={styles.collectionImageRing}>
+    <Image 
+      src={bestseller.cristal} 
+      alt="Cristal de Soie Collection" 
+      fill
+      sizes="(max-width: 600px) 50vw, 200px"
+      placeholder="blur"
+      className={styles.collectionImage} 
+    />
+  </div>
+  <h4 className={styles.collectionTitle}>
+    <span className={styles.collectionBrandName}>Cristal de Soie</span>
+    <span className={styles.collectionLabel}>Collection</span>
+  </h4>
+</div>
 
-    {/* Collection 2: Rouge Absolu */}
-    <div className={styles.collectionCard}>
-      <div className={styles.collectionImageRing}>
-        <img 
-          src="/bestseller/absolu.webp" 
-          alt="Rouge Absolu Collection" 
-          className={styles.collectionImage} 
-        />
-      </div>
-      <h4 className={styles.collectionTitle}>
-        <span className={styles.collectionBrandName}>Rouge Absolu</span>
-        <span className={styles.collectionLabel}>Collection</span>
-      </h4>
-    </div>
+{/* Collection 2: Rouge Absolu */}
+<div className={styles.collectionCard}>
+  <div className={styles.collectionImageRing}>
+    <Image 
+      src={bestseller.absolu} 
+      alt="Rouge Absolu Collection" 
+      fill
+      sizes="(max-width: 600px) 50vw, 200px"
+      placeholder="blur"
+      className={styles.collectionImage} 
+    />
+  </div>
+  <h4 className={styles.collectionTitle}>
+    <span className={styles.collectionBrandName}>Rouge Absolu</span>
+    <span className={styles.collectionLabel}>Collection</span>
+  </h4>
+</div>
 
-    {/* Collection 3: Aurelius Elixir */}
-    <div className={styles.collectionCard}>
-      <div className={styles.collectionImageRing}>
-        <img 
-          src="/bestseller/elixir.webp" 
-          alt="Aurelius Elixir Collection" 
-          className={styles.collectionImage} 
-        />
-      </div>
-      <h4 className={styles.collectionTitle}>
-        <span className={styles.collectionBrandName}>Aurelius Elixir</span>
-        <span className={styles.collectionLabel}>Collection</span>
-      </h4>
-    </div>
+{/* Collection 3: Aurelius Elixir */}
+<div className={styles.collectionCard}>
+  <div className={styles.collectionImageRing}>
+    <Image 
+      src={bestseller.elixir} 
+      alt="Aurelius Elixir Collection" 
+      fill
+      sizes="(max-width: 600px) 50vw, 200px"
+      placeholder="blur"
+      className={styles.collectionImage} 
+    />
+  </div>
+  <h4 className={styles.collectionTitle}>
+    <span className={styles.collectionBrandName}>Aurelius Elixir</span>
+    <span className={styles.collectionLabel}>Collection</span>
+  </h4>
+</div>
 
-    {/* Collection 4: Santal Impérial */}
-    <div className={styles.collectionCard}>
-      <div className={styles.collectionImageRing}>
-        <img 
-          src="/bestseller/santal.webp" 
-          alt="Santal Impérial Collection" 
-          className={styles.collectionImage} 
-        />
-      </div>
-      <h4 className={styles.collectionTitle}>
-        <span className={styles.collectionBrandName}>Santal Impérial</span>
-        <span className={styles.collectionLabel}>Collection</span>
-      </h4>
-    </div>
+{/* Collection 4: Santal Impérial */}
+<div className={styles.collectionCard}>
+  <div className={styles.collectionImageRing}>
+    <Image 
+      src={bestseller.santal} 
+      alt="Santal Impérial Collection" 
+      fill
+      sizes="(max-width: 600px) 50vw, 200px"
+      placeholder="blur"
+      className={styles.collectionImage} 
+    />
+  </div>
+  <h4 className={styles.collectionTitle}>
+    <span className={styles.collectionBrandName}>Santal Impérial</span>
+    <span className={styles.collectionLabel}>Collection</span>
+  </h4>
+</div>
 
   </div>
 </section>
@@ -678,13 +703,14 @@ return (
 
     {/* FOR HIM CARD */}
     <div className={styles.shopCategoryItem}>
-      <Image 
-        src="/celebrities/malemodel.png" 
-        alt="For Him Campaign" 
-        fill
-        sizes="(max-width: 768px) 100vw, 50vw"
-        className={styles.shopCategoryImg} 
-      />
+<Image 
+  src={celeb.malemodel} 
+  alt="For Him Campaign" 
+  fill
+  sizes="(max-width: 768px) 100vw, 50vw"
+  placeholder="blur"
+  className={styles.shopCategoryImg} 
+/>
 <div className={styles.shopTextOverlay}>
       <h3 className={styles.shopTitle}>For Him</h3>
       <Link href="/mens" className={styles.shopLink}>
@@ -695,13 +721,14 @@ return (
 
     {/* FOR HER CARD */}
     <div className={styles.shopCategoryItem}>
-      <Image 
-        src="/celebrities/anokyai.png" 
-        alt="For Her Campaign" 
-        fill
-        sizes="(max-width: 768px) 100vw, 50vw"
-        className={styles.shopCategoryImg} 
-      />
+<Image 
+  src={celeb.anokyai} 
+  alt="For Her Campaign" 
+  fill
+  sizes="(max-width: 768px) 100vw, 50vw"
+  placeholder="blur"
+  className={styles.shopCategoryImg} 
+/>
 <div className={styles.shopTextOverlay}>
       <h3 className={styles.shopTitle}>For Her</h3>
       <Link href="/womens" className={styles.shopLink}>
@@ -719,20 +746,26 @@ return (
 <section className={styles.cosmeticHero}>
   
   {/* The Background Canvas Layer */}
-  <div className={styles.imageBackground}>
-    {/* Desktop Landscape Image */}
-    <img 
-      src="/cosmetic/cosmetic-l.avif" 
-      alt="Atelier Aura Desktop Background" 
-      className={`${styles.bgImg} ${styles.desktopImg}`}
-    />
-    {/* Mobile Portrait Image */}
-    <img 
-      src="/cosmetic/cosmetic-p.avif" 
-      alt="Atelier Aura Mobile Background" 
-      className={`${styles.bgImg} ${styles.mobileImg}`}
-    />
-  </div>
+<div className={styles.imageBackground}>
+  {/* Desktop Landscape Image */}
+  <Image 
+    src={cosmetic.l} 
+    alt="Atelier Aura Desktop Background" 
+    fill
+    sizes="100vw"
+    placeholder="blur"
+    className={`${styles.bgImg} ${styles.desktopImg}`}
+  />
+  {/* Mobile Portrait Image */}
+  <Image 
+    src={cosmetic.p} 
+    alt="Atelier Aura Mobile Background" 
+    fill
+    sizes="100vw"
+    placeholder="blur"
+    className={`${styles.bgImg} ${styles.mobileImg}`}
+  />
+</div>
 
   {/* The Overlay Layer (Sits directly on top of the active image) */}
   <div className={styles.contentOverlay}>
@@ -782,10 +815,11 @@ return (
 {/* 2. Visual Column (Second: Right on Desktop, Bottom on Mobile) */}
 <div className={styles.aboutImageBlock}>
   <Image 
-    src="/cosmetic/about-us.avif" 
+    src={cosmetic.aboutUs} 
     alt="Atelier Aura Artisanal Craftsmanship" 
     fill
     sizes="(max-width: 768px) 100vw, 50vw"
+    placeholder="blur"
     className={styles.aboutImg}
   />
 </div>

@@ -954,6 +954,7 @@ width: 100% !important;
 
 /* Sleek Desktop Circle Size */
 .collectionImageRing {
+  position: relative;
   width: 105px;
   height: 105px;
   flex-shrink: 0;
@@ -1226,6 +1227,7 @@ width: 100% !important;
 
 /* --- Layer 1: Background Canvas --- */
 .imageBackground {
+  position: relative;
   grid-area: 1 / 1;
   width: 100%;
   z-index: 1;

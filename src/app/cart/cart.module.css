@@ -63,6 +63,7 @@
 }
 
 .itemImageViewportWrapper {
+  position: relative;
   width: 110px;
   aspect-ratio: 4 / 5;
   background-color: #faf9f6;

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation"; // 🌟 Imported useRouter for history navigation
 import styles from "./cart.module.css";
 import { useCart } from "@/context/CartContext"; 
@@ -49,9 +50,15 @@ export default function CartPage() {
               <div className={styles.cartItemsTimelineFlex}>
                 {cartItems.map((item) => (
                   <div key={`${item.id}-${item.selectedSize}`} className={styles.singleCartItemCard}>
-                    <Link href={`/product/${item.id}`} className={styles.itemImageViewportWrapper}>
-                      <img src={item.image} alt={item.name} className={styles.itemThumbnailImg} />
-                    </Link>
+<Link href={`/product/${item.id}`} className={styles.itemImageViewportWrapper}>
+  <Image 
+    src={item.image} 
+    alt={item.name} 
+    fill
+    sizes="80px"
+    className={styles.itemThumbnailImg} 
+  />
+</Link>
 
                     <div className={styles.itemMetaDetailsInformation}>
                       <span className={styles.itemBrandSubtitleLabel}>{item.brand}</span>
