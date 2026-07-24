@@ -1230,12 +1230,14 @@ width: 100% !important;
   position: relative;
   grid-area: 1 / 1;
   width: 100%;
+  height: 100%;
   z-index: 1;
 }
 
 .bgImg {
-  width: 100%;
-  height: auto;
+width: 100%;
+  height: 100%; /* 🌟 Changed: Replaced 'auto' with '100%' so it fills the height */
+  object-fit: cover; /* 🌟 Added: The magic rule that prevents all squeezing/distortion */
   display: block;
 }
 
