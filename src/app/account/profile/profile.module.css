@@ -1,96 +1,185 @@
+/* ==========================================================================
+   Page Entry Animation Keyframes
+   ========================================================================== */
+@keyframes profilePageSlideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   Main Container Layout (Centering the Profile Content on Desktop)
+   ========================================================================== */
 .profileContainer {
-  max-width: 600px;
   width: 100%;
-  animation: fadeIn 0.4s ease-out;
+  max-width: 850px;      /* Restricts extreme stretching on wide monitors */
+  margin: 0 auto;        /* Centers the whole layout horizontally */
+  padding: 40px 24px;
+  box-sizing: border-box;
 }
 
+/* ==========================================================================
+   Section Layouts & Headers (Animation Applied Directly Here)
+   ========================================================================== */
 .section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 36px;
+  width: 100%;
+  
+  /* Smooth slide-up transition directly on the component container */
+  animation: profilePageSlideUp 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+/* Spreads out the Section Title and its Action Button evenly to the edges */
 .sectionHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 14px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #f3f4f6;
 }
 
 .sectionHeader h2 {
-  font-size: 1.1rem;
+  font-size: 16px;
   font-weight: 500;
-  color: #111;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #111111;
   margin: 0;
 }
 
-.textBtn {
-  background: none;
-  border: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #111;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+/* Minimalist luxury style action buttons */
+.actionBtn {
+  background: transparent;
+  border: 1px solid #e5e7eb;
+  padding: 6px 16px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   cursor: pointer;
-  padding: 0;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease-in-out;
 }
 
-.textBtn:hover {
-  opacity: 0.6;
+.actionBtn:hover {
+  border-color: #111111;
+  background-color: #111111;
+  color: #ffffff;
 }
 
-/* Luxury Cards */
+/* ==========================================================================
+   Cards & Data Rows (Spreading inner elements evenly)
+   ========================================================================== */
 .card {
-  background-color: #fff;
-  border: 1px solid #eaeaea;
-  border-radius: 8px;
-  padding: 1.25rem 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 24px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+/* Spreads label left and value completely to the right */
 .cardRow {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; 
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+  padding: 12px 0;
+}
+
+.cardRow:not(:last-child) {
+  border-bottom: 1px solid #f9fafb;
 }
 
 .label {
-  color: #555;
-  font-size: 0.95rem;
+  font-size: 14px;
+  color: #6b7280;
 }
 
 .value {
-  color: #111;
-  font-size: 0.95rem;
+  font-size: 14px;
+  color: #111111;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   Dynamic Addresses Grid Layout
+   ========================================================================== */
+.addressGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Responsive Grid Adjustments: Side-by-side split on desktop */
+@media (min-width: 768px) {
+  .addressGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.addressCard {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.addressCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.addressName {
   font-weight: 500;
+  font-size: 15px;
+  color: #111111;
+  margin: 0;
 }
 
-/* Empty State Styling */
-.emptyState {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.defaultBadge {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #f3f4f6;
+  color: #4b5563;
+  padding: 2px 8px;
+  border-radius: 2px;
 }
 
-.iconWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: #f7f7f7;
-  border-radius: 50%;
-  color: #666;
+.addressDetails {
+  font-size: 13.5px;
+  color: #4b5563;
+  line-height: 1.6;
 }
 
-.emptyText {
-  color: #888;
-  font-size: 0.95rem;
+.addressDetails p {
+  margin: 3px 0;
 }
 
-/* Marketing Section */
+.detailLabel {
+  color: #9ca3af;
+}
+
+.addressPhone {
+  margin-top: 10px !important;
+  border-top: 1px solid #f3f4f6;
+  padding-top: 8px;
+  color: #6b7280;
+}
+
+/* ==========================================================================
+   Marketing & Preferences Rows
+   ========================================================================== */
 .marketingRow {
   display: flex;
   justify-content: space-between;
@@ -100,444 +189,343 @@
 .marketingLeft {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 12px;
 }
 
 .envelopeIcon {
-  color: #666;
+  color: #4b5563;
 }
 
-/* Custom Black Toggle Switch */
+/* Simple Custom Toggle Switch Styling */
 .toggleWrapper {
-  display: flex;
-  align-items: center;
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
 }
 
 .toggleInput {
-  display: none;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
 .toggleLabel {
-  position: relative;
-  display: inline-block;
-  width: 46px;
-  height: 26px;
-  background-color: #e5e5e5;
-  border-radius: 34px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.toggleLabel::after {
-  content: "";
   position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 20px;
-  height: 20px;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #e5e7eb;
+  transition: .3s;
+  border-radius: 24px;
+}
+
+.toggleLabel:before {
+  position: absolute;
+  content: "";
+  height: 18px; width: 18px;
+  left: 3px; bottom: 3px;
   background-color: white;
+  transition: .3s;
   border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
 }
 
-/* Turns Black instead of Blue when checked */
 .toggleInput:checked + .toggleLabel {
-  background-color: #000;
+  background-color: #111111;
 }
 
-.toggleInput:checked + .toggleLabel::after {
+.toggleInput:checked + .toggleLabel:before {
   transform: translateX(20px);
 }
 
-/* Danger Zone - Delete Account */
+/* ==========================================================================
+   Empty States & Danger Account Deletion
+   ========================================================================== */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+  color: #9ca3af;
+}
+
+.iconWrapper {
+  margin-bottom: 8px;
+}
+
+.emptyText {
+  font-size: 14px;
+}
+
 .dangerSection {
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid #eaeaea;
+  display: flex;
+  justify-content: center; /* Centers the delete account button */
+  margin-top: 48px;
+  width: 100%;
 }
 
 .deleteBtn {
-  width: 100%;
-  padding: 14px;
-  background-color: transparent;
-  color: #d32f2f;
-  border: 1px solid #d32f2f;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 500;
+  background: transparent;
+  border: 1px solid #dc2626;
+  color: #dc2626;
+  padding: 10px 28px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .deleteBtn:hover {
-  background-color: #d32f2f;
-  color: #fff;
+  background: #dc2626;
+  color: #ffffff;
 }
 
-/* Simple mount animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+/* ==========================================================================
+   Modals Backdrop & Form Fields Layout (Enhanced Animations)
+   ========================================================================== */
 
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
-  .cardRow {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
+/* Keyframes defined right above the classes to ensure perfect CSS Modules binding */
+@keyframes localizedFadeIn {
+  from { 
+    opacity: 0; 
+  }
+  to { 
+    opacity: 1; 
   }
 }
 
-/* --- Modal Overlays & Containers --- */
+@keyframes localizedSlideUp {
+  from { 
+    transform: translateY(80px); /* Increased distance so it clearly slides up from below */
+    opacity: 0; 
+  }
+  to { 
+    transform: translateY(0); 
+    opacity: 1; 
+  }
+}
+
+/* ==========================================================================
+   Modals Backdrop & Form Fields Layout
+   ========================================================================== */
 .modalOverlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0; right: 0; bottom: 0;
   background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   z-index: 1000;
-  padding: 1rem;
+  animation: localizedFadeIn 1s ease-out forwards;
 }
 
 .modalContent {
-  background-color: #ffffff;
-  border-radius: 12px;
+  background: #ffffff;
+  padding: 32px;
   width: 100%;
-  max-width: 450px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  max-width: 500px;
+  box-sizing: border-box;
+  animation: localizedSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .largeModal {
-  max-width: 550px;
-  max-height: 90vh;
-  overflow-y: auto;
+  max-width: 650px;
 }
 
 .modalHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.25rem 1.5rem;
+  margin-bottom: 24px;
 }
 
 .modalHeader h3 {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   margin: 0;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #111;
 }
 
 .closeBtn {
   background: none;
   border: none;
-  color: #666;
   cursor: pointer;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: background-color 0.2s ease;
-}
-
-.closeBtn:hover {
-  background-color: #f0f0f0;
-  color: #111;
-}
-
-/* --- Form Layouts --- */
-.modalBody {
-  padding: 0 1.5rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  color: #6b7280;
 }
 
 .formGroup {
-  position: relative;
+  margin-bottom: 16px;
   width: 100%;
 }
 
 .formRow {
-  display: flex;
-  gap: 1rem;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
 }
 
 .formRowThree {
-  display: flex;
-  gap: 1rem;
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
 }
 
-/* --- Responsive adjusting for mobile viewport --- */
-@media (max-width: 480px) {
-  .formRow, .formRowThree {
-    flex-direction: column;
-    gap: 1rem;
-  }
-}
-
-/* --- Inputs & Selects --- */
-.inputField, .selectField {
+.inputField {
   width: 100%;
-  padding: 0.875rem 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  color: #111;
-  background-color: #fff;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
   box-sizing: border-box;
-}
-
-.inputField:focus, .selectField:focus {
   outline: none;
-  border-color: #000000;
-  box-shadow: 0 0 0 1px #000000;
 }
 
-.selectField {
-  appearance: none;
-  cursor: pointer;
+.inputField:focus {
+  border-color: #111111;
 }
 
-.selectWrapper {
-  position: relative;
-  width: 100%;
+.disabledContainer {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 8px 12px;
 }
 
-/* --- Floating/Inline Labels as seen in UI --- */
-.floatingLabel {
-  position: absolute;
-  left: 1rem;
-  top: 6px;
-  font-size: 0.75rem;
-  color: #666;
-  pointer-events: none;
-}
-
-.selectField {
-  padding-top: 1.4rem;
-  padding-bottom: 0.35rem;
-}
-
-.inputWithLabel {
-  position: relative;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  padding: 0.35rem 1rem;
-  background-color: #fff;
-}
-
-.inputWithLabel:focus-within {
-  border-color: #000000;
-  box-shadow: 0 0 0 1px #000000;
-}
-
-.inputWithLabel label {
+.disabledContainer label {
   display: block;
-  font-size: 0.75rem;
-  color: #666;
-  margin-bottom: 2px;
+  font-size: 11px;
+  color: #9ca3af;
+  text-transform: uppercase;
 }
 
-.inputWithLabel input {
+.disabledInput {
   border: none;
-  padding: 0;
+  background: transparent;
   width: 100%;
-  font-size: 0.95rem;
+  font-size: 14px;
+  color: #6b7280;
   outline: none;
 }
 
 .helperText {
-  margin: 0.5rem 0 0 0;
-  font-size: 0.8rem;
-  color: #666;
+  font-size: 12px;
+  color: #9ca3af;
+  margin: 4px 0 0 0;
 }
 
-/* --- Phone Input Group Mockup --- */
 .phoneInputContainer {
   position: relative;
-  display: flex;
-  align-items: center;
 }
 
-.phoneInputContainer .inputField {
-  padding-top: 1.4rem;
-  padding-bottom: 0.35rem;
-  padding-right: 4rem; /* space for flag */
-}
-
-.flagDropdown {
+.floatingLabel {
   position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 12px; top: -8px;
+  background: white;
+  padding: 0 4px;
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+.checkboxContainer {
   display: flex;
   align-items: center;
-  gap: 4px;
-  cursor: pointer;
-  color: #666;
+  gap: 8px;
+  margin-top: 20px;
 }
 
-.mockFlag {
-  width: 20px;
-  height: 14px;
-  background: linear-gradient(to right, #008751 33.33%, #FFFFFF 33.33%, #FFFFFF 66.66%, #008751 66.66%);
-  border-radius: 2px;
-  border: 1px solid #eee;
-}
-
-/* --- Modal Actions --- */
 .modalFooter {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 0 1.5rem 1.5rem;
-  margin-top: 0.5rem;
+  gap: 12px;
+  margin-top: 28px;
 }
 
 .cancelBtn {
   background: none;
   border: none;
-  color: #000000;
-  font-size: 0.95rem;
-  font-weight: 500;
+  padding: 10px 20px;
+  font-size: 13px;
+  text-transform: uppercase;
   cursor: pointer;
-  padding: 0;
 }
 
-.cancelBtn:hover {
-  text-decoration: underline;
+.saveBtn, .saveBtnActive {
+  padding: 10px 24px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid #111111;
+  cursor: pointer;
 }
 
 .saveBtn {
-  background-color: #f3f4f6;
+  background: #ffffff;
   color: #9ca3af;
-  border: none;
-  border-radius: 24px;
-  padding: 0.6rem 1.2rem;
-  font-size: 0.95rem;
-  font-weight: 500;
-  cursor: not-allowed;
-}
-
-.saveBtn:not(:disabled) {
-  background-color: #111;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* --- Action Buttons (Replacing underlined links) --- */
-.actionBtn {
-  background-color: #fff;
-  color: #111;
-  border: 1px solid #d1d5db;
-  padding: 0.35rem 1rem;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.actionBtn:hover {
-  border-color: #111;
-  background-color: #f9fafb;
-}
-
-/* --- Disabled Input Styling --- */
-.disabledContainer {
-  background-color: #f9fafb;
   border-color: #e5e7eb;
-}
-
-.disabledInput {
-  background-color: transparent;
-  color: #6b7280;
   cursor: not-allowed;
 }
 
-/* --- Checkbox Container & Styling --- */
-.checkboxContainer {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-top: 0.5rem;
-}
-
-.checkboxInput {
-  appearance: none;
-  width: 1.25rem;
-  height: 1.25rem;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  background-color: #fff;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.2s ease;
-}
-
-.checkboxInput:checked {
-  background-color: #111;
-  border-color: #111;
-}
-
-.checkboxInput:checked::after {
-  content: "";
-  position: absolute;
-  left: 5px;
-  top: 1px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-
-.checkboxLabel {
-  font-size: 0.95rem;
-  color: #111;
-  cursor: pointer;
-}
-
-/* Disabled Save Button */
-.saveBtn {
-  background-color: #f3f4f6;
-  color: #9ca3af;
-  border: none;
-  border-radius: 24px;
-  padding: 0.6rem 1.2rem;
-  font-size: 0.95rem;
-  font-weight: 500;
-  cursor: not-allowed;
-  transition: all 0.2s ease;
-}
-
-/* Active Save Button */
 .saveBtnActive {
-  background-color: #111;
-  color: #fff;
-  border: none;
-  border-radius: 24px;
-  padding: 0.6rem 1.2rem;
-  font-size: 0.95rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
+  background: #111111;
+  color: #ffffff;
 }
 
-.saveBtnActive:hover {
-  background-color: #333;
+/* ==========================================================================
+   Account Deletion Modal Styles
+   ========================================================================== */
+.dangerTitle {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+  color: #dc2626; /* Red warning color */
+}
+
+.dangerWarningText {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: #4b5563;
+  margin: 0 0 16px 0;
+}
+
+.dangerActionBtnDisabled, .dangerActionBtnActive {
+  padding: 10px 24px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid #dc2626;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dangerActionBtnDisabled {
+  background: #ffffff;
+  color: #fca5a5;
+  border-color: #fca5a5;
+  cursor: not-allowed;
+}
+
+.dangerActionBtnActive {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.dangerActionBtnActive:hover {
+  background: #b91c1c;
+  border-color: #b91c1c;
+}
+
+.successIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #f0fdf4;
+  margin-top: 10px;
 }

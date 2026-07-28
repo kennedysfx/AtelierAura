@@ -59,6 +59,16 @@ function AuthContent() {
     return () => clearInterval(timer);
   }, [step, countdown]);
 
+  // 🌟 Auto-focus the first OTP box the instant Step 2 renders
+  useEffect(() => {
+    if (step === 2) {
+      const focusTimer = setTimeout(() => {
+        inputRefs.current[0]?.focus();
+      }, 50);
+      return () => clearTimeout(focusTimer);
+    }
+  }, [step]);
+
   // --- OTP INPUT HANDLING ---
   const handleOtpChange = (index: number, value: string) => {
     if (!/^\d*$/.test(value)) return; // Only allow numbers
@@ -71,6 +81,15 @@ function AuthContent() {
     // Auto-advance focus
     if (value && index < 5) {
       inputRefs.current[index + 1]?.focus();
+    }
+
+    // 🌟 Auto-submit once all 6 digits are filled — pass the fresh value directly
+    // instead of relying on `otpArray` state, which hasn't updated yet at this point
+    if (value && index === 5) {
+      const completedOtp = newOtp.join('');
+      if (completedOtp.length === 6) {
+        handleVerifyOTP(undefined, completedOtp);
+      }
     }
   };
 
@@ -92,6 +111,12 @@ function AuthContent() {
       // Focus the next empty box or the last box
       const nextIndex = Math.min(paste.length, 5);
       inputRefs.current[nextIndex]?.focus();
+
+      // 🌟 Auto-submit if the pasted content completes all 6 digits
+      const completedOtp = newOtp.join('');
+      if (completedOtp.length === 6) {
+        handleVerifyOTP(undefined, completedOtp);
+      }
     }
   };
 
@@ -122,9 +147,11 @@ function AuthContent() {
     }
   };
 
-  const handleVerifyOTP = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const finalOtp = otpArray.join('');
+  // 🌟 Now accepts an optional codeOverride so auto-submit can pass the
+  // freshly-typed/pasted code directly, avoiding stale state issues
+  const handleVerifyOTP = async (e?: React.FormEvent, codeOverride?: string) => {
+    if (e) e.preventDefault();
+    const finalOtp = codeOverride ?? otpArray.join('');
     if (finalOtp.length < 6) {
       setMessage({ type: 'error', text: 'Please enter the complete 6-digit code.' });
       return;

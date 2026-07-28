@@ -1218,6 +1218,7 @@ width: 100% !important;
 .cosmeticHero {
   position: relative;
   width: 100%;
+  min-height: 500px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
@@ -1361,15 +1362,21 @@ width: 100%;
 .checkoutBtn:hover {
   background-color: #b0936d;
 }
-
 /* ==========================================================================
    DESKTOP MEDIA QUERY (769px and wider)
    ========================================================================== */
 
 @media (min-width: 769px) {
-  /* SWAP IMAGES: Show landscape version on desktop viewports */
+  .cosmeticHero {
+    /* 🌟 FIX: Sets a spacious, luxury-standard height so the image doesn't cut off */
+    min-height: 580px; 
+    /* Alternative: use height: 65vh; if you want it responsive to viewport height */
+  }
+
+  /* Ensure the desktop image frames beautifully */
   .bgImg.desktopImg {
     display: block !important;
+    object-position: left center; /* 🌟 Ensures the perfume bottles on the left stay perfectly framed */
   }
 
   .bgImg.mobileImg {
@@ -1379,7 +1386,7 @@ width: 100%;
   /* Right-align content overlay block */
   .contentOverlay {
     flex-direction: column;
-    justify-content: center; /* Centers the content cluster vertically */
+    justify-content: center; /* Vertical alignment works perfectly now that the container has height! */
     align-items: flex-end; /* Snaps align context over the right-side white space */
     padding: 0 8% 0 0; /* Creates comfortable gutter boundary from the right screen edge */
   }
@@ -1422,6 +1429,7 @@ width: 100%;
     font-size: 1.1rem;
   }
 }
+
 /* ==========================================================================
    ATELIER AURA "ABOUT US" SECTION
    ========================================================================== */

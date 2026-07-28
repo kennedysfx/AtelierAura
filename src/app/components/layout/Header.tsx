@@ -3,25 +3,19 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import styles from "./Header.module.css";
-import { useCart } from "@/context/CartContext"; 
+import { useCart } from "@/context/CartContext";
+import { PRODUCTS_REGISTRY } from "@/lib/products";
 
 export default function Header() {
   const pathname = usePathname();
-
-  // 🌟 Hide header completely on account pages to prevent layout clashing
-  if (pathname?.startsWith('/account')) {
-    return null;
-  }
-
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
-  // Access the global cart count
   const { cartCount } = useCart();
   
-  // Search state variables
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   
@@ -68,12 +62,81 @@ export default function Header() {
     }
   }, [isSearchOpen, searchValue]);
 
+  // 🌟 Live-filter the product registry against the search query
+  const searchResults =
+    searchValue.trim().length > 0
+      ? Object.entries(PRODUCTS_REGISTRY)
+          .filter(
+            ([, product]) =>
+              product.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+              product.brand.toLowerCase().includes(searchValue.toLowerCase())
+          )
+          .slice(0, 6)
+      : [];
+
+  // 🌟 Navigate to the clicked product and reset search state
+const handleResultClick = (id: string) => {
+  setSearchValue("");
+  setIsSearchOpen(false);
+  setIsMobileMenuOpen(false); // 🌟 also close the mobile drawer if it's open
+  router.push(`/product/${id}`);
+};
+
+  // 🌟 Pressing Enter jumps to the top match
+  const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && searchResults.length > 0) {
+      e.preventDefault();
+      handleResultClick(searchResults[0][0]);
+    }
+  };
+
+  if (pathname?.startsWith('/account')) {
+    return null;
+  }
+
+  // 🌟 Shared dropdown markup, reused for both desktop and mobile search
+  const renderSearchDropdown = () => {
+    if (searchValue.trim().length === 0) return null;
+
+    return (
+      <div className={styles.searchResultsDropdown}>
+        {searchResults.length > 0 ? (
+          searchResults.map(([id, product]) => (
+            <button
+              key={id}
+              type="button"
+              className={styles.searchResultItem}
+              onClick={() => handleResultClick(id)}
+            >
+              <span className={styles.searchResultImageWrapper}>
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  sizes="40px"
+                  className={styles.searchResultImage}
+                />
+              </span>
+              <span className={styles.searchResultText}>
+                <span className={styles.searchResultName}>{product.name}</span>
+                <span className={styles.searchResultPrice}>{product.price}</span>
+              </span>
+            </button>
+          ))
+        ) : (
+          <div className={styles.searchNoResults}>
+            No products found for "{searchValue}"
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <>
       <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
         <div className={styles.navContainer}>
           
-          {/* MOBILE ONLY: Left-aligned Utility Group (Cart Only) */}
           <div className={styles.mobileLeftIcons}>
             <Link href="/cart" className={styles.iconButton} aria-label="Shopping Cart">
               <div className={styles.cartIconWrapper}>
@@ -87,7 +150,6 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Desktop Left: Collections */}
           <nav className={styles.navGroup}>
             <Link href="/womens" className={styles.navLink}>
               <span className={styles.hoverTranslate}>
@@ -105,7 +167,6 @@ export default function Header() {
             <Link href="/cosmetics" className={styles.navLink}>Cosmetics</Link>
           </nav>
 
-          {/* Center: Brand Logo */}
           <Link href="/" className={styles.logo}>
             <Image 
               src="/logo.png" 
@@ -117,7 +178,6 @@ export default function Header() {
             />
           </Link>
 
-          {/* Desktop Right: Actions */}
           <nav className={styles.navGroupRight}>
             {pathname !== '/' && (
               <Link href="/" className={styles.navLink}>Home</Link>
@@ -141,8 +201,10 @@ export default function Header() {
                 placeholder="Search raw accords..." 
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
+                onKeyDown={handleSearchKeyDown}
                 className={styles.searchInput}
               />
+              {renderSearchDropdown()}
             </div>
 
             <Link href="/login?mode=login" className={styles.iconButton} aria-label="Vault Profile">
@@ -176,7 +238,6 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile Overlay & Drawer */}
       <div 
         className={`${styles.overlay} ${isMobileMenuOpen ? styles.overlayActive : ""}`} 
         onClick={() => setIsMobileMenuOpen(false)}
@@ -212,8 +273,10 @@ export default function Header() {
                 placeholder="Search..." 
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
+                onKeyDown={handleSearchKeyDown}
                 className={styles.searchInput}
               />
+              {renderSearchDropdown()}
             </div>
 
             <Link 
