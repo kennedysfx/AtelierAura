@@ -6,20 +6,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import styles from './account.module.css';
+import { useCart } from '@/context/CartContext';
 
 export default function AccountLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
+  const { cartCount } = useCart();
 
   const handleLogout = async () => {
     try {
-      // 1. Fire the secure POST request to drop the HTTP-only cookie backend-side
       await fetch('/api/auth/logout', { method: 'POST' });
-      
-      // 2. Refresh the server component router state to drop client cache
       router.refresh();
-      
-      // 3. Redirect cleanly to the luxury storefront homepage
       window.location.href = '/';
     } catch (error) {
       console.error('Logout execution failed:', error);
@@ -28,9 +25,18 @@ export default function AccountLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className={styles.accountWrapper}>
-{/* Custom Minimal Account Header */}
       <header className={styles.accountHeader}>
         <div className={styles.headerContent}>
+          {/* 🌟 Cart icon — now at the true left end of the header */}
+           <Link href="/account/cart" className={styles.cartIconWrapper} aria-label="Shopping Cart">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="9" cy="21" r="1" fill="currentColor" />
+              <circle cx="20" cy="21" r="1" fill="currentColor" />
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+            </svg>
+            <span className={styles.cartCount}>{cartCount}</span>
+          </Link>
+
           <Link href="/" className={styles.logoLink} aria-label="Atelier Aura Home">
             <Image 
               src="/logo.png" 
@@ -43,24 +49,14 @@ export default function AccountLayout({ children }: { children: ReactNode }) {
           </Link>
           
           <div className={styles.headerRight}>
-            {/* 🌟 Logout button moved inline, before the icon */}
             <button onClick={handleLogout} className={styles.logoutBtn}>
               Log out
             </button>
-            
-            <div className={styles.userIconWrapper} aria-label="Account Profile">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-            </div>
           </div>
         </div>
       </header>
 
-      {/* Main Account Content Area */}
       <main className={styles.accountMain}>
-        {/* Navigation Tabs (Orders / Profile) */}
         <nav className={styles.accountTabs}>
           <Link 
             href="/account/orders" 

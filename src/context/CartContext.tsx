@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import type { StaticImageData } from 'next/image';
 
 export interface CartItem {
@@ -22,9 +22,35 @@ interface CartContextType {
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
+const CART_STORAGE_KEY = "atelier_aura_cart";
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // 🌟 Load saved cart from localStorage once, on first mount
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(CART_STORAGE_KEY);
+      if (saved) {
+        setCartItems(JSON.parse(saved));
+      }
+    } catch (err) {
+      console.error("Failed to load saved cart:", err);
+    } finally {
+      setIsLoaded(true);
+    }
+  }, []);
+
+  // 🌟 Save to localStorage every time cartItems changes (after initial load)
+  useEffect(() => {
+    if (!isLoaded) return; // avoid overwriting saved cart with empty array before load finishes
+    try {
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems));
+    } catch (err) {
+      console.error("Failed to save cart:", err);
+    }
+  }, [cartItems, isLoaded]);
 
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
