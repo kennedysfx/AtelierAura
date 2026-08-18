@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Atelier Aura | Ultra-Luxury Fragrance House",
   description: "Undiluted perfume oils and high-end designer fragrance impressions.",
   icons: {
-    icon: '/favicon.png',
+    icon: '/favicon.png?v=2',
   },
 };
 
@@ -20,6 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.png?v=2" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicon.png?v=2" />
+      </head>
       <body>
         <CartProvider>
           <Header />
