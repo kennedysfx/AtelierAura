@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Atelier Aura | Ultra-Luxury Fragrance House",
   description: "Undiluted perfume oils and high-end designer fragrance impressions.",
   icons: {
-    icon: '/logo.webp',
+    icon: '/favicon.png',
   },
 };
 
