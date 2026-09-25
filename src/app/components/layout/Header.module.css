@@ -54,6 +54,7 @@
 .logoImage {
   object-fit: contain;
   transition: opacity 0.3s ease; 
+  transform: translateY(-10px);
 }
 
 /* Mobile Left Utility Slot */

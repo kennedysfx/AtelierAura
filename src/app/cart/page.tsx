@@ -3,32 +3,74 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation"; // 🌟 Imported useRouter for history navigation
+import { useRouter } from "next/navigation";
 import styles from "./cart.module.css";
-import { useCart } from "@/context/CartContext"; 
+import { useCart } from "@/context/CartContext";
 
 export default function CartPage() {
-  const router = useRouter(); // 🌟 Initialized the router instance
-  
-  // Pulling live data and functions directly from the Context
+  const router = useRouter();
+
   const { cartItems, updateQuantity, removeItem } = useCart();
 
-  // Local state just for the order note input field
   const [orderNote, setOrderNote] = useState("");
+  const [email, setEmail] = useState("");
+  const [isProcessing, setIsProcessing] = useState(false);
 
-  // Helper function to strip currencies and commas for pure math
   const parsePrice = (priceStr: string): number => {
     return parseInt(priceStr.replace(/[^0-9]/g, ""), 10) || 0;
   };
 
-  // Dynamically calculate the subtotal based on the live context items
   const subtotal = cartItems.reduce((acc, item) => acc + parsePrice(item.price) * item.quantity, 0);
+
+  const handleCheckout = async () => {
+    if (!email) {
+      alert("Please enter an email address to receive your receipt.");
+      return;
+    }
+
+    setIsProcessing(true);
+
+    try {
+      const PaystackPop = (await import("@paystack/inline-js")).default;
+      const paystack = new PaystackPop();
+
+      paystack.newTransaction({
+        key: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY!,
+        email: email,
+        amount: subtotal * 100,
+        currency: "NGN",
+        onSuccess: async (transaction: { reference: string }) => {
+          const verifyRes = await fetch("/api/paystack/verify", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ reference: transaction.reference }),
+          });
+
+          const verifyData = await verifyRes.json();
+
+          if (verifyData.status) {
+            alert("Payment successful and verified! Thank you for your luxury order.");
+            router.push("/");
+          } else {
+            alert("Payment completed, but verification failed.");
+            setIsProcessing(false);
+          }
+        },
+        onCancel: () => {
+          setIsProcessing(false);
+        },
+      });
+    } catch (error) {
+      console.error("Payment initialization error:", error);
+      alert("Could not load payment gateway. Please check your internet connection.");
+      setIsProcessing(false);
+    }
+  };
 
   return (
     <div className={styles.cartPageWrapper}>
       <div className={styles.cartMainLayoutContainer}>
         
-        {/* Left Column: List Layout & Order Notes */}
         <div className={styles.cartLeftMediaBlock}>
           <h1 className={styles.cartMainTitleHeading}>Your Cart</h1>
           <div className={styles.luxeDividerLine} />
@@ -36,7 +78,6 @@ export default function CartPage() {
           {cartItems.length === 0 ? (
             <div className={styles.emptyCartNotice}>
               <p>Your luxury curation edit is currently empty.</p>
-              {/* 🌟 Changed from Link to button with router.back() */}
               <button 
                 type="button" 
                 onClick={() => router.back()} 
@@ -50,15 +91,15 @@ export default function CartPage() {
               <div className={styles.cartItemsTimelineFlex}>
                 {cartItems.map((item) => (
                   <div key={`${item.id}-${item.selectedSize}`} className={styles.singleCartItemCard}>
-<Link href={`/product/${item.id}`} className={styles.itemImageViewportWrapper}>
-  <Image 
-    src={item.image} 
-    alt={item.name} 
-    fill
-    sizes="80px"
-    className={styles.itemThumbnailImg} 
-  />
-</Link>
+                    <Link href={`/product/${item.id}`} className={styles.itemImageViewportWrapper}>
+                      <Image 
+                        src={item.image} 
+                        alt={item.name} 
+                        fill
+                        sizes="80px"
+                        className={styles.itemThumbnailImg} 
+                      />
+                    </Link>
 
                     <div className={styles.itemMetaDetailsInformation}>
                       <span className={styles.itemBrandSubtitleLabel}>{item.brand}</span>
@@ -105,7 +146,6 @@ export default function CartPage() {
           )}
         </div>
 
-        {/* Right Column: Checkout Summary Panel */}
         {cartItems.length > 0 && (
           <div className={styles.cartSummaryStickySidebarBlock}>
             <div className={styles.summaryBreakdownCardCanvas}>
@@ -123,16 +163,39 @@ export default function CartPage() {
                 Taxes and premium shipping protocols calculated during secure checkout processing.
               </p>
 
+              <div style={{ marginBottom: '1rem', marginTop: '1rem' }}>
+                <label htmlFor="email" style={{ display: 'block', fontSize: '0.85rem', marginBottom: '0.5rem', color: '#555' }}>
+                  Email Address for Receipt
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  placeholder="you@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  style={{
+                    width: '100%',
+                    padding: '0.75rem',
+                    border: '1px solid #ccc',
+                    borderRadius: '4px',
+                    outline: 'none',
+                    fontSize: '0.9rem'
+                  }}
+                />
+              </div>
+
               <div className={styles.checkoutInteractionsRowButtonGroup}>
                 <button 
                   type="button"
-                  onClick={() => alert("Proceeding to secure payment gate...")} 
+                  onClick={handleCheckout} 
+                  disabled={isProcessing}
                   className={styles.addToCartDrawerTriggerBtn}
+                  style={{ opacity: isProcessing ? 0.7 : 1, cursor: isProcessing ? 'not-allowed' : 'pointer' }}
                 >
-                  Checkout
+                  {isProcessing ? "Connecting..." : "Checkout"}
                 </button>
                 
-                {/* 🌟 Changed from Link to button with router.back() */}
                 <button 
                   type="button"
                   onClick={() => router.back()} 

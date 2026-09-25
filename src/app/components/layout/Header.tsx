@@ -171,7 +171,7 @@ const handleResultClick = (id: string) => {
             <Image 
               src="/logo.png" 
               alt="Atelier Aura" 
-              width={100} 
+              width={90} 
               height={140} 
               priority
               className={styles.logoImage}
